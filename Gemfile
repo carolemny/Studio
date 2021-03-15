@@ -67,3 +67,9 @@ gem 'devise'
 
 # Faker
 gem 'faker'
+
+#.env
+gem 'dotenv-rails'
+
+#Mailer
+gem 'mailjet'
