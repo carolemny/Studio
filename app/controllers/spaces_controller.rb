@@ -19,14 +19,13 @@ class SpacesController < ApplicationController
 
   def create
     @space = Space.new(space_params)
-
+    @space.host_id = current_user.id
+    
     respond_to do |format|
       if @space.save
         format.html { redirect_to @space, notice: "Votre local a bien été créé. " }
-        format.json { render :show, status: :created, location: @space }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @space.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -58,11 +57,15 @@ class SpacesController < ApplicationController
   end
 
   def space_params
-    params.require(:space).permit(:description, :zip_code, :address, :city)
+    params.require(:space).permit(:description, :zip_code, :address, :city, :host_id)
   end
 
   def is_host?
-    current_user.id == @space.host_id
+    @space = set_space
+    unless @space.host_id == current_user.id
+      flash[:danger] = "Vous n'êtes pas autorisé à modifier cet espace."
+      redirect_to root_path
+    end
   end
 end
 

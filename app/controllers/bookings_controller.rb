@@ -62,6 +62,10 @@ class BookingsController < ApplicationController
     end
 
     def is_guest?
-      current_user.id == @booking.guest_id
+      @space = set_space
+      unless @booking.guest_id == current_user.id
+        flash[:danger] = "Vous n'êtes pas autorisé à modifier cette réservation."
+        redirect_to root_path
+      end
     end
 end
