@@ -9,6 +9,7 @@
 User.destroy_all
 Space.destroy_all
 
+descriptions = ["Photo", "Danse", "Peinture", "Musique", "Sculpture", "Poterie"]
 
 cities = ["Paris", "Lyon", "Marseille", "Toulouse", "Lille", "Strasbourg", "Grenoble", "Nice", "Rennes", "Brest", "Bordeaux", "Biarritz", "Montpellier", "Nantes", "Clermont-Ferrant", "Caen", "Limoges", "Auxerre", "Dijon", "Tours", "Chartres"]
 host = []
@@ -18,5 +19,5 @@ host = []
 end
 
 20.times do
-  Space.create(host_id: host.sample.id, city: cities.sample)
+  Space.create(host_id: host.sample.id, city: cities.sample, description: descriptions.sample)
 end
