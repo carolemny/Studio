@@ -64,6 +64,7 @@ class SpacesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def space_params
-      params.fetch(:space, {})
+      params.require(:space).permit(:description, :zip_code, :address, :city)
     end
 end
+
