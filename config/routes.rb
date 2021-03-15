@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bookings
   root "spaces#index"
   resources :spaces
   devise_for :users
