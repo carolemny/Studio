@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_15_083602) do
+ActiveRecord::Schema.define(version: 2021_03_15_100739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "spaces", force: :cascade do |t|
+    t.bigint "host_id"
+    t.text "description"
+    t.string "zip_code"
+    t.string "address"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["host_id"], name: "index_spaces_on_host_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
