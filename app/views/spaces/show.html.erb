@@ -1,4 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="row justify-content-center">
+  <div class=" col-md-6">
+    <div class="card text-center pt-4" >
+      
+      <div class="card-body">
+        <p class="card-title">Description: <%= @space.description %></p>
+        <p class="card-text">Code postal: <%= @space.zip_code %></p>
+        <p class="card-text">Adresse: <%= @space.address %></p>
+        <p class="card-text">Ville: <%= @space.city %></p>
+        <p class="card-text">Hôte: <%= @space.host.first_name %> <%= @space.host.last_name %></p>
 
-<%= link_to 'Edit', edit_space_path(@space) %> |
-<%= link_to 'Back', spaces_path %>
+      </div>
+        
+    </div>
+    <br>
+    <%= link_to 'Edit', edit_space_path(@space) %> |
+    <%= link_to 'Back', spaces_path %>  
+
+  </div>    
+</div>
+
+
+

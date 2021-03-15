@@ -1,0 +1,61 @@
+@import 'variable';
+
+
+.my-btn {
+  padding: .7em;
+  border: 1px solid #FF2D00;
+  background-color: #FFFFFF;
+  color: #FF2D00;
+  font-size: 1em;
+  letter-spacing: 1px;
+  &:hover {
+    background-color: #FF2D00;
+    color: #FFFFFF;
+  }
+  &-sm {
+    font-size: .8em;
+  }
+  &-lg {
+    font-size: 1.15em;
+    padding: 1em;
+  }
+}
+
+
+.my-btn-secondary {
+  padding: .7em;
+  border: 1px solid #FFFFFF;
+  background-color: #FF2D00;
+  color: #FFFFFF;
+  font-size: 1em;
+  letter-spacing: 1px;
+  &:hover {
+    background-color: #FFFFFF;
+    border: 1px solid #FF2D00;
+    color: #FF2D00;
+  }
+  &-sm {
+    font-size: .8em;
+  }
+  &-lg {
+    font-size: 1.15em;
+    padding: 1em;
+  }
+}
+
+
+.my-link {
+  text-decoration: none;
+  color: #FF2D00;
+  font-size: 1em;
+  &:hover {
+    color: #FF2D00;
+    border-bottom: 2px solid #FF2D00;
+  }
+  &-sm {
+    font-size: .8em;
+  }
+  &-lg {
+    font-size: 1em;
+  }
+}

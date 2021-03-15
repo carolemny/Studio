@@ -1,0 +1,21 @@
+@import 'variable';
+
+h1, h2, h3, h4, h5, h6, nav a {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+p, a {
+  letter-spacing: .5px;
+  font-size: 1em;
+}
+
+.my-lead {
+  font-weight: 600;
+}
+
+.my-blockquote {
+  font-style: italic;
+  font-weight: 600;
+}

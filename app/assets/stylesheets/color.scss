@@ -1,0 +1,52 @@
+@import 'variable';
+
+
+.my-bg-primary {
+	background-color: #FF2D00;
+}
+.my-text-primary {
+  color: #FF2D00;	
+}
+
+.my-bg-secondary {
+	background-color: #FF6D4D;
+}
+.my-text-secondary {
+  color: #FF6D4D;	
+}
+
+.my-bg-light {
+	background-color: #F2EFE9;
+}
+.my-text-light {
+  color: #F2EFE9;	
+}
+
+
+.my-alert-warning {
+  background-color: rgba(255, 235, 25, .4);
+  color: black;
+  font-family: 'Mukta', sans-serif;
+  letter-spacing: 1px;
+}
+
+.my-danger {
+  background-color: rgba(255, 45, 0, .4);
+  color: black;
+  font-family: 'Mukta', sans-serif;
+  letter-spacing: 1px;
+}
+
+.my-success {
+  background-color: rgba(18, 179, 30, .3);
+  color: black;
+  font-family: 'Mukta', sans-serif;
+  letter-spacing: 1px;
+}
+
+.my-alert-info {
+  background-color: rgba(25, 211, 255, .3);
+  color: black;
+  font-family: 'Mukta', sans-serif;
+  letter-spacing: 1px;
+}
