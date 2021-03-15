@@ -1,0 +1,59 @@
+@import 'variable';
+
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  margin: auto;
+  font-family: 'Mukta', sans-serif;
+  color: black;
+}
+
+header {
+  position: sticky;
+	top: 10px;
+}
+
+.my-logo {
+  text-decoration: none;
+  font-size: 2em;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: $my-primary;
+  &:hover, &:active {
+    color: $my-primary;
+  }
+}
+
+nav li a {
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: black;
+  margin: 1em;
+  &:hover, &:active {
+    color: $my-primary;
+  }
+}
+
+.my-dropdown-item {
+  margin: 1em;
+
+  font-size: 1em;
+  font-weight: 400;
+  &:hover, &:active {
+    font-weight: 700;
+    color: black;
+  }
+}
+
+footer {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

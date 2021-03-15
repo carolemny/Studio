@@ -58,10 +58,11 @@ class SpacesController < ApplicationController
   end
 
   def space_params
-    params.fetch(:space, {})
+    params.require(:space).permit(:description, :zip_code, :address, :city)
   end
 
   def is_host?
     current_user.id == @space.host_id
   end
 end
+
