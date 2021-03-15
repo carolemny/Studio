@@ -1,31 +1,28 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  before_action :is_guest?, only: [:show, :edit, :destroy, :update]
 
-  # GET /bookings or /bookings.json
   def index
     @bookings = Booking.all
   end
 
-  # GET /bookings/1 or /bookings/1.json
   def show
   end
 
-  # GET /bookings/new
   def new
     @booking = Booking.new
   end
 
-  # GET /bookings/1/edit
   def edit
   end
 
-  # POST /bookings or /bookings.json
   def create
     @booking = Booking.new(booking_params)
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to @booking, notice: "Booking was successfully created." }
+        format.html { redirect_to @booking, notice: "La réservation a bien été créée." }
         format.json { render :show, status: :created, location: @booking }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -34,11 +31,10 @@ class BookingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /bookings/1 or /bookings/1.json
   def update
     respond_to do |format|
       if @booking.update(booking_params)
-        format.html { redirect_to @booking, notice: "Booking was successfully updated." }
+        format.html { redirect_to @booking, notice: "La réservation a bien été mise à jour." }
         format.json { render :show, status: :ok, location: @booking }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -47,23 +43,29 @@ class BookingsController < ApplicationController
     end
   end
 
-  # DELETE /bookings/1 or /bookings/1.json
   def destroy
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to bookings_url, notice: "Booking was successfully destroyed." }
+      format.html { redirect_to bookings_url, notice: "La réservation a bien été annulée. " }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_booking
       @booking = Booking.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def booking_params
       params.fetch(:booking, {})
+    end
+
+    def is_guest?
+      @space = set_space
+      unless @booking.guest_id == current_user.id
+        flash[:danger] = "Vous n'êtes pas autorisé à modifier cette réservation."
+        redirect_to root_path
+      end
     end
 end

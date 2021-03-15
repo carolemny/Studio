@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="row justify-content-center">
   <div class=" col-md-6">
     <div class="card text-center pt-4" >
@@ -15,8 +13,10 @@
         
     </div>
     <br>
-    <%= link_to 'Edit', edit_space_path(@space) %> |
-    <%= link_to 'Back', spaces_path %>  
+    <% if user_signed_in? && current_user.id == @space.host_id %>
+    <%= link_to 'Modifier', edit_space_path(@space) %> 
+    <% end %>
+    <%= link_to 'Retour', spaces_path %>  
 
   </div>    
 </div>

@@ -41,7 +41,6 @@ nav li a {
 
 .my-dropdown-item {
   margin: 1em;
-
   font-size: 1em;
   font-weight: 400;
   &:hover, &:active {
@@ -50,7 +49,7 @@ nav li a {
   }
 }
 
-footer {
+.footer {
   margin: 0;
   padding: 0;
   position: absolute;
