@@ -23,22 +23,30 @@
 }
 
 
-.my-warning {
-  background-color: #FFEB19;
-  opacity: 0.4;
+.my-alert-warning {
+  background-color: rgba(255, 235, 25, .4);
+  color: black;
+  font-family: 'Mukta', sans-serif;
+  letter-spacing: 1px;
 }
 
 .my-danger {
-  background-color: #FF2D00;
-  opacity: 0.4;
+  background-color: rgba(255, 45, 0, .4);
+  color: black;
+  font-family: 'Mukta', sans-serif;
+  letter-spacing: 1px;
 }
 
 .my-success {
-  background-color: #12B31E;
-  opacity: 0.3;
+  background-color: rgba(18, 179, 30, .3);
+  color: black;
+  font-family: 'Mukta', sans-serif;
+  letter-spacing: 1px;
 }
 
-.my-info {
-  background-color: #19D3FF;
-  opacity: 0.3;
+.my-alert-info {
+  background-color: rgba(25, 211, 255, .3);
+  color: black;
+  font-family: 'Mukta', sans-serif;
+  letter-spacing: 1px;
 }
