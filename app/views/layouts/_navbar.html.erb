@@ -13,7 +13,7 @@
             Mon compte
           </a>                        
           <ul class="dropdown-menu" aria-labelledby="themes">
-            <li><%= link_to "Mon profil", "#", class:"my-dropdown-item" %></li>
+            <li><%= link_to "Mon profil", user_path(current_user.id), class:"my-dropdown-item" %></li>
             <li><%= link_to "Se déconnecter", destroy_user_session_path, :method => :delete, class:"my-dropdown-item" %></li>              
           </ul>
         <% else %>
