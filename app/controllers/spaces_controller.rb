@@ -8,6 +8,7 @@ class SpacesController < ApplicationController
 
   # GET /spaces/1 or /spaces/1.json
   def show
+    @space = Space.find(params[:id])
   end
 
   # GET /spaces/new
