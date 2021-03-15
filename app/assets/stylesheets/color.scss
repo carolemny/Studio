@@ -1,0 +1,44 @@
+@import 'variable';
+
+
+.my-bg-primary {
+	background-color: #FF2D00;
+}
+.my-text-primary {
+  color: #FF2D00;	
+}
+
+.my-bg-secondary {
+	background-color: #FF6D4D;
+}
+.my-text-secondary {
+  color: #FF6D4D;	
+}
+
+.my-bg-light {
+	background-color: #F2EFE9;
+}
+.my-text-light {
+  color: #F2EFE9;	
+}
+
+
+.my-warning {
+  background-color: #FFEB19;
+  opacity: 0.4;
+}
+
+.my-danger {
+  background-color: #FF2D00;
+  opacity: 0.4;
+}
+
+.my-success {
+  background-color: #12B31E;
+  opacity: 0.3;
+}
+
+.my-info {
+  background-color: #19D3FF;
+  opacity: 0.3;
+}
