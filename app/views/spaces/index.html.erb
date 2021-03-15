@@ -1,25 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Spaces</h1>
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1> Nos espaces </h1>
+    <br>
+    <p class="lead text-muted">Découvrez nos espaces de créations adaptés à toutes vos activités artistiques: peinture, sculpture, photographie, musique, danse ... </p>
+    <br>
+    <p>
+    <%= link_to "S'inscrire", new_user_registration_path, class:"my-btn-blue-light my-btn-blue-light-lg" %>
+  </p>
+  </div>
+</section>
+<br><br><br>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <% @spaces.each do |space| %>
+    <div class="col-md-4 py-3">
+      <div class="card h-100 my-card-hover">
+      <img src="https://images.unsplash.com/photo-1589488766611-08aad2021d8b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1343&q=80" alt="space" width="500" height="600">
 
-  <tbody>
-    <% @spaces.each do |space| %>
-      <tr>
-        <td><%= link_to 'Show', space %></td>
-        <td><%= link_to 'Edit', edit_space_path(space) %></td>
-        <td><%= link_to 'Destroy', space, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Space', new_space_path %>
+      <div class="card-body">
+        <h4 class="card-title mx-4"><%= link_to 'Show', space %></h4>
+        <p class="card-text mx-4"><%= link_to 'Edit', edit_space_path(space) %></p>
+        <p class="text-muted m-4"><%= link_to 'Destroy', space, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <div class="btn-card my-3 mx-4 d-flex justify-content-between">
+          <%= link_to 'Voir plus', space_path(space.id), class:'my-btn-blue-light  '%>
+          <%= link_to "Ajouter au panier", join_item_carts_path(item_id: item), method: :post, class:'my-btn' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+  
+<%= link_to 'Proposer un espace', new_space_path %>
