@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_15_112216) do
+ActiveRecord::Schema.define(version: 2021_03_16_093856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,21 @@ ActiveRecord::Schema.define(version: 2021_03_15_112216) do
     t.integer "duration"
     t.index ["guest_id"], name: "index_bookings_on_guest_id"
     t.index ["space_id"], name: "index_bookings_on_space_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "join_space_categories", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "space_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_join_space_categories_on_category_id"
+    t.index ["space_id"], name: "index_join_space_categories_on_space_id"
   end
 
   create_table "spaces", force: :cascade do |t|

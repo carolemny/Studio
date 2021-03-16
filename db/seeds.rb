@@ -8,10 +8,15 @@
 
 User.destroy_all
 Space.destroy_all
+Booking.destroy_all
+Category.destroy_all
+JoinSpaceCategory.destroy_all
 
 descriptions = ["Photo", "Danse", "Peinture", "Musique", "Sculpture", "Poterie"]
 
 cities = ["Paris", "Lyon", "Marseille", "Toulouse", "Lille", "Strasbourg", "Grenoble", "Nice", "Rennes", "Brest", "Bordeaux", "Biarritz", "Montpellier", "Nantes", "Clermont-Ferrant", "Caen", "Limoges", "Auxerre", "Dijon", "Tours", "Chartres"]
+
+categories = ["Peinture", "Sculpture - Poterie", "Danse", "Musique", "Menuiserie", "Photographie", "Vidéo"]
 
 20.times do
   User.create(
@@ -37,5 +42,19 @@ end
     space: space,
     duration: [30, 60, 90, 120, 180].sample,
     start_date: Time.now,
+  )
+end
+
+7.times do |i|
+  Category.create(
+    name: categories[i]
+  )
+  i += 1
+end
+
+50.times do
+  JoinSpaceCategory.create(
+    category_id: Category.all.sample.id, 
+    space_id: Space.all.sample.id
   )
 end

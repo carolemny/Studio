@@ -27,7 +27,14 @@
     <%= form.text_field :city, class: "form-control" %>
   </div>
 
-  <%= form.file_field :images, multiple: true, class: "form-control" %>
+  <div>
+    <%= select_tag 'Catégorie', options_from_collection_for_select(Category.all, "id", "name"), class: "form-control"%>
+  </div>
+ 
+  <div>
+    <%= form.file_field :images, multiple: true, class: "form-control" %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :join_space_categories, only: [:index]
+  resources :categories, only: [:index]
   resources :bookings
   root to: "spaces#index"
   resources :spaces
