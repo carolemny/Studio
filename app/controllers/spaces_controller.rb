@@ -20,9 +20,10 @@ class SpacesController < ApplicationController
   def create
     @space = Space.new(space_params)
     @space.host_id = current_user.id
-    
+
     respond_to do |format|
       if @space.save
+        JoinSpaceCategory.create(space_id: @space.id, category_id: params["Catégorie"])
         format.html { redirect_to @space, notice: "Votre local a bien été créé. " }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -68,4 +69,3 @@ class SpacesController < ApplicationController
     end
   end
 end
-

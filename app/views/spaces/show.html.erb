@@ -8,10 +8,19 @@
         <p class="card-text">Adresse: <%= @space.address %></p>
         <p class="card-text">Ville: <%= @space.city %></p>
         <p class="card-text">Hôte: <%= @space.host.first_name %> <%= @space.host.last_name %></p>
-
       </div>
-        
     </div>
+
+    <div class="d-flex justify-content-end">
+      <h3>
+        <span class="badge badge-light text-dark"> 
+          <% @space.join_space_categories.each do |join| %>
+            <%= join.category.name %>
+          <% end %>
+        </span>
+      </h3>
+    </div>
+
     <br>
     <% if user_signed_in? && current_user.id == @space.host_id %>
     <%= link_to 'Modifier', edit_space_path(@space) %> 
