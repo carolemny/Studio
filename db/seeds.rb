@@ -12,12 +12,30 @@ Space.destroy_all
 descriptions = ["Photo", "Danse", "Peinture", "Musique", "Sculpture", "Poterie"]
 
 cities = ["Paris", "Lyon", "Marseille", "Toulouse", "Lille", "Strasbourg", "Grenoble", "Nice", "Rennes", "Brest", "Bordeaux", "Biarritz", "Montpellier", "Nantes", "Clermont-Ferrant", "Caen", "Limoges", "Auxerre", "Dijon", "Tours", "Chartres"]
-host = []
 
 20.times do
-  host << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: Faker::Internet.password(min_length: 6), email: Faker::Internet.email)
+  User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    password: Faker::Internet.password(min_length: 6),
+    email: Faker::Internet.email,
+  )
 end
 
 20.times do
-  Space.create(host_id: host.sample.id, city: cities.sample, description: descriptions.sample)
+  Space.create(
+    host_id: User.all.sample.id,
+    city: cities.sample,
+    description: descriptions.sample,
+  )
+end
+
+200.times do
+  space = Space.all.sample
+  Booking.create(
+    guest_id: User.where.not(id: space.host_id).sample.id,
+    space: space,
+    duration: [30, 60, 90, 120, 180].sample,
+    start_date: Time.now,
+  )
 end

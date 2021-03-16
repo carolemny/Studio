@@ -73,3 +73,6 @@ gem 'dotenv-rails'
 
 #Mailer
 gem 'mailjet'
+
+#Table Print
+gem 'table_print'
