@@ -10,6 +10,15 @@
   </p>
   </div>
 </section>
+
+<div>
+  <h1>Rechercher une ville</h1>
+  <%= form_tag(spaces_path, method: :get) do %>
+    <%=  text_field_tag(:search, params[:search]) %>
+    <%= submit_tag ("Rechercher") %>
+  <% end %>
+</div>
+
 <br><br><br>
 <%= link_to 'Proposer un espace', new_space_path %>
 <div class="row">

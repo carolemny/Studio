@@ -25,7 +25,7 @@ categories = ["Peinture", "Sculpture - Poterie", "Danse", "Musique", "Menuiserie
   )
 end
 
-20.times do
+10.times do
   space = Space.create(
     host_id: User.all.sample.id,
     city: cities.sample,
@@ -33,9 +33,9 @@ end
     title: Faker::Lorem.sentence(word_count: 3)
   )
   space.images.attach(io: File.open("app/assets/images/space/space.jpg"), filename: "space.jpg", content_type: 'image/jpg')
-end
 
-200.times do
+
+100.times do
   space = Space.all.sample
   Booking.create(
     guest_id: User.where.not(id: space.host_id).sample.id,

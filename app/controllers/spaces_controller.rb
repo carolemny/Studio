@@ -4,7 +4,12 @@ class SpacesController < ApplicationController
   before_action :is_host?, only: [:edit, :update, :destroy]
 
   def index
-    @spaces = Space.all
+    if params[:search].nil?
+      @spaces = Space.all
+    else
+      parameter = params[:search].downcase
+      @spaces = Space.all.where("lower(city) LIKE :search", search: "%#{parameter}%")
+    end
   end
 
   def show
@@ -19,7 +24,6 @@ class SpacesController < ApplicationController
 
   def create
     @space = Space.new(space_params)
-    @space.host_id = current_user.id
     
     respond_to do |format|
       if @space.save
@@ -35,10 +39,8 @@ class SpacesController < ApplicationController
     respond_to do |format|
       if @space.update(space_params)
         format.html { redirect_to @space, notice: "Votre espace a bien été mis à jour. " }
-        format.json { render :show, status: :ok, location: @space }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @space.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,7 +49,6 @@ class SpacesController < ApplicationController
     @space.destroy
     respond_to do |format|
       format.html { redirect_to spaces_url, notice: "Votre espace a bien été supprimé. " }
-      format.json { head :no_content }
     end
   end
 
@@ -58,7 +59,7 @@ class SpacesController < ApplicationController
   end
 
   def space_params
-    params.require(:space).permit(:description, :zip_code, :address, :city, :host_id, images: [])
+    params.require(:space).permit(:description, :zip_code, :address, :city, images: []).merge(host_id: current_user.id)
   end
 
   def is_host?
