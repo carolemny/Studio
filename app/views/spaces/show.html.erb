@@ -7,10 +7,10 @@
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
    
-      <% @space.images.each_with_index do |image, index| %>
-        <div class="carousel-item <%= "active" if index == 0%>">
+      <% @space.images.each_with_index do |image| %>
+        
           <%= image_tag image, height: 500, width: 700 %>
-        </div>
+        
       <% end %>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
