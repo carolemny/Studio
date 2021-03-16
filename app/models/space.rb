@@ -4,4 +4,5 @@ class Space < ApplicationRecord
   has_many :guests, through: :bookings
   has_many :join_space_categories
   has_many :categories, through: :join_space_categories
+  has_many_attached :images
 end

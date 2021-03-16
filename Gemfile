@@ -73,6 +73,8 @@ gem 'dotenv-rails'
 
 #Mailer
 gem 'mailjet'
+#Amazon
+gem "aws-sdk-s3", require: false
 
 #Table Print
 gem 'table_print'

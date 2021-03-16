@@ -58,7 +58,7 @@ class SpacesController < ApplicationController
   end
 
   def space_params
-    params.require(:space).permit(:description, :zip_code, :address, :city, :host_id)
+    params.require(:space).permit(:description, :zip_code, :address, :city, :host_id, images: [])
   end
 
   def is_host?
