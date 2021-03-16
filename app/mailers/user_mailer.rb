@@ -13,8 +13,7 @@ class UserMailer < ApplicationMailer
     def booking_email(user)
 
       @user = User.find(user)
-      @
-
+      
       @url = 'https://studiofinalproject.herokuapp.com'
 
       mail(to: @user.email, subject: 'Confirmation de votre réservation chez STUDIO') 
