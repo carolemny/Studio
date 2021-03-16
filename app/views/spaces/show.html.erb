@@ -1,28 +1,14 @@
 <div class="row justify-content-center">
   <div class=" col-md-6">
     <div class="card text-center pt-4" >
-      
       <div class="card-body">
-      <div class="flat-content">
-  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-   
-      <% @space.images.each do |image| %>
-          <%= image_tag image, height: 500, width: 700 %>
+        <div class="flat-content">
+          <div>
+            <% @space.images.each do |image| %>
+              <%= image_tag image, height: 500, width: 700 %>
+            <% end %>
+          </div>
         </div>
-      <% end %>
-      
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-       <span class="carousel-control-next-icon" aria-hidden="true"></span>
-       <span class="sr-only">Next</span>
-    </a>
-  </div>
-</div>
         <p class="card-title">Description: <%= @space.description %></p>
         <p class="card-text">Code postal: <%= @space.zip_code %></p>
         <p class="card-text">Adresse: <%= @space.address %></p>

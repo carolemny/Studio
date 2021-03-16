@@ -12,8 +12,6 @@ Booking.destroy_all
 Category.destroy_all
 JoinSpaceCategory.destroy_all
 
-descriptions = ["Photo", "Danse", "Peinture", "Musique", "Sculpture", "Poterie"]
-
 cities = ["Paris", "Lyon", "Marseille", "Toulouse", "Lille", "Strasbourg", "Grenoble", "Nice", "Rennes", "Brest", "Bordeaux", "Biarritz", "Montpellier", "Nantes", "Clermont-Ferrant", "Caen", "Limoges", "Auxerre", "Dijon", "Tours", "Chartres"]
 
 categories = ["Peinture", "Sculpture - Poterie", "Danse", "Musique", "Menuiserie", "Photographie", "Vidéo"]
@@ -28,11 +26,13 @@ categories = ["Peinture", "Sculpture - Poterie", "Danse", "Musique", "Menuiserie
 end
 
 20.times do
-  Space.create(
+  space = Space.create(
     host_id: User.all.sample.id,
     city: cities.sample,
-    description: descriptions.sample,
+    description: Faker::Lorem.sentence(word_count: 10),
+    title: Faker::Lorem.sentence(word_count: 3)
   )
+  space.images.attach(io: File.open("app/assets/images/space/space.jpg"), filename: "space.jpg", content_type: 'image/jpg')
 end
 
 200.times do
@@ -41,7 +41,7 @@ end
     guest_id: User.where.not(id: space.host_id).sample.id,
     space: space,
     duration: [30, 60, 90, 120, 180].sample,
-    start_date: Time.now,
+    start_date: Time.now
   )
 end
 
