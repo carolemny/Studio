@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2021_03_16_150828) do
     t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
     t.index ["host_id"], name: "index_spaces_on_host_id"
   end
 
