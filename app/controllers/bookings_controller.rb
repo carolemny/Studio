@@ -29,6 +29,7 @@ class BookingsController < ApplicationController
         format.json { render json: @booking.errors, status: :unprocessable_entity }
       end
     end
+    UserMailer.booking_email(current_user.id).deliver_now
   end
 
   def update
