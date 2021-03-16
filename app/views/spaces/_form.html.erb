@@ -26,7 +26,9 @@
     <%= form.label :city, "Ville" %>
     <%= form.text_field :city, class: "form-control" %>
   </div>
+
   <div><%= select_tag 'Catégorie', options_from_collection_for_select(Category.all, "id", "name"), class: "form-control"%><br></div>
+ 
   <div class="actions">
     <%= form.submit %>
   </div>

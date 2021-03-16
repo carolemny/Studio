@@ -20,11 +20,11 @@ class SpacesController < ApplicationController
   def create
     @space = Space.new(space_params)
     @space.host_id = current_user.id
-
+    
     respond_to do |format|
       if @space.save
         JoinSpaceCategory.create(space_id: @space.id, category_id: params["Catégorie"])
-        format.html { redirect_to @space, notice: "Votre local a bien été créé. " }
+        format.html { redirect_to @space, notice: "Votre espace a bien été créé. " }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -34,7 +34,7 @@ class SpacesController < ApplicationController
   def update
     respond_to do |format|
       if @space.update(space_params)
-        format.html { redirect_to @space, notice: "Votre local a bien été mis à jour. " }
+        format.html { redirect_to @space, notice: "Votre espace a bien été mis à jour. " }
         format.json { render :show, status: :ok, location: @space }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -46,7 +46,7 @@ class SpacesController < ApplicationController
   def destroy
     @space.destroy
     respond_to do |format|
-      format.html { redirect_to spaces_url, notice: "Votre local a bien été supprimé. " }
+      format.html { redirect_to spaces_url, notice: "Votre espace a bien été supprimé. " }
       format.json { head :no_content }
     end
   end

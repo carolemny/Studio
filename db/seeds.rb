@@ -45,10 +45,11 @@ end
   )
 end
 
-7.times do
+7.times do |i|
   Category.create(
-    name: categories.sample
+    name: categories[i]
   )
+  i += 1
 end
 
 50.times do
