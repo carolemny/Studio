@@ -10,6 +10,7 @@ body {
   margin: auto;
   font-family: 'Mukta', sans-serif;
   color: black;
+  scroll-behavior: smooth;
 }
 
 header {
@@ -19,6 +20,7 @@ header {
 
 .my-logo {
   text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 2em;
   letter-spacing: 1px;
   font-weight: 700;
