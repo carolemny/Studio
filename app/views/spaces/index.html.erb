@@ -14,15 +14,10 @@
   <div class="text-center">
     <h4>Rechercher un espace</h4>
     <div class="d-flex justify-content-center">
-      <div class="mx-2">
-        <%= form_tag(spaces_path, method: :get) do %>
-          <%= select_tag 'category', options_from_collection_for_select(Category.all, "id", "name"), include_blank: "Rechercher par catégorie " , class: "form-control"%>
-          <%= submit_tag "Rechercher", class: "form-control" %> 
-        <% end %>
-      </div>
       <div class="mx-2 d-flex justify-content-center">
         <%= form_tag(spaces_path, method: :get) do %>
-          <%=  text_field_tag(:search, params[:search], placeholder: "Saisissez une ville", class: "form-control") %>
+        <%= select_tag 'category', options_from_collection_for_select(Category.all, "id", "name"), include_blank: "Rechercher par catégorie " , class: "form-control"%>
+        <%=  text_field_tag(:search, params[:search], placeholder: "Saisissez une ville", class: "form-control") %>
           <%= submit_tag "Rechercher", class: "form-control" %> 
         <% end %>
       </div>
