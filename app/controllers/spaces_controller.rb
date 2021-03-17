@@ -2,26 +2,12 @@ class SpacesController < ApplicationController
   before_action :set_space, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: [:create, :new]
   before_action :is_host?, only: [:edit, :update, :destroy]
+  before_action :scope_params, only: [:index]
 
   def index
-
-   #if params[:search].nil? && params[:category].nil? 
-      @spaces = Space.all
-      puts params 
-    # else 
-    #   if params[:category].nil?
-    #     parameter = params[:search].downcase
-    #     @spaces = Space.all.where("lower(city) LIKE :search", search: "%#{parameter}%")
-    #   else 
-    #     if params[:category].empty?
-    #       @spaces = Space.all
-    #     else 
-    #       parameter = params[:category]
-    #       @join = JoinSpaceCategory.all.where(category_id: parameter)
-    #       @spaces = Space.joins(:join_space_categories).merge(JoinSpaceCategory.where(category_id: parameter))
-    #     end 
-  
-   
+    @spaces = Space.where(nil)
+    @spaces = @spaces.filter_by_city(params[:city]) if params[:city].present?
+    @spaces = @spaces.filter_by_category(params[:category]) if params[:category].present?
   end
 
   def show
@@ -36,7 +22,7 @@ class SpacesController < ApplicationController
 
   def create
     @space = Space.new(space_params)
-    
+
     respond_to do |format|
       if @space.save
         JoinSpaceCategory.create(space_id: @space.id, category_id: params["Catégorie"])
@@ -72,6 +58,10 @@ class SpacesController < ApplicationController
 
   def space_params
     params.require(:space).permit(:description, :zip_code, :address, :city, :title, images: []).merge(host_id: current_user.id)
+  end
+
+  def scope_params
+    params.permit(:city, :category)
   end
 
   def is_host?
