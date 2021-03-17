@@ -2,6 +2,7 @@ class SpacesController < ApplicationController
   before_action :set_space, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: [:create, :new]
   before_action :is_host?, only: [:edit, :update, :destroy]
+  before_action :scope_params, only: [:index]
 
   def index
     @spaces = Space.where(nil)
@@ -21,7 +22,7 @@ class SpacesController < ApplicationController
 
   def create
     @space = Space.new(space_params)
-    
+
     respond_to do |format|
       if @space.save
         JoinSpaceCategory.create(space_id: @space.id, category_id: params["Catégorie"])
@@ -57,6 +58,10 @@ class SpacesController < ApplicationController
 
   def space_params
     params.require(:space).permit(:description, :zip_code, :address, :city, :title, images: []).merge(host_id: current_user.id)
+  end
+
+  def scope_params
+    params.permit(:city, :category)
   end
 
   def is_host?
