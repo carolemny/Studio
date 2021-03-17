@@ -10,17 +10,32 @@
   </p>
   </div>
 </section>
+
+  <div class="text-center">
+    <h4>Rechercher un espace</h4>
+    <div class="d-flex justify-content-center">
+      <div class="mx-2 d-flex justify-content-center">
+        <%= form_tag(spaces_path, method: :get) do %>
+        <%= select_tag 'category', options_from_collection_for_select(Category.all, "id", "name"), include_blank: "Rechercher par catégorie " , class: "form-control"%>
+        <%=  text_field_tag(:city, params[:city], placeholder: "Saisissez une ville", class: "form-control") %>
+          <%= submit_tag "Rechercher", class: "form-control" %> 
+        <% end %>
+      </div>
+    </div>
+  </div>
+
 <br><br><br>
 <%= link_to 'Proposer un espace', new_space_path %>
 <div class="row">
   <% @spaces.each do |space| %>
     <div class="col-md-6 col-lg-4 py-3">
       <div class="card h-100 my-card-hover">
-      <img src="https://images.unsplash.com/photo-1589488766611-08aad2021d8b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1343&q=80" alt="space" width="100%" height="300px">
-      
-
+        
+       <%= image_tag space.images[0], width: "100%", height: "300px" %>
+  
       <div class="card-body">
-        <h4 class="card-title mx-4"><%= space.description %></h4>
+        <h4 class="card-title mx-4"><%= space.title %></h4>
+        <p class="card-text mx-4"><%= space.description %></p>
         <p class="card-text mx-4"><%= space.city %></p>
 
         <div class="btn-card my-3 mx-4 d-flex justify-content-between">
