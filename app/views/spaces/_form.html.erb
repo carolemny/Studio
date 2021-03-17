@@ -10,6 +10,10 @@
       </ul>
     </div>
   <% end %>
+  <div class="field form-group">
+    <%= form.label :title, "Titre" %>
+    <%= form.text_area :title, class: "form-control" %>
+  </div>
    <div class="field form-group">
     <%= form.label :description, "Description" %>
     <%= form.text_area :description, class: "form-control" %>

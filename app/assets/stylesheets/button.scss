@@ -4,6 +4,7 @@
 .my-btn {
   padding: .7em;
   border: 1px solid #FF2D00;
+  text-decoration: none;
   background-color: #FFFFFF;
   color: #FF2D00;
   font-size: 1em;
@@ -16,6 +17,7 @@
     font-size: .8em;
   }
   &-lg {
+    font-weight: 600;
     font-size: 1.15em;
     padding: 1em;
   }
@@ -25,6 +27,7 @@
 .my-btn-secondary {
   padding: .7em;
   border: 1px solid #FFFFFF;
+  text-decoration: none;
   background-color: #FF2D00;
   color: #FFFFFF;
   font-size: 1em;

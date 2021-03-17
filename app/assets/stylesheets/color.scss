@@ -50,3 +50,12 @@
   font-family: 'Mukta', sans-serif;
   letter-spacing: 1px;
 }
+
+
+.my-svg-color {
+  filter: invert(22%) sepia(64%) saturate(4530%) hue-rotate(2deg) brightness(104%) contrast(103%);
+}
+
+.my-border-primary {
+  border: 3px solid #FF2D00;
+}
