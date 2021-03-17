@@ -4,24 +4,9 @@ class SpacesController < ApplicationController
   before_action :is_host?, only: [:edit, :update, :destroy]
 
   def index
-
-   #if params[:search].nil? && params[:category].nil? 
-      @spaces = Space.all
-      puts params 
-    # else 
-    #   if params[:category].nil?
-    #     parameter = params[:search].downcase
-    #     @spaces = Space.all.where("lower(city) LIKE :search", search: "%#{parameter}%")
-    #   else 
-    #     if params[:category].empty?
-    #       @spaces = Space.all
-    #     else 
-    #       parameter = params[:category]
-    #       @join = JoinSpaceCategory.all.where(category_id: parameter)
-    #       @spaces = Space.joins(:join_space_categories).merge(JoinSpaceCategory.where(category_id: parameter))
-    #     end 
-  
-   
+    @spaces = Space.where(nil)
+    @spaces = @spaces.filter_by_city(params[:city]) if params[:city].present?
+    @spaces = @spaces.filter_by_category(params[:category]) if params[:category].present?
   end
 
   def show
