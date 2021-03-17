@@ -33,9 +33,9 @@ end
     title: Faker::Lorem.sentence(word_count: 3)
   )
   space.images.attach(io: File.open("app/assets/images/space/space.jpg"), filename: "space.jpg", content_type: 'image/jpg')
+end 
 
-
-100.times do
+50.times do
   space = Space.all.sample
   Booking.create(
     guest_id: User.where.not(id: space.host_id).sample.id,
@@ -52,7 +52,7 @@ end
   i += 1
 end
 
-50.times do
+15.times do
   JoinSpaceCategory.create(
     category_id: Category.all.sample.id, 
     space_id: Space.all.sample.id
