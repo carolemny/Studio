@@ -1,0 +1,2 @@
+module JoinSpaceCategoriesHelper
+end
