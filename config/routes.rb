@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'statics/landing_page'
+  root to: 'statics#landing_page'
   devise_for :users
   resources :join_space_categories, only: [:index]
   resources :categories, only: [:index]
