@@ -1,5 +1,11 @@
-<h1>New Space</h1>
+<div class="row">
+  <div class="col-md-5 m-auto">
+    <h2 class="mb-3 text-center">Ajouter votre espaces</h2>
+    <br>
+    <%= render 'form', space: @space, host_id: current_user.id %> 
+    <br>
+    <%= link_to 'Back', spaces_path %>
+  </div>
+</div>
+    
 
-<%= render 'form', space: @space, host_id: current_user.id  %>
-
-<%= link_to 'Back', spaces_path %>

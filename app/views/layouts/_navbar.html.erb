@@ -1,31 +1,32 @@
-<nav class="navbar navbar-expand-lg navbar-light d-flex align-items-baseline">
-  <%= link_to "STUDIO", root_path, class:"my-logo" %>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-   <ul class="navbar-nav">
-      <li class="nav-item"><%= link_to "Accueil", root_path %></li>
-      <li class="nav-item"><%= link_to "Contact", new_contact_path %></li>
-      <li class="nav-item dropdown">
-        <% if user_signed_in? %>
-          <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Mon compte
-          </a>                        
-          <ul class="dropdown-menu" aria-labelledby="themes">
-            <li><%= link_to "Mon profil", user_path(current_user.id), class:"my-dropdown-item" %></li>
-            <li><%= link_to "Se déconnecter", destroy_user_session_path, :method => :delete, class:"my-dropdown-item" %></li>              
-          </ul>
-        <% else %>
-          <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Connexion
-          </a>                
-          <ul class="dropdown-menu" aria-labelledby="themes">
-            <li><%= link_to "S'inscrire", new_user_registration_path, class:"my-dropdown-item" %></li>
-            <li><%= link_to "Se connecter", new_user_session_path, class:"my-dropdown-item" %></li>
-          </ul>
-        <% end %>
-      </li>
-    </ul>
-  </div>
-</nav>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light d-flex align-items-baseline">
+    <%= link_to "STUDIO", root_path, class:"my-logo" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+    <ul class="navbar-nav">
+        <li class="nav-item"><%= link_to "Nos espaces", spaces_path %></li>
+        <li class="nav-item dropdown">
+          <% if user_signed_in? %>
+            <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Mon compte
+            </a>                        
+            <ul class="dropdown-menu" aria-labelledby="themes">
+              <li><%= link_to "Mon profil", user_path(current_user.id), class:"my-dropdown-item" %></li>
+              <li><%= link_to "Se déconnecter", destroy_user_session_path, :method => :delete, class:"my-dropdown-item" %></li>              
+            </ul>
+          <% else %>
+            <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Connexion
+            </a>                
+            <ul class="dropdown-menu" aria-labelledby="themes">
+              <li><%= link_to "S'inscrire", new_user_registration_path, class:"my-dropdown-item" %></li>
+              <li><%= link_to "Se connecter", new_user_session_path, class:"my-dropdown-item" %></li>
+            </ul>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
