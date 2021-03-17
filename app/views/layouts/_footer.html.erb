@@ -1,9 +1,16 @@
 <footer class="footer my-bg-light">
   <div class="d-flex align-items-baseline row">
-    <%= link_to "STUDIO", root_path, class:"my-logo col-sm-4" %>
-    <div class="col-sm-6">
-      <p class="text-muted">Perrine Toubeau, Morgane Tessier, Carole Meney, Erwann Le Noac'h, Florence Perez.</p>
+    <div class="col-sm-4">
+      <%= link_to "STUDIO", root_path, class:"my-logo" %>
       <p class="text-muted">© 2021 Studio</p>
+    </div>
+    <div class="col-sm-4">
+      <%= link_to "Contact", new_contact_path, class:"my-link" %>
+      <br>
+      <%= link_to "L'équipe", statics_team_path, class:"my-link" %>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-muted">Perrine Toubeau, Morgane Tessier, Carole Meney, Erwann Le Noac'h, Florence Perez.</p>
     </div>
   </div>
 </footer>
