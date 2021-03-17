@@ -2,9 +2,12 @@ class SpacesController < ApplicationController
   before_action :set_space, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: [:create, :new]
   before_action :is_host?, only: [:edit, :update, :destroy]
+  before_action :scope_params, only: [:index]
 
   def index
-    @spaces = Space.all
+    @spaces = Space.where(nil)
+    @spaces = @spaces.filter_by_city(params[:city]) if params[:city].present?
+    @spaces = @spaces.filter_by_category(params[:category]) if params[:category].present?
   end
 
   def show
@@ -19,8 +22,7 @@ class SpacesController < ApplicationController
 
   def create
     @space = Space.new(space_params)
-    @space.host_id = current_user.id
-    
+
     respond_to do |format|
       if @space.save
         JoinSpaceCategory.create(space_id: @space.id, category_id: params["Catégorie"])
@@ -35,10 +37,8 @@ class SpacesController < ApplicationController
     respond_to do |format|
       if @space.update(space_params)
         format.html { redirect_to @space, notice: "Votre espace a bien été mis à jour. " }
-        format.json { render :show, status: :ok, location: @space }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @space.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,7 +47,6 @@ class SpacesController < ApplicationController
     @space.destroy
     respond_to do |format|
       format.html { redirect_to spaces_url, notice: "Votre espace a bien été supprimé. " }
-      format.json { head :no_content }
     end
   end
 
@@ -58,7 +57,11 @@ class SpacesController < ApplicationController
   end
 
   def space_params
-    params.require(:space).permit(:description, :zip_code, :address, :city, :host_id, images: [])
+    params.require(:space).permit(:description, :zip_code, :address, :city, :title, images: []).merge(host_id: current_user.id)
+  end
+
+  def scope_params
+    params.permit(:city, :category)
   end
 
   def is_host?
