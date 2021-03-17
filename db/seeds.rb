@@ -16,7 +16,8 @@ cities = ["Paris", "Lyon", "Marseille", "Toulouse", "Lille", "Strasbourg", "Gren
 
 categories = ["Peinture", "Sculpture - Poterie", "Danse", "Musique", "Menuiserie", "Photographie", "Vidéo"]
 
-20.times do
+
+5.times do
   User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -25,15 +26,93 @@ categories = ["Peinture", "Sculpture - Poterie", "Danse", "Musique", "Menuiserie
   )
 end
 
-10.times do
-  space = Space.create(
+7.times do |i|
+  Category.create(
+    name: categories[i]
+  )
+end
+
+  dance_space = Space.new(
     host_id: User.all.sample.id,
     city: cities.sample,
-    description: Faker::Lorem.sentence(word_count: 10),
-    title: Faker::Lorem.sentence(word_count: 3)
+    description: 'Salle de danse 20m² avec miroirs et barre',
+    title: 'Studio de danse'
   )
-  space.images.attach(io: File.open("app/assets/images/space/space.jpg"), filename: "space.jpg", content_type: 'image/jpg')
-end 
+  dance_space.images.attach(io: File.open("app/assets/images/space/danse.jpg"), filename: "danse.jpg", content_type: 'image/jpg')
+  dance_space.save
+
+  paint_space = Space.new(
+    host_id: User.all.sample.id,
+    city: cities.sample,
+    description: 'Chevalet, tabouret et table de travail à disposition',
+    title: 'Atelier pour peintre'
+  )
+  paint_space.images.attach(io: File.open("app/assets/images/space/space.jpg"), filename: "space.jpg", content_type: 'image/jpg')
+  paint_space.save
+
+  music_space = Space.new(
+    host_id: User.all.sample.id,
+    city: cities.sample,
+    description: 'Matériel pour enregistrement et mixage ',
+    title: "Studio d'enregistrement"
+  )
+  music_space.images.attach(io: File.open("app/assets/images/space/musique2.jpg"), filename: "musique2.jpg", content_type: 'image/jpg')
+  music_space.save
+
+  video_space = Space.new(
+    host_id: User.all.sample.id,
+    city: cities.sample,
+    description: "Studio vidéo avec fond vert et matériel d'enregistrement",
+    title: "Espace pour réalisation vidéo"
+  )
+  video_space.images.attach(io: File.open("app/assets/images/space/video.jpg"), filename: "video.jpg", content_type: 'image/jpg')
+  video_space.save
+
+  photo_space = Space.new(
+    host_id: User.all.sample.id,
+    city: cities.sample,
+    description: "Fond blanc et réflecteurs de lumière à dispo",
+    title: "Studio photo 14m², idéal pour photographes"
+  )
+  photo_space.images.attach(io: File.open("app/assets/images/space/photo.jpg"), filename: "photo.jpg", content_type: 'image/jpg')
+  photo_space.save
+
+  paint_space = Space.new(
+    host_id: User.all.sample.id,
+    city: cities.sample,
+    description: "Parfait pour peintre, possibilité d'utiliser le chevalet, évier et table de travail",
+    title: "Espace idéal peinture 10m²"
+  )
+  paint_space.images.attach(io: File.open("app/assets/images/space/peinture6.jpg"), filename: "peinture6.jpg", content_type: 'image/jpg')
+  paint_space.save
+
+  carpentry_space = Space.new(
+    host_id: User.all.sample.id,
+    city: cities.sample,
+    description: "Je mets à disposition mon atelier de menuiserie avec outils, idéal pour petits travaux",
+    title: "Petit atelier de menuiserie"
+  )
+  carpentry_space.images.attach(io: File.open("app/assets/images/space/menuiserie.jpg"), filename: "menuiserie.jpg", content_type: 'image/jpg')
+  carpentry_space.save
+
+  pottery_space = Space.new(
+    host_id: User.all.sample.id,
+    city: cities.sample,
+    description: "Atelier idéal pour petites sculptures, céramique ... outils et table de travail à disposition",
+    title: "Atelier d'artiste sculpteur"
+  )
+  pottery_space.images.attach(io: File.open("app/assets/images/space/sculpture2.jpg"), filename: "sculpture2.jpg", content_type: 'image/jpg')
+  pottery_space.save
+
+  pottery_space = Space.new(
+    host_id: User.all.sample.id,
+    city: cities.sample,
+    description: "Je mets à disposition mon matériel de poterie, dans une pièce dédiée de 11m².",
+    title: "Espace idéal pour travail de la poterie"
+  )
+  pottery_space.images.attach(io: File.open("app/assets/images/space/poterie.jpg"), filename: "poterie.jpg", content_type: 'image/jpg')
+  pottery_space.save
+
 
 50.times do
   space = Space.all.sample
@@ -43,18 +122,41 @@ end
     duration: [30, 60, 90, 120, 180].sample,
     start_date: Time.now
   )
+  puts 'new booking create'
 end
 
-7.times do |i|
-  Category.create(
-    name: categories[i]
-  )
-  i += 1
-end
 
-15.times do
   JoinSpaceCategory.create(
-    category_id: Category.all.sample.id, 
-    space_id: Space.all.sample.id
+    category_id: Category.where(name: 'Danse').first.id,
+    space_id: dance_space.id
   )
-end
+
+  JoinSpaceCategory.create(
+    category_id: Category.where(name: 'Peinture').first.id,
+    space_id: paint_space.id
+  )
+
+  JoinSpaceCategory.create(
+    category_id: Category.where(name: 'Musique').first.id,
+    space_id: music_space.id
+  )
+
+  JoinSpaceCategory.create(
+    category_id: Category.where(name: 'Vidéo').first.id,
+    space_id: video_space.id
+  )
+
+  JoinSpaceCategory.create(
+    category_id: Category.where(name: 'Photographie').first.id,
+    space_id: photo_space.id
+  )
+
+  JoinSpaceCategory.create(
+    category_id: Category.where(name: 'Sculpture - Poterie').first.id,
+    space_id: pottery_space.id
+  )
+
+  JoinSpaceCategory.create(
+    category_id: Category.where(name: 'Menuiserie').first.id,
+    space_id: carpentry_space.id
+  )
