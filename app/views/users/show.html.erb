@@ -1,1 +1,11 @@
 <h1>Mon profil</h1>
+    <%=@user.first_name%>
+
+
+    <%= form_tag user_avatars_path(@user), multipart: true do %>
+      <%= file_field_tag :avatar, required: true %>
+      <%= submit_tag "mettre à jour" %>
+    <% end %>
+
+    <%= image_tag @user.avatar, height: "100px;" if @user.avatar.attached? %>
+

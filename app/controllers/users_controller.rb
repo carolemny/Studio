@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    puts '**********************************************************************************'
   end
 
   def edit
@@ -22,6 +23,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :encrypted_password, :description, :first_name, :last_name, :phone_number)
+    params.require(:user).permit(:email, :encrypted_password, :description, :first_name, :last_name, :phone_number,:avatar)
   end
 end
