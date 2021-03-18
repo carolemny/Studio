@@ -30,6 +30,18 @@ header {
   }
 }
 
+.my-logo-white {
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 4em;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: white;
+  &:hover, &:active {
+    color: white;
+  }
+}
+
 nav li a {
   text-decoration: none;
   font-size: 1.1em;
