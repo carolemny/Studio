@@ -15,7 +15,9 @@
     <div class="col col-lg-2">
       <div class="row">
         <div class="d-flex justify-content-center mb-5">
-          <%= image_tag "background.jpg", width: "200px", height: "200px", style:"clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);" %>
+          <%= image_tag "background.jpg", width: "200px", height: "200px", style:"clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);" unless @user.avatar.attached? %>
+          <%= image_tag @user.avatar, width: "200px", height: "200px", style:"clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);" if @user.avatar.attached? %>
+
         </div>
         <%= link_to 'Modifier mes informations', edit_user_path, class:'my-btn text-center mb-3'%>
         <%= link_to 'Changer mon mot de passe', edit_user_registration_path, class:'my-btn text-center'%>
@@ -28,4 +30,3 @@
 
   </div>
 </div>
-
