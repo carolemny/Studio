@@ -1,1 +1,31 @@
-<h1>Mon profil</h1>
+
+<div class="row justify-content-center">
+  <div class="col-lg-10">
+    <h1 class="my-5 text-center">Mon profil</h1>
+  
+  <div class="d-flex justify-content-between my-border-primary bg-white mt-3 p-5">
+  
+    <div class="col-md-5 col-lg-8">
+      <h5 class="card-title pb-2">Prénom : <%= @user.first_name%></h5>
+      <h5 class="card-title py-2">Nom : <%= @user.last_name %></h5>
+      <h5 class="card-text py-2">Email : <small><%= @user.email%></small></h5>
+      <h5 class="card-text py-2">Téléphone : <small><%= @user.phone_number%></small></h5>
+      <h5 class="card-text py-2">Description : <small><%= @user.description%></small></h5>
+    </div>
+    <div class="col col-lg-2">
+      <div class="row">
+        <div class="d-flex justify-content-center mb-5">
+          <%= image_tag "background.jpg", width: "200px", height: "200px", style:"clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);" %>
+        </div>
+        <%= link_to 'Modifier mes informations', edit_user_path, class:'my-btn text-center mb-3'%>
+        <%= link_to 'Changer mon mot de passe', edit_user_registration_path, class:'my-btn text-center'%>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <%= link_to "Retour", :back, class:"my-link" %>
+
+  </div>
+</div>
+
