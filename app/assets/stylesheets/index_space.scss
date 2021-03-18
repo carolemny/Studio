@@ -21,3 +21,19 @@
     opacity: 1;
   }
 }
+.appear-bottom {
+  animation: 1s ease-out 0s 1 appearAnim-bottom;
+}
+@keyframes appearAnim-bottom {
+  0%{
+    transform: translateY(150%);
+    opacity: 0;
+  }
+  25%{
+    opacity: 0.50;
+  }
+  100%{
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
