@@ -47,7 +47,6 @@ nav li a {
   font-size: 1.1em;
   font-weight: 600;
   color: black;
-  margin: 1em;
   &:hover, &:active {
     color: $my-primary;
   }
@@ -68,5 +67,11 @@ nav li a {
   padding: 0;
   position: absolute;
   bottom: 0;
+  right: 0;
+  left: 0;
   width: 100%;
+}
+
+.pb-150 {
+  padding-bottom: 150px;
 }
