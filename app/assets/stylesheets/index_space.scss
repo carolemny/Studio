@@ -2,5 +2,44 @@
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image:linear-gradient(to bottom, rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.7) 100%), url("background.jpg");
+  background-image:linear-gradient( rgba(255,45,0,0.3) 0%,rgba(255,45,0,0.3) 100%), url("background.jpg");
 }
+
+.appear {
+  animation: 1s ease-out 0s 1 appearAnim;
+}
+@keyframes appearAnim{
+  0%{
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  25%{
+    opacity: 0.25;
+  }
+  100%{
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.appear-bottom {
+  animation: 1s ease-out 0s 1 appearAnim-bottom;
+}
+@keyframes appearAnim-bottom {
+  0%{
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  25%{
+    opacity: 0.50;
+  }
+  100%{
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.overflowY {
+  overflow-y: hidden;
+}
+

@@ -10,91 +10,95 @@
 </section>
 
 <br><br><br>
-
-<!-- Présention -->
-<div class="my-border-primary bg-white text-center">
-  <div class="card-body p-5">
-    <h2 class="my-text-primary">Libérez votre créativité</h2>
-    <p class="my-lead">Vous manquez de place, de matériel pour pratiquer votre activité artistique ?
-    Réservez dès maintenant un créneau dans l'espace dont vous avez besoin.</p>
-    <p>Musique, peinture, photographie, danse ... Découvrez tous les espaces disponibles.</p>
-  </div>
-</div>
-
-<br><br><br>
-
-<!-- Host / Guest -->
-<div class="row card-group m-0">
-  <div class="card p-0">
-    <div class="row">
-      <div class="col-md-4">
-        <img src="https://images.pexels.com/photos/2733337/pexels-photo-2733337.jpeg?cs=srgb&dl=pexels-giovanni-calia-2733337.jpg&fm=jpg" alt="space" width="100%">
+<div class="conteiner-fluid">
+  <div class="px-4">
+    <!-- Présention -->
+    <div class="my-border-primary bg-white text-center">
+      <div class="card-body p-5">
+        <h2 class="my-text-primary">Libérez votre créativité</h2>
+        <p class="my-lead">Vous manquez de place, de matériel pour pratiquer votre activité artistique ?
+        Réservez dès maintenant un créneau dans l'espace dont vous avez besoin.</p>
+        <p>Musique, peinture, photographie, danse ... Découvrez tous les espaces disponibles.</p>
       </div>
-      <div class="col-md-8 p-3">
-        <div class="card-body">
-          <h3 class="card-title">Tu es un artiste, mais tu n'as pas d'espace pour créer</h3>
-          <p class="card-text">
-            Tu as des idées de projets artistiques plein la tête mais tu manques de place pour les réaliser ?<br>
-            STUDIO te permet de louer un espace adapté à tes besoins, pour quelques heures.
-          </p>
+    </div>
+
+    <br><br><br>
+
+    <!-- Host / Guest -->
+    <div class="row card-group m-0">
+      <div class="card p-0">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="https://images.pexels.com/photos/2733337/pexels-photo-2733337.jpeg?cs=srgb&dl=pexels-giovanni-calia-2733337.jpg&fm=jpg" alt="space" width="100%">
+          </div>
+          <div class="col-md-8 p-3">
+            <div class="card-body">
+              <h3 class="card-title">Tu es un artiste, mais tu n'as pas d'espace pour créer</h3>
+              <p class="card-text">
+                Tu as des idées de projets artistiques plein la tête mais tu manques de place pour les réaliser ?<br>
+                STUDIO te permet de louer un espace adapté à tes besoins, pour quelques heures.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="card p-0">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="https://images.pexels.com/photos/2733337/pexels-photo-2733337.jpeg?cs=srgb&dl=pexels-giovanni-calia-2733337.jpg&fm=jpg" alt="space" width="100%">
+          </div>
+          <div class="col-md-8 p-3">
+            <div class="card-body">
+              <h3 class="card-title">Tu disposes d'un espace de création et tu aimerais le partager</h3>
+              <p class="card-text">
+                Tu possèdes un espace adapté à une pratique artistique ?
+                STUDIO te permet de mettre en ligne ton annonce pour louer ton espace, selon tes disponibilités.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-    <div class="card p-0">
-    <div class="row">
-      <div class="col-md-4">
-        <img src="https://images.pexels.com/photos/2733337/pexels-photo-2733337.jpeg?cs=srgb&dl=pexels-giovanni-calia-2733337.jpg&fm=jpg" alt="space" width="100%">
-      </div>
-      <div class="col-md-8 p-3">
-        <div class="card-body">
-          <h3 class="card-title">Tu disposes d'un espace de création et tu aimerais le partager</h3>
-          <p class="card-text">
-            Tu possèdes un espace adapté à une pratique artistique ?
-            STUDIO te permet de mettre en ligne ton annonce pour louer ton espace, selon tes disponibilités.
-          </p>
-        </div>
-      </div>
+
+    <br><br><br>
+
+    <!-- Categories -->
+    <h2>Nos catégories</h2>
+    <div class="row d-flex align-items-baseline">
+          <div class="col-md-1 text-center me-5">
+            <%= image_tag "pictos/party-people.svg", width: 100, class:"my-svg-color pb-3" %>
+            <h5>Danse</h5>
+          </div>
+          <div class="col-md-1 text-center m-5">
+            <%= image_tag "pictos/hand-saw.svg", width: 100, class:"my-svg-color pb-3" %>
+            <h5 class="card-title">Menuiserie</h5>
+          </div>
+          <div class="col-md-1 text-center m-5">
+            <%= image_tag "pictos/stave.svg", width: 90, class:"my-svg-color pb-3" %>
+            <h5 class="card-title">Musique</h5>
+          </div>
+          <div class="col-md-1 text-center m-5">
+            <%= image_tag "pictos/paint-palette-and-brush.svg", width: 90, class:"my-svg-color pb-3" %>
+            <h5 class="card-title">Peinture</h5>
+          </div>
+          <div class="col-md-1 text-center m-5">
+            <%= image_tag "pictos/camera.svg", width: 90, class:"my-svg-color pb-3" %>
+            <h5 class="card-title">Photographie</h5>
+          </div>
+          <div class="col-md-1 text-center m-5">
+            <%= image_tag "pictos/clay-crafting.svg", width: 90, class:"my-svg-color pb-3" %>
+            <h5 class="card-title">Sculpture  Poterie</h5>
+          </div>
+          <div class="col-md-1 text-center ms-5">
+            <%= image_tag "pictos/video-camera.svg", width: 90, class:"my-svg-color pb-3" %>
+            <h5 class="card-title">Vidéo</h5>
+          </div>
+          
     </div>
+
+
+
+    <!-- Image + btn s'inscrire -->
+
   </div>
 </div>
-
-<br><br><br>
-
-<!-- Categories -->
-<h2>Nos catégories</h2>
-<div class="row d-flex align-items-baseline">
-      <div class="col-md-1 text-center me-5">
-        <%= image_tag "pictos/party-people.svg", width: 100, class:"my-svg-color pb-3" %>
-        <h5>Danse</h5>
-      </div>
-      <div class="col-md-1 text-center m-5">
-        <%= image_tag "pictos/hand-saw.svg", width: 100, class:"my-svg-color pb-3" %>
-        <h5 class="card-title">Menuiserie</h5>
-      </div>
-      <div class="col-md-1 text-center m-5">
-        <%= image_tag "pictos/stave.svg", width: 90, class:"my-svg-color pb-3" %>
-        <h5 class="card-title">Musique</h5>
-      </div>
-      <div class="col-md-1 text-center m-5">
-        <%= image_tag "pictos/paint-palette-and-brush.svg", width: 90, class:"my-svg-color pb-3" %>
-        <h5 class="card-title">Peinture</h5>
-      </div>
-      <div class="col-md-1 text-center m-5">
-        <%= image_tag "pictos/camera.svg", width: 90, class:"my-svg-color pb-3" %>
-        <h5 class="card-title">Photographie</h5>
-      </div>
-      <div class="col-md-1 text-center m-5">
-        <%= image_tag "pictos/clay-crafting.svg", width: 90, class:"my-svg-color pb-3" %>
-        <h5 class="card-title">Sculpture  Poterie</h5>
-      </div>
-      <div class="col-md-1 text-center ms-5">
-        <%= image_tag "pictos/video-camera.svg", width: 90, class:"my-svg-color pb-3" %>
-        <h5 class="card-title">Vidéo</h5>
-      </div>
-      
-</div>
-
-
-
-<!-- Image + btn s'inscrire -->
