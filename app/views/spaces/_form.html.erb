@@ -31,6 +31,11 @@
     <%= form.text_field :city, class: "form-control" %>
   </div>
   <br>
+  <div class="field form-group">
+    <%= form.label :price, "Prix ( /h)" %>
+    <%= form.text_field :price, class: "form-control" %>
+  </div>
+  <br>
   <div>
     <%= select_tag 'Catégorie', options_from_collection_for_select(Category.all, "id", "name"), class: "form-control"%>
   </div>

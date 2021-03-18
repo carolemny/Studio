@@ -15,6 +15,7 @@
         <p class="card-text">Adresse: <%= @space.address %></p>
         <p class="card-text">Ville: <%= @space.city %></p>
         <p class="card-text">Hôte: <%= @space.host.first_name %> <%= @space.host.last_name %></p>
+        <p class="card-text">Prix (€/h): <%= @space.price %></p>
       </div>
     </div>
 
@@ -29,7 +30,14 @@
     </div>
 
     <div class="mx-auto p-2 my-2 d-flex justify-content-end">
-      <%= link_to 'Réserver cet espace', new_space_booking_path(@space.id),  class: "my-btn" %>
+      <div class="mx-auto d-flex justify-content-center">
+        <%= form_tag(checkout_create_path, method: "post", remote: true) do %>
+          <div class="my-2"><%= label_tag 'Quand veux-tu réserver cet espace ?' %></div>
+          <div class="my-2"><%= datetime_local_field_tag 'start_date', @booking.start_date, class:"form-control", required: true %></div>
+          <%= hidden_field_tag 'total', @space.price %>
+          <div><%= button_to "Je réserve", checkout_create_path %></div>
+        <% end %>
+      </div>
     </div>
    
     <div>

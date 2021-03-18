@@ -16,6 +16,7 @@ class SpacesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
@@ -55,7 +56,7 @@ class SpacesController < ApplicationController
   end
 
   def space_params
-    params.require(:space).permit(:description, :zip_code, :address, :city, :title, :space_id, images: []).merge(host_id: current_user.id)
+    params.require(:space).permit(:description, :zip_code, :address, :city, :title, :space_id, :price, images: []).merge(host_id: current_user.id)
   end
 
   def search_params
@@ -65,7 +66,7 @@ class SpacesController < ApplicationController
   def is_host?
     @space = set_space
     unless @space.host_id == current_user.id
-      flash[:danger] = "Vous n'êtes pas autorisé à modifier cet espace."
+      flash[:error] = "Vous n'êtes pas autorisé à modifier cet espace."
       redirect_to root_path
     end
   end
