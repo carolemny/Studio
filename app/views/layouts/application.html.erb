@@ -18,16 +18,15 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
   
     <%= favicon_link_tag asset_path('studio-logo-favicon.svg') %>
-
   </head>
 
-  <body class="mx-4 my-bg-light">
+  <body class="my-bg-light">
 
     <%= render 'layouts/navbar' %>
     <%= render 'layouts/flash' %>
-
-    <%= yield %>
-    <br><br><br><br><br><br><br><br><br>
+    <div class="pb-150">
+      <%= yield %>
+    </div>
     <%= render 'layouts/footer' %>
 
   </body>
