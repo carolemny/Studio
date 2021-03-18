@@ -55,7 +55,7 @@ class SpacesController < ApplicationController
   end
 
   def space_params
-    params.require(:space).permit(:description, :zip_code, :address, :city, :title, images: []).merge(host_id: current_user.id)
+    params.require(:space).permit(:description, :zip_code, :address, :city, :title, :space_id, images: []).merge(host_id: current_user.id)
   end
 
   def search_params

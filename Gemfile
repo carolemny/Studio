@@ -78,3 +78,7 @@ gem "aws-sdk-s3", require: false
 
 #Table Print
 gem 'table_print'
+
+
+#Pry
+gem 'pry'

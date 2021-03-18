@@ -28,12 +28,16 @@
       </h3>
     </div>
 
-    <br>
-    <% if user_signed_in? && current_user.id == @space.host_id %>
-    <%= link_to 'Modifier', edit_space_path(@space) %> 
-    <% end %>
-    <%= link_to 'Retour', spaces_path %>  
-
+    <div class="mx-auto p-2 my-2 d-flex justify-content-end">
+      <%= link_to 'Réserver cet espace', new_space_booking_path(@space.id),  class: "my-btn" %>
+    </div>
+   
+    <div>
+      <% if user_signed_in? && current_user.id == @space.host_id %>
+      <%= link_to 'Modifier', edit_space_path(@space) %> 
+      <% end %>
+      <%= link_to 'Retour', spaces_path %>  
+    </div>
   </div>    
 </div>
 

@@ -1,17 +1,7 @@
-<%= form_with(model: booking, local: true) do |form| %>
-  <% if booking.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
-
-      <ul>
-      <% booking.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+<div class="mx-auto d-flex justify-content-center">
+  <%= form_tag url_for(action: 'create'), method: "post" do %>
+    <div class="my-2"><%= label_tag 'Quand veux-tu réserver cet espace ?' %></div>
+    <div class="my-2"><%= datetime_local_field_tag 'start_date', @booking.start_date %></div>
+    <div><%= submit_tag "Je réserve", class:"my-btn m-2"%></div>
   <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
