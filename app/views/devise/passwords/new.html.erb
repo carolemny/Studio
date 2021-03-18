@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-4 min-vh-100 background-image d-flex justify-content-center align-items-end ">
+  <div class="col-md-4 min-vh-100 background-image d-flex justify-content-center align-items-end overflowY">
   <%= link_to "STUDIO", root_path, class:"my-logo-white pb-5 appear-bottom" %>
   </div>
 
@@ -7,7 +7,7 @@
 
   <div class="border p-5 my-bg-light appear">
 
-    <h2 class="mb-3 text-center">Mot de passe oublié</h2>
+    <h2 class="mb-3 text-center"> Mot de passe oublié ? </h2>
 
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "form-signin" }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
