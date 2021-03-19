@@ -16,33 +16,24 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    @booking.guest_id = current_user.id
-    @booking.space_id = params[:space_id]
-    
-    if @booking.save
-      redirect_to spaces_path, notice: "La réservation a bien été créée."
-    else
-      render :new, status: :unprocessable_entity 
-    end
-    UserMailer.booking_email(current_user.id).deliver_now
+    #to delete ?
   end
 
   def update
     if @booking.update(booking_params)
-      redirect_to @booking, notice: "La réservation a bien été mise à jour." 
+      redirect_to @booking, notice: "La réservation a bien été mise à jour."
     else
-      render :edit, status: :unprocessable_entity 
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @booking.destroy
-    redirect_to bookings_url, notice: "La réservation a bien été annulée. " 
+    redirect_to spaces_path, notice: "La réservation a bien été annulée. "
   end
 
   private
-    
+
   def set_booking
     @booking = Booking.find(params[:id])
   end
@@ -52,7 +43,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.permit(:start_date, :space_id)
+    params.permit(:start_date, :space_id, :guest_id, :duration)
   end
 
   def is_guest?

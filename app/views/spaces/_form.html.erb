@@ -32,12 +32,12 @@
   </div>
   <br>
   <div class="field form-group">
-    <%= form.label :price, "Prix ( /h)" %>
+    <%= form.label :price, "Prix (en € par heure)" %>
     <%= form.text_field :price, class: "form-control" %>
   </div>
   <br>
   <div>
-    <%= select_tag 'Catégorie', options_from_collection_for_select(Category.all, "id", "name"), class: "form-control"%>
+    <%= select_tag 'category', options_from_collection_for_select(Category.all, "id", "name"), include_blank: "Rechercher par catégorie ", class: "form-control"%>
   </div>
   <br>
   <div>

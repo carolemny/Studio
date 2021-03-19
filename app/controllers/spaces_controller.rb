@@ -29,7 +29,7 @@ class SpacesController < ApplicationController
   def create
     @space = Space.new(space_params)
       if @space.save
-        JoinSpaceCategory.create(space_id: @space.id, category_id: params["Catégorie"])
+        JoinSpaceCategory.create(space_id: @space.id, category_id: params["category"])
         redirect_to @space, notice: "Votre espace a bien été créé. " 
       else
         render :new, status: :unprocessable_entity 
