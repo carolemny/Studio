@@ -1,4 +1,5 @@
 <section class="jumbotron min-vh-100 background-image d-flex justify-content-center align-items-center mb-5">
+  
   <div class="text-center">
     <h1 class="text-white pb-5">Réservez votre espace de création artistique</h1>
     <%= link_to "S'inscrire", new_user_registration_path, class:"my-btn my-btn-lg" %>
@@ -8,7 +9,7 @@
 <div class="container-fluid">
   <div class="px-4 py-5">
     <div class="d-flex justify-content-center">
-      <div class="col-8 my-border-primary bg-white text-center">
+      <div class="col-10 my-border-primary text-center">
         <div class="card-body p-4">
           <h2 class="my-text-primary p-4">Libérez votre créativité</h2>
           <h3 class="my-lead p-4">Vous manquez de place, de matériel pour pratiquer votre activité artistique ?
@@ -22,7 +23,7 @@
 
 <div class="py-5">
   <div class="d-flex justify-content-center my-border-bottom-secondary">
-    <h3>Nos catégories</h3>
+    <h2>Nos catégories</h2>
   </div>
 </div>
 
@@ -63,44 +64,49 @@
 
 <div class="py-5">
   <div class="d-flex justify-content-center my-border-bottom-secondary">
-    <h2>Bla bla : trouver un titre </h2>
+    <h2 class="bg-mylight text-center text-divider mt-5"><span>Pour les artistes ...</span></h2>
   </div>
 </div>
 
 <div class="container-fluid">
   <div class="px-4 py-5">
-    <div class="row card-group">
-      <div class="card p-0">
-        <div class="row">
-          <div class="col-md-4">
-            <img src="https://images.pexels.com/photos/2733337/pexels-photo-2733337.jpeg?cs=srgb&dl=pexels-giovanni-calia-2733337.jpg&fm=jpg" alt="space" width="100%">
-          </div>
-          <div class="col-md-8 p-3">
-            <div class="card-body">
-              <h3 class="card-title">Tu es un artiste, mais tu n'as pas d'espace pour créer</h3>
-              <p class="card-text">
-                Tu as des idées de projets artistiques plein la tête mais tu manques de place pour les réaliser ?<br>
-                STUDIO te permet de louer un espace adapté à tes besoins, pour quelques heures.
-              </p>
-            </div>
-          </div>
+    <div class="row">
+      <div class="col-md-4 ">
+        <%= image_tag("pictos/artist.svg", width: 300) %>
+      </div>
+      <div class="col-md-8 p-3">
+        <div class="card-body">
+          <h3 class="card-title">Tu es un artiste, mais tu n'as pas d'espace pour créer.</h3>
+          <p class="card-text fs-5">
+            Tu as des idées de projets artistiques plein la tête mais tu manques de place pour les réaliser ?
+            STUDIO te permet de louer un espace adapté à tes besoins, pour quelques heures.
+          </p>
         </div>
       </div>
-        <div class="card p-0">
-        <div class="row">
-          <div class="col-md-4">
-            <img src="https://images.pexels.com/photos/2733337/pexels-photo-2733337.jpeg?cs=srgb&dl=pexels-giovanni-calia-2733337.jpg&fm=jpg" alt="space" width="100%">
-          </div>
-          <div class="col-md-8 p-3">
-            <div class="card-body">
-              <h3 class="card-title">Tu disposes d'un espace de création et tu aimerais le partager</h3>
-              <p class="card-text">
-                Tu possèdes un espace adapté à une pratique artistique ?
-                STUDIO te permet de mettre en ligne ton annonce pour louer ton espace, selon tes disponibilités.
-              </p>
-            </div>
-          </div>
+    </div>
+  </div>
+</div>
+
+<div class="py-5">
+  <div class="d-flex justify-content-center my-border-bottom-secondary">
+    <h2 class="bg-mylight text-center text-divider mt-5"><span>... et ceux qui les révèlent</span></h2>
+  </div>
+</div> 
+
+<div class="container-fluid">
+  <div class="px-4 py-5">
+    <div class="row">
+      <div class="col-md-8 p-3">
+        <div class="card-body">
+          <h3 class="card-title">Tu disposes d'un espace de création et tu aimerais le partager.</h3>
+          <p class="card-text">
+            Tu possèdes un espace adapté à une pratique artistique ?
+            STUDIO te permet de mettre en ligne ton annonce pour louer ton espace, selon tes disponibilités.
+          </p>
         </div>
+      </div>
+      <div class="col-md-4">
+        <%= image_tag("pictos/host.svg", width: 300) %>
       </div>
     </div>
   </div>
