@@ -1,6 +1,19 @@
+@import 'variable';
+
 .background-image {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   background-image:linear-gradient( rgba(255,45,0,0.3) 0%,rgba(255,45,0,0.3) 100%), url("/assets/background.jpg");
+}
+
+
+
+
+.text-divider span {
+  background-color: #fff;
+  padding: 1em;
+}
+.text-divider:before {
+  border-bottom: 2px solid #ff2d00;
 }
