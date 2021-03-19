@@ -16,6 +16,7 @@ class SpacesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
@@ -28,7 +29,7 @@ class SpacesController < ApplicationController
   def create
     @space = Space.new(space_params)
       if @space.save
-        JoinSpaceCategory.create(space_id: @space.id, category_id: params["Catégorie"])
+        JoinSpaceCategory.create(space_id: @space.id, category_id: params["category"])
         redirect_to @space, notice: "Votre espace a bien été créé. " 
       else
         render :new, status: :unprocessable_entity 
@@ -55,7 +56,7 @@ class SpacesController < ApplicationController
   end
 
   def space_params
-    params.require(:space).permit(:description, :zip_code, :address, :city, :title, images: []).merge(host_id: current_user.id)
+    params.require(:space).permit(:description, :zip_code, :address, :city, :title, :space_id, :price, images: []).merge(host_id: current_user.id)
   end
 
   def search_params
@@ -65,7 +66,7 @@ class SpacesController < ApplicationController
   def is_host?
     @space = set_space
     unless @space.host_id == current_user.id
-      flash[:danger] = "Vous n'êtes pas autorisé à modifier cet espace."
+      flash[:error] = "Vous n'êtes pas autorisé à modifier cet espace."
       redirect_to root_path
     end
   end

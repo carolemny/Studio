@@ -14,24 +14,24 @@
                 </ul>
             </div>
             <% end %>
-        
+            <h1 class="my-text-primary text-center">Votre message</h1>
             <div class="field form-group">
-            <%= f.label :name %><br />
+            <%= f.label :name, "Nom" %><br/>
             <%= f.text_field :name, class: "form-control" %>
             </div>
             <br>
             <div class="field form-group">
-            <%= f.label :email %><br />
+            <%= f.label :email %><br/>
             <%= f.text_field :email, class: "form-control" %>
             </div>
             <br>
             <div class="field form-group">
-            <%= f.label :body %><br />
+            <%= f.label :body, "Message" %><br/>
             <%= f.text_area :body, class: "form-control" %>
             </div>
             <br>
             <div class="actions">
-            <%= f.submit "Send", class: "my-btn my-btn col-md-12"%>
+            <%= f.submit "Envoyer", class: "my-btn my-btn col-md-12"%>
             </div>
         <% end %>
     </div>

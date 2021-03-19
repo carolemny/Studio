@@ -1,0 +1,10 @@
+<div class="container p-5 m-5">
+  <h1>Paiement confirmé</h1>
+  <hr>
+  <div>
+    <p>Nous avons reçu votre paiement de <%= number_to_currency(@payment_intent.amount_received / 100.0, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>.</p>
+    <p>La réservation pour l'espace "<%= @space.title %>" a bien été enregistrée. </p>
+    <p><%= link_to 'Voir l\'espace', space_path(@space.id), class: "my-link" %></p>
+  </div>
+  <%= link_to "Retour", root_path, class: "my-link" %>
+</div>
