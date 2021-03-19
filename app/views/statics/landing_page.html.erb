@@ -22,65 +22,63 @@
 </div>
 
 <div class="py-5">
-  <div class="d-flex justify-content-center my-border-bottom-secondary">
-    <h2>Nos catégories</h2>
-  </div>
+  <h2 class="text-center text-divider"><span>Nos catégories</span></h2>
 </div>
 
 <div class="container-fluid">
   <div class="px-4 py-5">
-    <div class="d-flex justify-content-center align-items-baseline">
-      <div class="col-md-1 text-center my-anim-scale me-5">
+    <div class="d-flex justify-content-center align-items-baseline flex-wrap">
+      <div class="col-md-1 d-flex flex-column align-items-center my-anim-scale me-5">
         <%= link_to image_tag("pictos/party-people.svg", width: 100, class:"my-svg-color pb-3"), spaces_path %>
         <h5>Danse</h5>
       </div>
-      <div class="col-md-1 text-center my-anim-scale m-5">
+      <div class="col-md-1 d-flex flex-column align-items-center my-anim-scale m-5">
         <%= link_to image_tag("pictos/hand-saw.svg", width: 100, class:"my-svg-color pb-3"), spaces_path %>
-        <h5 class="card-title">Menuiserie</h5>
+        <h5>Menuiserie</h5>
       </div>
-      <div class="col-md-1 text-center my-anim-scale m-5">
+      <div class="col-md-1 d-flex flex-column align-items-center my-anim-scale m-5">
         <%= link_to image_tag("pictos/stave.svg", width: 90, class:"my-svg-color pb-3"), spaces_path %>
-        <h5 class="card-title">Musique</h5>
+        <h5>Musique</h5>
       </div>
-      <div class="col-md-1 text-center my-anim-scale m-5">
+      <div class="col-md-1 d-flex flex-column align-items-center my-anim-scale m-5">
         <%= link_to image_tag("pictos/paint-palette-and-brush.svg", width: 90, class:"my-svg-color pb-3"), spaces_path %>
-        <h5 class="card-title">Peinture</h5>
+        <h5>Peinture</h5>
       </div>
-      <div class="col-md-1 text-center my-anim-scale m-5">
+      <div class="col-md-1 d-flex flex-column align-items-center my-anim-scale m-5">
         <%= link_to image_tag("pictos/camera.svg", width: 90, class:"my-svg-color pb-3"), spaces_path %>
-        <h5 class="card-title">Photographie</h5>
+        <h5>Photographie</h5>
       </div>
-      <div class="col-md-1 text-center my-anim-scale m-5">
+      <div class="col-md-1 d-flex flex-column align-items-center my-anim-scale m-5">
         <%= link_to image_tag("pictos/clay-crafting.svg", width: 90, class:"my-svg-color pb-3"), spaces_path %>
-        <h5 class="card-title">Sculpture  Poterie</h5>
+        <h5 class="text-center">Sculpture  Poterie</h5>
       </div>
-      <div class="col-md-1 text-center my-anim-scale ms-5">
+      <div class="col-md-1 d-flex flex-column align-items-center my-anim-scale ms-5">
         <%= link_to image_tag("pictos/video-camera.svg", width: 90, class:"my-svg-color pb-3"), spaces_path %>
-        <h5 class="card-title">Vidéo</h5>
+        <h5>Vidéo</h5>
       </div>
     </div>
   </div>
 </div>
 
 <div class="py-5">
-  <div class="d-flex justify-content-center my-border-bottom-secondary">
-    <h2 class="bg-mylight text-center text-divider mt-5"><span>Pour les artistes ...</span></h2>
-  </div>
+  <h2 class="text-center text-divider"><span>Pour les artistes ...</span></h2>
 </div>
 
 <div class="container-fluid">
-  <div class="px-4 py-5">
+  <div class="col-10 m-auto px-4 py-5">
     <div class="row">
-      <div class="col-md-4 ">
-        <%= image_tag("pictos/artist.svg", width: 300) %>
-      </div>
-      <div class="col-md-8 p-3">
-        <div class="card-body">
-          <h3 class="card-title">Tu es un artiste, mais tu n'as pas d'espace pour créer.</h3>
-          <p class="card-text fs-5">
-            Tu as des idées de projets artistiques plein la tête mais tu manques de place pour les réaliser ?
-            STUDIO te permet de louer un espace adapté à tes besoins, pour quelques heures.
-          </p>
+      <div class="d-flex align-items-center">
+        <div class="col-md-4 ">
+          <%= image_tag("pictos/artist.svg", width: "100%" ) %>
+        </div>
+        <div class="col-md-8 p-3">
+          <div class="card-body">
+            <h3 class="card-title">Tu es un artiste, mais tu n'as pas d'espace pour créer.</h3>
+            <p class="card-text fs-5">
+              Tu as des idées de projets artistiques plein la tête mais tu manques de place pour les réaliser ?
+              STUDIO te permet de louer un espace adapté à tes besoins, pour quelques heures.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -88,25 +86,25 @@
 </div>
 
 <div class="py-5">
-  <div class="d-flex justify-content-center my-border-bottom-secondary">
-    <h2 class="bg-mylight text-center text-divider mt-5"><span>... et ceux qui les révèlent</span></h2>
-  </div>
-</div> 
+  <h2 class="text-center text-divider"><span>... et ceux qui les révèlent</span></h2>
+</div>
 
 <div class="container-fluid">
-  <div class="px-4 py-5">
+  <div class="col-10 m-auto px-4 py-5">
     <div class="row">
-      <div class="col-md-8 p-3">
-        <div class="card-body">
-          <h3 class="card-title">Tu disposes d'un espace de création et tu aimerais le partager.</h3>
-          <p class="card-text">
-            Tu possèdes un espace adapté à une pratique artistique ?
-            STUDIO te permet de mettre en ligne ton annonce pour louer ton espace, selon tes disponibilités.
-          </p>
+      <div class="d-flex align-items-center">
+        <div class="col-md-8 p-3">
+          <div class="card-body">
+            <h3 class="card-title">Tu disposes d'un espace de création et tu aimerais le partager.</h3>
+            <p class="card-text">
+              Tu possèdes un espace adapté à une pratique artistique ?
+              STUDIO te permet de mettre en ligne ton annonce pour louer ton espace, selon tes disponibilités.
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <%= image_tag("pictos/host.svg", width: 300) %>
+        <div class="col-md-4">
+          <%= image_tag("pictos/host.svg", width: "100%") %>
+        </div>
       </div>
     </div>
   </div>
