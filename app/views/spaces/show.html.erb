@@ -30,7 +30,7 @@
     <% if user_signed_in? && current_user.id == @space.host_id %>
     <%= link_to 'Modifier', edit_space_path(@space) %> 
     <% end %>
-    <%= link_to 'Retour', spaces_path %>  
+    <%= link_to 'Retour', spaces_path, class:"my-link" %>  
 
   </div>    
 </div>
