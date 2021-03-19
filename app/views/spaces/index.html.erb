@@ -6,7 +6,7 @@
     <p class="lead text-muted">Découvrez nos espaces de créations adaptés à toutes vos activités artistiques: peinture, sculpture, photographie, musique, danse ... </p>
     
     <p>
-    <%= link_to "S'inscrire", new_user_registration_path, class:"my-btn-blue-light my-btn-blue-light-lg" %>
+    <%= link_to "S'inscrire", new_user_registration_path, class:"my-btn-blue-light my-btn-blue-light-lg text-white" %>
   </p>
   </div>
 </section>
@@ -26,9 +26,7 @@
   </div>
 </div>
 
-<div class="m-5">
-  <%= link_to 'Proposer un espace', new_space_path, class:"my-link " %>
-</div>
+
 <div id="test" >
   <%= render 'index', spaces: @spaces %> 
 </div>
