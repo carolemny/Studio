@@ -1,35 +1,28 @@
-<section class="jumbotron text-center background-image">
-
-  <div class="container">
-    <h1 class="m-3"> Nos espaces </h1>
-    
-    <p class="lead text-muted">Découvrez nos espaces de créations adaptés à toutes vos activités artistiques: peinture, sculpture, photographie, musique, danse ... </p>
-    
-    <p>
-    <%= link_to "S'inscrire", new_user_registration_path, class:"my-btn-blue-light my-btn-blue-light-lg" %>
-  </p>
+<section class="jumbotron text-center background-image p-5">
+  <div class="p-5">
+    <h1 class="my-text-light pb-3"> Nos espaces </h1>
+    <p class="my-text-light p-3">Découvrez nos espaces de créations adaptés à toutes vos activités artistiques: peinture, sculpture, photographie, musique, danse ... </p>
+    <%= link_to "S'inscrire", new_user_registration_path, class:"my-btn" %>
   </div>
 </section>
 
-<div class="text-center m-5">
-  <h4>Rechercher un espace</h4>
-  <div class="d-flex justify-content-center">
-    <div class="mx-2 d-flex justify-content-center">
-      <%= form_tag(spaces_path, method: :get, remote: true ) do %>
-        <div class="d-flex m-3 ">
-          <%= select_tag 'category', options_from_collection_for_select(Category.all, "id", "name"), include_blank: "Rechercher par catégorie " , class: "form-control mx-2 "%>
-          <%=  text_field_tag(:city, params[:city], placeholder: "Saisissez une ville", class: "form-control ") %>
-        </div>
+<div class="container-fluid">
+  <div class="px-3">
+    <div class="text-center p-5">
+      <h4 class="pt-5">Rechercher un espace</h4>
+      <div class="d-flex justify-content-center">
+        <%= form_tag(spaces_path, method: :get, remote: true ) do %>
+          <div class="d-flex p-3 ">
+            <%= select_tag 'category', options_from_collection_for_select(Category.all, "id", "name"), include_blank: "Rechercher par catégorie " , class: "form-control"%>
+            <%=  text_field_tag(:city, params[:city], placeholder: "Saisissez une ville", class: "form-control ") %>
+          </div>
           <%= submit_tag "Rechercher", class: "my-btn my-btn " %> 
-      <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div id="test">
+      <%= render 'index', spaces: @spaces %> 
     </div>
   </div>
-</div>
-
-<div class="m-5">
-  <%= link_to 'Proposer un espace', new_space_path, class:"my-link " %>
-</div>
-<div id="test" >
-  <%= render 'index', spaces: @spaces %> 
 </div>
  

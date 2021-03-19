@@ -19,7 +19,7 @@
                         <tbody>
                           <tr>
                             <td style="width:110px;">
-                              <%= image_tag("https://studiofinalproject.herokuapp.com/assets/background.jpg", style: 'border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;', width: '110', height: 'auto') %>
+                              <%= image_tag("https://studiofinalproject.herokuapp.com/assets/studio-logo2.svg", style: 'border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;', width: '110', height: 'auto') %>
                             </td>
                           </tr>
                         </tbody>
@@ -45,8 +45,8 @@
                       <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
                         <tbody>
                           <tr>
-                            <td style="width:300px;">
-                              <%= image_tag("https://studiofinalproject.herokuapp.com/assets/background.jpg", style: 'border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;', width: '300', height: 'auto') %>
+                            <td style="width:250px;">
+                              <%= image_tag("https://studiofinalproject.herokuapp.com/assets/order_confirmed.svg", style: 'border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;', width: '250', height: 'auto') %>
                             </td>
                           </tr>
                         </tbody>
@@ -70,14 +70,16 @@
                   <tr>
                     <td align="left" style="font-size:0px;padding:0px 25px 0px 25px;padding-top:0px;padding-right:50px;padding-bottom:0px;padding-left:50px;word-break:break-word;">
                       <div style="font-family: JetBrains Mono, monospace;font-size:54px;line-height:22px;text-align:left;color:#797e82;">
-                        <h1 style="text-align:center;font-family: JetBrains Mono, monospace; font-size:54px; color:#FF2D00; line-height:32px"> Merci pour votre réservation chez  </h1>
+                        <h1 style="text-align:center;font-family: JetBrains Mono, monospace; font-size:42px; color:#FF2D00; line-height:42px"> Merci pour votre réservation ! </h1>
                       </div>
                     </td>
                   </tr>
                   <tr>
                     <td align="left" style="font-size:0px;padding:0px 25px 0px 25px;padding-top:0px;padding-right:50px;padding-bottom:0px;padding-left:50px;word-break:break-word;">
                       <div style="font-family:'Mukta', sans-serif;font-size:16px;line-height:22px;text-align:left;color:black;">
-                        <p style="margin: 10px 0; text-align: center;font-family: 'Mukta', sans-serif; font-size:16px"> Connectez-vous à votre espace client pour retrouver vos réservations. </p>
+                        <p style="margin: 20px 0; text-align: center;font-family: 'Mukta', sans-serif; font-size:16px"> <b>Rendez-vous le:</b> <%= @booking.start_date %></p>
+                        <p style="margin: 10px 0; text-align: center;font-family: 'Mukta', sans-serif; font-size:16px"> <b>Durée:</b> <%= @booking.duration %> h</p>
+                        <p style="margin: 10px 0; text-align: center;font-family: 'Mukta', sans-serif; font-size:16px"> Vous pouvez retrouver toutes vos réservations dans votre espace client: </p>
                       </div>
                     </td>
                   </tr>
@@ -92,7 +94,7 @@
                         <tr>
                           <td align="left" style="font-size:0px;padding:0px 25px 0px 25px;padding-top:0px;padding-right:50px;padding-bottom:0px;padding-left:50px;word-break:break-word;">
                             <div style="font-family:'Mukta', sans-serif;font-size:16px;line-height:22px;text-align:left;color:black;">
-                              <p style="margin: 10px 0; text-align: center;font-family: 'Mukta', sans-serif; font-size:16px"> A bientôt, </p>
+                              <p style="margin: 20px 0; text-align: center;font-family: 'Mukta', sans-serif; font-size:16px"> A bientôt, </p>
                               <br>
                               <p style="margin: 10px 0; text-align: center;font-family: 'Mukta', sans-serif; font-size:16px"> L'équipe STUDIO.</p>
                             </div>

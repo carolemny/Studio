@@ -65,7 +65,10 @@
   border-top: 4px solid $my-primary;
 }
 
+.my-border-bottom-primary {
+  border-bottom: 2px solid $my-primary;
+}
+
 .my-border-bottom-secondary {
   border-bottom: 3px solid $my-secondary;
-  top: 50px;
 }
