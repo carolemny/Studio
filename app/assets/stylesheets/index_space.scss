@@ -19,3 +19,11 @@
 .my-border-card {
   border: 3px solid $my-primary;
 }
+
+.text-divider span {
+  background-color: #fff;
+  padding: 1em;
+}
+.text-divider:before {
+  border-bottom: 2px solid #ff2d00;
+}

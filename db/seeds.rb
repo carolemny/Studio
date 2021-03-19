@@ -129,7 +129,7 @@ end
     guest_id: User.where.not(id: space.host_id).sample.id,
     space: space,
     duration: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].sample,
-    start_date: Faker::Date.between(from: Date.today, to: '2021-06-30')
+    start_date: Faker::Date.between(from: '2020-06-30', to: '2021-06-30')
   )
 end
 

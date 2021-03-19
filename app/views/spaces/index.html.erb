@@ -1,19 +1,14 @@
 <section class="jumbotron text-center background-image p-5">
-
   <div class="p-5">
     <h1 class="my-text-light pb-3"> Nos espaces </h1>
-    
     <p class="my-text-light p-3">Découvrez nos espaces de créations adaptés à toutes vos activités artistiques: peinture, sculpture, photographie, musique, danse ... </p>
-    
     <%= link_to "S'inscrire", new_user_registration_path, class:"my-btn" %>
-
   </div>
 </section>
 
 <div class="container-fluid">
   <div class="px-3">
     <div class="text-center p-5">
-      <%= link_to 'Proposer un espace', new_space_path, class:"my-link my-link-lg" %>
       <h4 class="pt-5">Rechercher un espace</h4>
       <div class="d-flex justify-content-center">
         <%= form_tag(spaces_path, method: :get, remote: true ) do %>
