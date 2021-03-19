@@ -1,0 +1,6 @@
+.my-anim-scale {
+  transition: all .2s ease-in-out;
+}
+.my-anim-scale:hover {
+  transform: scale(1.5);
+}
