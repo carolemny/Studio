@@ -8,7 +8,8 @@ class User < ApplicationRecord
   has_many :spaces
   has_many :bookings
   has_many :spaces, through: :bookings
-
+  has_one_attached :avatar
+  
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end

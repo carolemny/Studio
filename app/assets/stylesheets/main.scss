@@ -30,12 +30,23 @@ header {
   }
 }
 
+.my-logo-white {
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 4em;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: white;
+  &:hover, &:active {
+    color: white;
+  }
+}
+
 nav li a {
   text-decoration: none;
   font-size: 1.1em;
   font-weight: 600;
   color: black;
-  margin: 1em;
   &:hover, &:active {
     color: $my-primary;
   }
@@ -56,5 +67,11 @@ nav li a {
   padding: 0;
   position: absolute;
   bottom: 0;
+  right: 0;
+  left: 0;
   width: 100%;
+}
+
+.pb-150 {
+  padding-bottom: 150px;
 }
