@@ -36,7 +36,8 @@ end
     host_id: User.all.sample.id,
     city: cities.sample,
     description: 'Salle de danse 20m² avec miroirs et barre',
-    title: 'Studio de danse'
+    title: 'Studio de danse',
+    price: 5
   )
   dance_space.images.attach(io: File.open("app/assets/images/space/danse.jpg"), filename: "danse.jpg", content_type: 'image/jpg')
   dance_space.save
@@ -45,7 +46,8 @@ end
     host_id: User.all.sample.id,
     city: cities.sample,
     description: 'Chevalet, tabouret et table de travail à disposition',
-    title: 'Atelier pour peintre'
+    title: 'Atelier pour peintre',
+    price: 15
   )
   paint_space.images.attach(io: File.open("app/assets/images/space/space.jpg"), filename: "space.jpg", content_type: 'image/jpg')
   paint_space.save
@@ -54,7 +56,8 @@ end
     host_id: User.all.sample.id,
     city: cities.sample,
     description: 'Matériel pour enregistrement et mixage ',
-    title: "Studio d'enregistrement"
+    title: "Studio d'enregistrement",
+    price: 20
   )
   music_space.images.attach(io: File.open("app/assets/images/space/musique2.jpg"), filename: "musique2.jpg", content_type: 'image/jpg')
   music_space.save
@@ -63,7 +66,8 @@ end
     host_id: User.all.sample.id,
     city: cities.sample,
     description: "Studio vidéo avec fond vert et matériel d'enregistrement",
-    title: "Espace pour réalisation vidéo"
+    title: "Espace pour réalisation vidéo",
+    price: 10
   )
   video_space.images.attach(io: File.open("app/assets/images/space/video.jpg"), filename: "video.jpg", content_type: 'image/jpg')
   video_space.save
@@ -72,7 +76,8 @@ end
     host_id: User.all.sample.id,
     city: cities.sample,
     description: "Fond blanc et réflecteurs de lumière à dispo",
-    title: "Studio photo 14m², idéal pour photographes"
+    title: "Studio photo 14m², idéal pour photographes",
+    price: 5
   )
   photo_space.images.attach(io: File.open("app/assets/images/space/photo.jpg"), filename: "photo.jpg", content_type: 'image/jpg')
   photo_space.save
@@ -81,7 +86,8 @@ end
     host_id: User.all.sample.id,
     city: cities.sample,
     description: "Parfait pour peintre, possibilité d'utiliser le chevalet, évier et table de travail",
-    title: "Espace idéal peinture 10m²"
+    title: "Espace idéal peinture 10m²",
+    price: 15
   )
   paint_space.images.attach(io: File.open("app/assets/images/space/peinture6.jpg"), filename: "peinture6.jpg", content_type: 'image/jpg')
   paint_space.save
@@ -90,7 +96,8 @@ end
     host_id: User.all.sample.id,
     city: cities.sample,
     description: "Je mets à disposition mon atelier de menuiserie avec outils, idéal pour petits travaux",
-    title: "Petit atelier de menuiserie"
+    title: "Petit atelier de menuiserie",
+    price: 20
   )
   carpentry_space.images.attach(io: File.open("app/assets/images/space/menuiserie.jpg"), filename: "menuiserie.jpg", content_type: 'image/jpg')
   carpentry_space.save
@@ -99,7 +106,8 @@ end
     host_id: User.all.sample.id,
     city: cities.sample,
     description: "Atelier idéal pour petites sculptures, céramique ... outils et table de travail à disposition",
-    title: "Atelier d'artiste sculpteur"
+    title: "Atelier d'artiste sculpteur",
+    price: 35
   )
   pottery_space.images.attach(io: File.open("app/assets/images/space/sculpture2.jpg"), filename: "sculpture2.jpg", content_type: 'image/jpg')
   pottery_space.save
@@ -108,7 +116,8 @@ end
     host_id: User.all.sample.id,
     city: cities.sample,
     description: "Je mets à disposition mon matériel de poterie, dans une pièce dédiée de 11m².",
-    title: "Espace idéal pour travail de la poterie"
+    title: "Espace idéal pour travail de la poterie",
+    price: 40
   )
   pottery_space.images.attach(io: File.open("app/assets/images/space/poterie.jpg"), filename: "poterie.jpg", content_type: 'image/jpg')
   pottery_space.save
@@ -119,10 +128,9 @@ end
   Booking.create(
     guest_id: User.where.not(id: space.host_id).sample.id,
     space: space,
-    duration: [30, 60, 90, 120, 180].sample,
-    start_date: Time.now
+    duration: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].sample,
+    start_date: Faker::Date.between(from: Date.today, to: '2021-06-30')
   )
-  puts 'new booking create'
 end
 
 

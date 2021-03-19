@@ -13,6 +13,7 @@
         <p class="card-text">Description: <%= @space.description %></p>
         <p class="card-text">Ville: <%= @space.city %></p>
         <p class="card-text">Hôte: <%= @space.host.first_name %> <%= @space.host.last_name %></p>
+        <p class="card-text">Prix (€/h): <%= @space.price %></p>
       </div>
     </div>
 
@@ -25,13 +26,31 @@
         </span>
       </h3>
     </div>
-
-    <br>
-    <% if user_signed_in? && current_user.id == @space.host_id %>
-    <%= link_to 'Modifier', edit_space_path(@space) %> 
-    <% end %>
-    <%= link_to 'Retour', spaces_path %>  
-
+    <hr class="my-4">
+    <div class="mx-auto p-2 my-2 d-flex justify-content-end">
+      <div class="mx-auto d-flex justify-content-center">
+        <%= form_tag(checkout_create_path, method: "post", remote: true) do %>
+          <h2 class="mb-4">Réserver cet espace</h2>
+          <div class="my-4"><%= date_field_tag 'start_date', @booking.start_date, class:"form-control", required: true %></div>
+          <div class="my-4"><%= label_tag 'duration', 'Pour combien d\'heure(s) ?' %></div>
+          <div class="my-4"><%= number_field_tag('duration', @booking.duration, options = { value: 1, min: 1, max: 10, step: 1}) %></div>
+          <%= hidden_field_tag 'total', @space.price %>
+          <%= hidden_field_tag 'space_id', @space.id %>
+          <% if user_signed_in? %>
+            <div><%= button_to "Je réserve", checkout_create_path, class:"my-btn" %></div>
+          <% else %>
+            <div><%= link_to "Je réserve", new_user_session_path, class:"my-btn" %></div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+   
+    <div>
+      <% if user_signed_in? && current_user.id == @space.host_id %>
+      <%= link_to 'Modifier', edit_space_path(@space) %> 
+      <% end %>
+      <%= link_to 'Retour', spaces_path, class:"my-link" %>  
+    </div>
   </div>    
 </div>
 

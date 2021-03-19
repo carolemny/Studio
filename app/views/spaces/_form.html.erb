@@ -12,7 +12,7 @@
   <% end %>
   <div class="field form-group">
     <%= form.label :title, "Titre" %>
-    <%= form.text_area :title, class: "form-control" %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
    <div class="field form-group">
     <%= form.label :description, "Description" %>
@@ -31,8 +31,13 @@
     <%= form.text_field :city, class: "form-control" %>
   </div>
   <br>
+  <div class="field form-group">
+    <%= form.label :price, "Prix (en € par heure)" %>
+    <%= form.text_field :price, class: "form-control" %>
+  </div>
+  <br>
   <div>
-    <%= select_tag 'Catégorie', options_from_collection_for_select(Category.all, "id", "name"), class: "form-control"%>
+    <%= select_tag 'category', options_from_collection_for_select(Category.all, "id", "name"), include_blank: "Rechercher par catégorie ", class: "form-control"%>
   </div>
   <br>
   <div>
@@ -40,6 +45,6 @@
   </div>
   <br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Rechercher", class: "my-btn my-btn col-md-12 " %>
   </div>
 <% end %>
