@@ -1,21 +1,23 @@
-<div class="row justify-content-center">
-  <div class=" col-md-6">
-    <div class="card text-center pt-4" >
-      <div class="card-body">
-        <div class="flat-content">
-          <div>
-            <% @space.images.each do |image| %>
-              <%= image_tag image, height: 500, width: 500 %>
-            <% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class=" col-md-6">
+      <div class="card my-border-card" >
+        <div class="card-body">
+          <div class="flat-content">
+            <div>
+              <% @space.images.each do |image| %>
+              <%= image_tag image, width: 500 %>
+              <% end %>
+            </div>
           </div>
+          <p class="card-title my-font-primary fs-4"><%= @space.title %></p>
+          <p class="card-text"><%= @space.description %></p>
+          <p class="card-text my-lead"><%= @space.city %></p>
+          <p class="card-text">Hôte: <%= @space.host.first_name %> <%= @space.host.last_name %></p>
+          <p class="card-text">Prix: <%= @space.price %> €/h </p>
         </div>
-        <p class="card-title">Titre: <%= @space.title %></p>
-        <p class="card-text">Description: <%= @space.description %></p>
-        <p class="card-text">Ville: <%= @space.city %></p>
-        <p class="card-text">Hôte: <%= @space.host.first_name %> <%= @space.host.last_name %></p>
-        <p class="card-text">Prix (€/h): <%= @space.price %></p>
       </div>
-    </div>
+  </div>
 
     <div class="d-flex justify-content-end">
       <h3>

@@ -1,6 +1,21 @@
+@import 'variable';
+
 .background-image {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   background-image:linear-gradient( rgba(255,45,0,0.3) 0%,rgba(255,45,0,0.3) 100%), url("/assets/background.jpg");
+}
+
+.my-card-hover{
+  transition: all .2s ease-in-out;
+}
+
+.my-card-hover:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.my-border-card {
+  border: 3px solid $my-primary;
 }
