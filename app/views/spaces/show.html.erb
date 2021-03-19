@@ -26,7 +26,7 @@
       </h3>
     </div>
 
-    <br>
+    
     <% if user_signed_in? && current_user.id == @space.host_id %>
     <%= link_to 'Modifier', edit_space_path(@space) %> 
     <% end %>
