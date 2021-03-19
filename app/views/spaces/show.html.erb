@@ -11,8 +11,6 @@
         </div>
         <p class="card-title">Titre: <%= @space.title %></p>
         <p class="card-text">Description: <%= @space.description %></p>
-        <p class="card-text">Code postal: <%= @space.zip_code %></p>
-        <p class="card-text">Adresse: <%= @space.address %></p>
         <p class="card-text">Ville: <%= @space.city %></p>
         <p class="card-text">Hôte: <%= @space.host.first_name %> <%= @space.host.last_name %></p>
         <p class="card-text">Prix (€/h): <%= @space.price %></p>
@@ -51,7 +49,7 @@
       <% if user_signed_in? && current_user.id == @space.host_id %>
       <%= link_to 'Modifier', edit_space_path(@space) %> 
       <% end %>
-      <%= link_to 'Retour', spaces_path %>  
+      <%= link_to 'Retour', spaces_path, class:"my-link" %>  
     </div>
   </div>    
 </div>

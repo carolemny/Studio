@@ -4,10 +4,13 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Vous avez reçu un email <%= @contact.email %> et bienvenue chez nous !</h1>
-    <p>
-        <%= @contact.body %> 
-    </p>
-
+    <h1>Vous avez reçu une demande de contact de: <%= @contact.name %> </h1>
+    <br>
+    <p>Contenu du message: <%= @contact.body %></p>
+    <br>
+    <p> Veuillez répondre dans les plus bref délais à l'adresse suivante: <%= @contact.email %> </p>
   </body>
 </html>
+
+
+

@@ -59,3 +59,12 @@
 .my-border-primary {
   border: 3px solid #FF2D00;
 }
+
+.my-border-top-primary {
+  border-top: 4px solid #FF2D00;
+}
+
+.my-border-bottom-secondary {
+  border-bottom: 3px solid $my-secondary;
+  top: 50px;
+}
