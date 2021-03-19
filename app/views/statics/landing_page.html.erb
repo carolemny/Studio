@@ -1,5 +1,4 @@
-<!-- Jumbotron -->
-<section class="jumbotron min-vh-100 background-image d-flex justify-content-center align-items-center">
+<section class="jumbotron min-vh-100 background-image d-flex justify-content-center align-items-center mb-5">
   <div class="text-center">
     <h1 class="text-white pb-5">Réservez votre espace de création artistique</h1>
     <%= link_to "S'inscrire", new_user_registration_path, class:"my-btn my-btn-lg" %>
@@ -8,14 +7,13 @@
 
 <div class="container-fluid">
   <div class="px-4 py-5">
-    <!-- Présention -->
     <div class="d-flex justify-content-center">
       <div class="col-8 my-border-primary bg-white text-center">
-        <div class="card-body p-5">
-          <h2 class="my-text-primary">Libérez votre créativité</h2>
-          <p class="my-lead">Vous manquez de place, de matériel pour pratiquer votre activité artistique ?
-          Réservez dès maintenant un créneau dans l'espace dont vous avez besoin.</p>
-          <p>Musique, peinture, photographie, danse ... Découvrez tous les espaces disponibles.</p>
+        <div class="card-body p-4">
+          <h2 class="my-text-primary p-4">Libérez votre créativité</h2>
+          <h3 class="my-lead p-4">Vous manquez de place, de matériel pour pratiquer votre activité artistique ?
+          Réservez dès maintenant un créneau dans l'espace dont vous avez besoin.</h3>
+          <p class="fs-4 p-4">Musique, peinture, photographie, danse ... Découvrez tous les espaces disponibles.</p>
         </div>
       </div>
     </div>
@@ -24,7 +22,48 @@
 
 <div class="py-5">
   <div class="d-flex justify-content-center my-border-bottom-secondary">
-    <h3>Bla bla : trouver un titre </h3>
+    <h3>Nos catégories</h3>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="px-4 py-5">
+    <div class="d-flex justify-content-center align-items-baseline">
+      <div class="col-md-1 text-center my-anim-scale me-5">
+        <%= link_to image_tag("pictos/party-people.svg", width: 100, class:"my-svg-color pb-3"), spaces_path %>
+        <h5>Danse</h5>
+      </div>
+      <div class="col-md-1 text-center my-anim-scale m-5">
+        <%= link_to image_tag("pictos/hand-saw.svg", width: 100, class:"my-svg-color pb-3"), spaces_path %>
+        <h5 class="card-title">Menuiserie</h5>
+      </div>
+      <div class="col-md-1 text-center my-anim-scale m-5">
+        <%= link_to image_tag("pictos/stave.svg", width: 90, class:"my-svg-color pb-3"), spaces_path %>
+        <h5 class="card-title">Musique</h5>
+      </div>
+      <div class="col-md-1 text-center my-anim-scale m-5">
+        <%= link_to image_tag("pictos/paint-palette-and-brush.svg", width: 90, class:"my-svg-color pb-3"), spaces_path %>
+        <h5 class="card-title">Peinture</h5>
+      </div>
+      <div class="col-md-1 text-center my-anim-scale m-5">
+        <%= link_to image_tag("pictos/camera.svg", width: 90, class:"my-svg-color pb-3"), spaces_path %>
+        <h5 class="card-title">Photographie</h5>
+      </div>
+      <div class="col-md-1 text-center my-anim-scale m-5">
+        <%= link_to image_tag("pictos/clay-crafting.svg", width: 90, class:"my-svg-color pb-3"), spaces_path %>
+        <h5 class="card-title">Sculpture  Poterie</h5>
+      </div>
+      <div class="col-md-1 text-center my-anim-scale ms-5">
+        <%= link_to image_tag("pictos/video-camera.svg", width: 90, class:"my-svg-color pb-3"), spaces_path %>
+        <h5 class="card-title">Vidéo</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="py-5">
+  <div class="d-flex justify-content-center my-border-bottom-secondary">
+    <h2>Bla bla : trouver un titre </h2>
   </div>
 </div>
 
@@ -64,52 +103,5 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="py-5">
-  <div class="d-flex justify-content-center my-border-bottom-secondary">
-    <h3>Nos catégories</h3>
-  </div>
-</div>
-
-<div class="container-fluid">
-  <div class="px-4 py-5 bg-white">
-    <div class="d-flex align-items-baseline">
-          <div class="col-md-1 text-center me-5">
-            <%= link_to image_tag("pictos/party-people.svg", width: 100, class:"my-svg-color pb-3"), root_path %>
-            <h5>Danse</h5>
-          </div>
-          <div class="col-md-1 text-center m-5">
-            <%= link_to image_tag("pictos/hand-saw.svg", width: 100, class:"my-svg-color pb-3"), root_path %>
-            <h5 class="card-title">Menuiserie</h5>
-          </div>
-          <div class="col-md-1 text-center m-5">
-            <%= link_to image_tag("pictos/stave.svg", width: 90, class:"my-svg-color pb-3"), root_path %>
-            <h5 class="card-title">Musique</h5>
-          </div>
-          <div class="col-md-1 text-center m-5">
-            <%= link_to image_tag("pictos/paint-palette-and-brush.svg", width: 90, class:"my-svg-color pb-3"), root_path %>
-            <h5 class="card-title">Peinture</h5>
-          </div>
-          <div class="col-md-1 text-center m-5">
-            <%= link_to image_tag("pictos/camera.svg", width: 90, class:"my-svg-color pb-3"), root_path %>
-            <h5 class="card-title">Photographie</h5>
-          </div>
-          <div class="col-md-1 text-center m-5">
-            <%= link_to image_tag("pictos/clay-crafting.svg", width: 90, class:"my-svg-color pb-3"), root_path %>
-            <h5 class="card-title">Sculpture  Poterie</h5>
-          </div>
-          <div class="col-md-1 text-center ms-5">
-            <%= link_to image_tag("pictos/video-camera.svg", width: 90, class:"my-svg-color pb-3"), root_path %>
-            <h5 class="card-title">Vidéo</h5>
-          </div>
-          
-    </div>
-
-
-
-    <!-- Image + btn s'inscrire -->
-
   </div>
 </div>
