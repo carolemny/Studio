@@ -46,7 +46,6 @@
   }
 }
 
-
 .my-link {
   text-decoration: none;
   color: #FF2D00;
@@ -59,6 +58,14 @@
     font-size: .8em;
   }
   &-lg {
-    font-size: 1em;
+    font-size: 1.3em;
+    font-weight: 600;
   }
+}
+
+.form-control:focus {
+  border: 2px solid #FF2D00;
+  outline: 0;
+  -webkit-box-shadow: inset 0 0px 0px ;
+  box-shadow: inset 0 0px 0px ;
 }
