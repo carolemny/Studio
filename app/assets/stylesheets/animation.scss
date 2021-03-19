@@ -4,3 +4,41 @@
 .my-anim-scale:hover {
   transform: scale(1.5);
 }
+
+.appear {
+  animation: 1s ease-out 0s 1 appearAnim;
+}
+@keyframes appearAnim{
+  0%{
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  25%{
+    opacity: 0.25;
+  }
+  100%{
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.appear-bottom {
+  animation: 1s ease-out 0s 1 appearAnim-bottom;
+}
+@keyframes appearAnim-bottom {
+  0%{
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  25%{
+    opacity: 0.50;
+  }
+  100%{
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.overflowY {
+  overflow-y: hidden;
+}

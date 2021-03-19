@@ -57,11 +57,12 @@
 }
 
 .my-border-primary {
-  border: 3px solid #FF2D00;
+  border: 3px solid $my-primary;
+  background-color: $my-light;
 }
 
 .my-border-top-primary {
-  border-top: 4px solid #FF2D00;
+  border-top: 4px solid $my-primary;
 }
 
 .my-border-bottom-secondary {
