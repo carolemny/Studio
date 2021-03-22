@@ -46,6 +46,19 @@
         <% end %>
       </div>
     </div>
+
+    <%= form_for @comment, url: space_comments_path(@space.id), method: :post do |f| %>
+      <%= f.text_area :content %>
+      <%= f.text_area :title %>
+      <%= f.submit "Valider" %>
+    <% end %>
+
+    <p>aaaaaaa</p>
+    <% @space.comments.each do |comment| %>
+    <%= comment.title %>
+    <%= comment.content %>
+    <% end %>
+    <p>aaaaaaa</p>
    
     <div>
       <% if user_signed_in? && current_user.id == @space.host_id %>

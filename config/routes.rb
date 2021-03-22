@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root to: "statics#landing_page"
 
   devise_for :users
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :spaces do
     resources :bookings
+    resources :comments
   end
 
   resources :users, only: [:show, :edit, :update] do

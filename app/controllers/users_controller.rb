@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     puts "x" * 100 
     @bookings.each { |booking| puts booking.space.title }
     puts "x" * 100
+    
   end
 
   def edit
