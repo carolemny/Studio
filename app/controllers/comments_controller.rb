@@ -1,13 +1,17 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: [:show, :new, :create, :edit]
+  before_action :authenticate_user!
 
   # POST /comments or /comments.json
   def create
     @space = Space.find(params[:space_id])
-    @comment = @space.comments.new(comment_params)
+    @guest_id = current_user.id
 
-    redirect_to space_path(@space.id)
+    puts "*"*50
+    puts @guest_id
+    puts "*"*50
+    
+    @comment = @space.comments.new(content: params[:content], title: params[:title], guest_id: session[:guest_id])
 
     respond_to do |format|
       if @comment.save
@@ -47,6 +51,13 @@ class CommentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comment_params
-      params.require(:comment).permit(:title, :content)
+      params.require(:comment, :guest.id).permit(:title, :content, :guest.id)
     end
+
+    def authenticate_user
+      unless logged_in?
+        redirect_to new_session_path, warning: "Vous devez vous connecter pour poster un commentaire."
+      end
+    end
+
 end

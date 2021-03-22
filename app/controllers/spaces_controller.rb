@@ -20,7 +20,6 @@ class SpacesController < ApplicationController
     
     @space = Space.find(params[:id])
     @comment = @space.comments.build
-
   end
 
   def new
