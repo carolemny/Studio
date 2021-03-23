@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_03_22_182947) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "start_date"
-    t.integer "duration"
+    t.date "end_date"
     t.index ["guest_id"], name: "index_bookings_on_guest_id"
     t.index ["space_id"], name: "index_bookings_on_space_id"
   end
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(version: 2021_03_22_182947) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "space_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["space_id"], name: "index_comments_on_space_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "join_space_categories", force: :cascade do |t|
@@ -94,4 +104,6 @@ ActiveRecord::Schema.define(version: 2021_03_22_182947) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "spaces"
+  add_foreign_key "comments", "users"
 end

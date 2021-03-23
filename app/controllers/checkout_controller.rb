@@ -1,12 +1,14 @@
 class CheckoutController < ApplicationController
   include CreateBooking
-  before_action :start_date_is_possible?, only: [:create]
+  before_action :space_is_available?, only: [:create]
   after_action :create_booking, only: [:success]
 
   def create
-    @sub_total = params[:total].to_i
-    @duration = params[:duration].to_i
-    @total = @sub_total * @duration
+    @sub_total = params[:sub_total].to_i
+    date_start = Date.parse(params[:start_date])
+    date_end = Date.parse(params[:end_date])
+    @duration = (date_end - date_start).to_i + 1
+    @total = @sub_total * @duration.to_i
 
     @session = Stripe::Checkout::Session.create(
       payment_method_types: ["card"],
@@ -25,7 +27,7 @@ class CheckoutController < ApplicationController
     session[:start_date] = params[:start_date]
     session[:space_id] = params[:space_id]
     session[:guest_id] = current_user.id
-    session[:duration] = params[:duration]
+    session[:end_date] = params[:end_date]
 
     respond_to do |format|
       format.js
@@ -44,14 +46,9 @@ class CheckoutController < ApplicationController
 
   private
 
-  def start_date_is_possible?
-    if params[:start_date] < Date.today.strftime("%Y-%m-%d")
-      flash[:error] = "Vous ne pouvez pas effectuer de réservation à cette date."
-      redirect_to space_path(params[:space_id])
-      return false
-    end
-    booking = Booking.where(start_date: params[:start_date], space_id: params[:space_id])
-    if booking.length > 0
+  def space_is_available?
+    space_non_available = Booking.available_date(params[:start_date], params[:end_date], params[:space_id])
+    if space_non_available.length > 0
       flash[:alert] = "L'espace est déjà loué à cette date."
       redirect_to space_path(params[:space_id])
     end

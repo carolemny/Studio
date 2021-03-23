@@ -1,60 +1,127 @@
 <div class="container">
-  <div class="row justify-content-center">
-    <div class=" col-md-6">
-      <div class="card my-border-card" >
+  <div class="row justify-content-center px-5">
+    <div class="col-lg-12">
+      <div class="my-border-card p-5" >
         <div class="card-body">
-          <div class="flat-content">
+          <div>
+            <p class="card-title my-font-primary fs-4"><%= @space.title %></p>
+          </div>
+          <div class="d-flex justify-content-between">
             <div>
+              <i class="far fa-comment-alt px-2 my-text-primary"></i>
+              <a class="my-link" href="#comments">Voir les commentaires</a>
+            </div>
+          </div>
+          <div class="flat-content">
+            <div class="py-3">
               <% @space.images.each do |image| %>
-              <%= image_tag image, width: 500 %>
+                <%= image_tag image, width: "100%" %>
               <% end %>
             </div>
           </div>
-          <p class="card-title my-font-primary fs-4"><%= @space.title %></p>
-          <p class="card-text"><%= @space.description %></p>
-          <p class="card-text my-lead"><%= @space.city %></p>
-          <p class="card-text">Hôte: <%= @space.host.first_name %> <%= @space.host.last_name %></p>
-          <p class="card-text">Prix: <%= @space.price %> €/h </p>
+          <div>
+            <p class="card-text"><%= @space.description %></p>
+          </div>
         </div>
       </div>
   </div>
 
-    <div class="d-flex justify-content-end">
-      <h3>
-        <span class="badge badge-light text-dark"> 
-          <% @space.join_space_categories.each do |join| %>
-            <%= join.category.name %>
-          <% end %>
-        </span>
-      </h3>
-    </div>
-    <hr class="my-4">
-    <div class="mx-auto p-2 my-2 d-flex justify-content-end">
-      <div class="mx-auto d-flex justify-content-center">
-        <%= form_tag(checkout_create_path, method: "post", remote: true) do %>
-          <h2 class="mb-4">Réserver cet espace</h2>
-          <div class="my-4"><%= date_field_tag 'start_date', @booking.start_date, class:"form-control", required: true %></div>
-          <div class="my-4"><%= label_tag 'duration', 'Pour combien d\'heure(s) ?' %></div>
-          <div class="my-4"><%= number_field_tag('duration', @booking.duration, options = { value: 1, min: 1, max: 10, step: 1}) %></div>
-          <%= hidden_field_tag 'total', @space.price %>
-          <%= hidden_field_tag 'space_id', @space.id %>
-          <% if user_signed_in? %>
-            <div><%= button_to "Je réserve", checkout_create_path, class:"my-btn" %></div>
-          <% else %>
-            <div><%= link_to "Je réserve", new_user_session_path, class:"my-btn" %></div>
-          <% end %>
+  <div class="d-flex justify-content-end">
+    <h3>
+      <span class="badge badge-light text-dark"> 
+        <% @space.join_space_categories.each do |join| %>
+          <%= join.category.name %>
         <% end %>
+      </span>
+    </h3>
+  </div>
+
+  <hr class="my-4">
+
+  <div class="row">
+    <div class="col-md-12 col-lg-6 p-3">
+      <p class="card-text my-lead"><i class="fas fa-map-marker-alt mx-3 my-text-primary"></i><%= @space.city %></p>
+      <p class="card-text"><i class="far fa-user mx-3 my-text-primary"></i><%= @space.host.first_name %> <%= @space.host.last_name %><p>
+      <p class="card-text"><i class="fas fa-euro-sign mx-3 my-text-primary"></i> <%= @space.price %> €/jour</p>
+    </div>
+    <div class="col-md-12 col-lg-6  p-3 booking">
+      <%= form_tag(checkout_index_path, method: "post", remote: true) do %>
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <div class="p-2">
+              <p class="m-0 small my-lead">ARRIVÉE</p>
+            </div>
+            <div class="p-2">
+              <%= date_field_tag "start_date", @booking.start_date, class: "form-control", required: true, id: "start_date" %>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <div class="p-2">
+              <p class="m-0 small my-lead">DÉPART</p>
+            </div>
+            <div class="p-2">
+              <%= date_field_tag "end_date", @booking.end_date, class: "form-control", required: true, id: "end_date" %>
+            </div>
+          </div>
+        </div>
+
+        <div id="info" class="card-text">
+        </div>
+
+        <%= hidden_field_tag "sub_total", @space.price %>
+        <%= hidden_field_tag "space_id", @space.id %>
+        
+        <div id="view-more" class="hidden">
+          <div class="d-flex justify-content-between px-3">
+            <div><p class="card-text"><u>Durée</u></p></div>
+            <div id="duration"></div>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between px-3">
+            <div class="my-lead"><p class="card-text">TOTAL :</p></div>
+            <div id="total" class="my-lead"></div>
+          </div>
+        </div>
+        
+        <div id="check-date">
+          <% if user_signed_in? %>
+            <div class="p-4 text-center p-4">
+              <%= button_to "Réserver", checkout_index_path, class: "my-btn w-100", id: "submit" %>
+            </div>
+          <% else %>
+            <div class="p-4 text-center p-4">
+              <%= link_to "Réserver", new_user_session_path, class: "my-btn w-100" %>
+            </div>
+          <% end %>
+        </div>
+
+
+      <% end %>
+    </div>
+    
+    <div id="comments">
+    <hr>
+      <h2>Tous les commentaires</h2>
+      <div id="com">
+        <%= render @space.comments %> 
+      </div>
+
+      <div>
+        <%= render "comments/form" %>
       </div>
     </div>
+</div>
+
    
-    <div>
-      <% if user_signed_in? && current_user.id == @space.host_id %>
-      <%= link_to 'Modifier', edit_space_path(@space) %> 
-      <% end %>
-      <%= link_to 'Retour', spaces_path, class:"my-link" %>  
-    </div>
-  </div>    
+  <div class="p-3">
+    <% if user_signed_in? && current_user.id == @space.host_id %>
+      <%= link_to "Modifier", edit_space_path(@space), class: "my-link" %> 
+    <% end %>
+      <%= link_to "Retour", spaces_path, class: "my-link" %>  
+  </div>
 </div>
 
 
-
+<script>
+  document.addEventListener("load", bookingBtn("<%= @space.price %>"));
+</script>

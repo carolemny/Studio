@@ -14,5 +14,6 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require booking
 
 let provider = new GeoSearch.OpenStreetMapProvider();
