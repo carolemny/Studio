@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_03_23_102850) do
-=======
-ActiveRecord::Schema.define(version: 2021_03_22_182947) do
->>>>>>> develop
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,15 +53,6 @@ ActiveRecord::Schema.define(version: 2021_03_22_182947) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
-  create_table "conversations", force: :cascade do |t|
-    t.bigint "contact1_id"
-    t.bigint "contact2_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["contact1_id"], name: "index_conversations_on_contact1_id"
-    t.index ["contact2_id"], name: "index_conversations_on_contact2_id"
-=======
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.bigint "space_id"
@@ -74,7 +61,15 @@ ActiveRecord::Schema.define(version: 2021_03_22_182947) do
     t.datetime "updated_at", null: false
     t.index ["space_id"], name: "index_comments_on_space_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
->>>>>>> develop
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.bigint "contact1_id"
+    t.bigint "contact2_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contact1_id"], name: "index_conversations_on_contact1_id"
+    t.index ["contact2_id"], name: "index_conversations_on_contact2_id"
   end
 
   create_table "join_space_categories", force: :cascade do |t|
