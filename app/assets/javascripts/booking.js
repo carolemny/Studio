@@ -37,7 +37,7 @@ const bookingBtn = (priceErb) => {
     const duration = diffInDays + 1;
     const total = duration * price
     
-    document.getElementById("duration").innerHTML = `${duration} jours`;
+    document.getElementById("duration").innerHTML = `${duration} jour(s)`;
     document.getElementById("total").innerHTML = `${total} €`;
   };
   

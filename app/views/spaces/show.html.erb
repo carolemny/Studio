@@ -9,7 +9,7 @@
           <div class="d-flex justify-content-between">
             <div>
               <i class="far fa-comment-alt px-2 my-text-primary"></i>
-              
+              <a class="my-link" href="#comments">Voir les commentaires</a>
             </div>
           </div>
           <div class="flat-content">
@@ -98,16 +98,18 @@
 
       <% end %>
     </div>
-
-    <h2>Tous les commentaires</h2>
-    <div id="com">
-      <%= render @space.comments %> 
-    </div>
-
-    <div>
-      <%= render "comments/form" %>
-    </div>
     
+    <div id="comments">
+    <hr>
+      <h2>Tous les commentaires</h2>
+      <div id="com">
+        <%= render @space.comments %> 
+      </div>
+
+      <div>
+        <%= render "comments/form" %>
+      </div>
+    </div>
 </div>
 
    
