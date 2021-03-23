@@ -8,12 +8,16 @@
 }
 
 .my-card-hover{
-  transition: all .2s ease-in-out;
+  transition: transform .2s ease-in-out;
+  text-decoration: none;
+  div p {text-decoration: none};
+  div h4 {text-decoration: none};
 }
 
 .my-card-hover:hover {
   transform: scale(1.05);
   cursor: pointer;
+  text-decoration: none;
 }
 
 .my-border-card {
@@ -26,4 +30,9 @@
 }
 .text-divider:before {
   border-bottom: 2px solid #ff2d00;
+}
+
+.card-wrapper a {
+  text-decoration: none;
+  color: black;
 }
