@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   resources :spaces do
     resources :bookings
   end
+  
+  resources :conversations do 
+    resources :messages
+  end 
 
   resources :users, only: [:show, :edit, :update] do
     resources :avatars, only: [:create]

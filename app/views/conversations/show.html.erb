@@ -1,0 +1,16 @@
+<div>
+    <% @messages.each do |message|  %>
+        <p><%= message.body%></p>
+        <p><%= message.user.full_name%></p>
+    <% end %>
+</div>
+
+<div> 
+  <%= form_for [@conversation, @message] do |f| %>
+    <%= f.text_area :body, class:"form-control" %>
+    <%= f.text_field :user_id, class:"form-control", value: current_user.id, type: "hidden" %>
+    <%= f.text_field :recipient_id, class:"form-control", value: current_user.id, type: "hidden" %>
+    <%= f.text_field :conversation_id, class:"form-control", value: current_user.id, type: "hidden" %>
+    <%= f.submit "Répondre" %>
+  <% end %>
+</div>
