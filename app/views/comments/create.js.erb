@@ -1,1 +1,2 @@
-document.getElementById("com").html(<%= j render @space.comments %>)
+document.getElementById("com").innerHTML="<%= j render 'comments/comment', comments: @space.comments %>"
+document.getElementById("addcomment").innerHTML="<%= j render 'comments/form' %>"
