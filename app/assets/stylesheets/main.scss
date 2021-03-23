@@ -83,6 +83,7 @@ nav li a {
 .my-list-group {
   height: 80vh;
   overflow: scroll;
+  overflow-x: hidden;
   & ul {
     list-style:none;
     padding:0;
