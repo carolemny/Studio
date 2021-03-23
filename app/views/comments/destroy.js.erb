@@ -1,1 +1,1 @@
-document.getElementById("com").remove();
+document.getElementById("com").innerHTML="<%= j render 'comments/comment', comments: @space.comments %>"

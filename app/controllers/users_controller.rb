@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update]
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
+
     @bookings = Booking.where(guest_id: current_user.id)
     puts "x" * 100 
     @bookings.each { |booking| puts booking.space.title }
