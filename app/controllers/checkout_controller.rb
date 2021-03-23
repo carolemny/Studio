@@ -2,6 +2,7 @@ class CheckoutController < ApplicationController
   include CreateBooking
   before_action :space_is_available?, only: [:create]
   after_action :create_booking, only: [:success]
+  after_action :create_conversation, only: [:success]
 
   def create
     @sub_total = params[:sub_total].to_i
@@ -53,4 +54,25 @@ class CheckoutController < ApplicationController
       redirect_to space_path(params[:space_id])
     end
   end
+
+  def create_conversation
+
+    puts "@"*50
+    puts params
+    puts session[:guest_id]
+    puts session[:space_id] 
+    @space = Space.find(session[:space_id])
+    puts @space.host_id
+    puts "@"*50
+  
+    @conversation = Conversation.new(contact1_id: @space.host_id, contact2_id: current_user.id)
+
+    if Conversation.between(@space.host_id, current_user.id).present?
+      @conversation = Conversation.between(@space.host_id, current_user.id).first
+      flash[:notice] = "La conversation avec l'hôte existe déja"
+     else 
+      @conversation.save
+      flash[:error] = "Une conversation avec l'hôte a été créé "
+     end 
+  end 
 end

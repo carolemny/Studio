@@ -12,6 +12,8 @@ Space.destroy_all
 Booking.destroy_all
 Category.destroy_all
 JoinSpaceCategory.destroy_all
+Conversation.destroy_all
+Message.destroy_all
 
 cities = ["Paris", "Lyon", "Marseille", "Toulouse", "Lille", "Strasbourg", "Grenoble", "Nice", "Rennes", "Brest", "Bordeaux", "Biarritz", "Montpellier", "Nantes", "Clermont-Ferrant", "Caen", "Limoges", "Auxerre", "Dijon", "Tours", "Chartres"]
 
