@@ -5,7 +5,12 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+<<<<<<< HEAD
   has_many :hosted_spaces, foreign_key: 'host_id', class_name: "Space"
+=======
+  has_many :spaces
+  has_many :comments
+>>>>>>> develop
   has_many :bookings
   has_many :spaces, through: :bookings
   has_many :messages
