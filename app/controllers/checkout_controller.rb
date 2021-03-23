@@ -1,6 +1,6 @@
 class CheckoutController < ApplicationController
   include CreateBooking
-  before_action :start_date_is_possible?, only: [:create]
+  before_action :space_is_available?, only: [:create]
   after_action :create_booking, only: [:success]
 
   def create
@@ -46,14 +46,8 @@ class CheckoutController < ApplicationController
 
   private
 
-  def start_date_is_possible?
-    if params[:start_date] < Date.today.strftime("%Y-%m-%d")
-      flash[:error] = "Vous ne pouvez pas effectuer de réservation à cette date."
-      redirect_to space_path(params[:space_id])
-    end
-
+  def space_is_available?
     space_non_available = Booking.available_date(params[:start_date], params[:end_date], params[:space_id])
-
     if space_non_available.length > 0
       flash[:alert] = "L'espace est déjà loué à cette date."
       redirect_to space_path(params[:space_id])
