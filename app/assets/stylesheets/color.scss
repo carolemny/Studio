@@ -66,7 +66,11 @@
 }
 
 .my-border-bottom-primary {
-  border-bottom: 2px solid $my-primary;
+  border-bottom: 4px solid $my-primary;
+}
+
+.my-border-top-secondary {
+  border-top: 3px solid $my-secondary;
 }
 
 .my-border-bottom-secondary {

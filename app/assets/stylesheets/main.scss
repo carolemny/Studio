@@ -75,3 +75,20 @@ nav li a {
 .pb-200 {
   padding-bottom: 200px;
 }
+
+#map { 
+  height: 80vh;
+}
+
+.my-list-group {
+  height: 80vh;
+  overflow: scroll;
+  & ul {
+    list-style:none;
+    padding:0;
+    margin:0;
+  }
+  & li:hover {
+    background-color: $my-light;
+  }
+}
