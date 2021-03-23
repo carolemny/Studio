@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_03_23_102850) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "start_date"
-    t.date "end_date"
+    t.datetime "end_date"
     t.index ["guest_id"], name: "index_bookings_on_guest_id"
     t.index ["space_id"], name: "index_bookings_on_space_id"
   end
