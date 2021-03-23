@@ -4,8 +4,8 @@ const getMap = async (spaces) => {
   const results = await provider.search({ query: fullAddress });
 
   document.getElementById('map-container').innerHTML = "<div id='map'></div>"
-
-  let map = L.map('map').setView([results[0].y, results[0].x], 16);
+  
+  let map = L.map('map').setView([`${results[0].latitude}`, `${results[0].longitude}`], 16);
 
   let osmLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', { 
     attribution: '© OpenStreetMap contributors',
