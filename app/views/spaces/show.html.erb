@@ -95,7 +95,6 @@
       <% end %>
     </div>
 
-
     <div id="com">
       <hr>
       <h2 class="my-font-primary fs-4 p-4"> Tous les commentaires </h2>
@@ -107,6 +106,12 @@
     </div>
   </div>
    
+  <div class="calendar">
+    <%= month_calendar do |date| %>
+      <%= date.day %>
+    <% end %>
+  </div>
+
   <div class="p-3">
     <% if user_signed_in? && current_user.id == @space.host_id %>
       <%= link_to "Modifier", edit_space_path(@space), class: "my-link" %> 
@@ -114,7 +119,6 @@
       <%= link_to "Retour", spaces_path, class: "my-link" %>  
   </div>
 </div>
-
 
 <script>
   document.addEventListener("load", bookingBtn("<%= @space.price %>"));
