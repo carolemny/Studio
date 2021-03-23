@@ -43,7 +43,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.permit(:start_date, :space_id, :guest_id, :duration)
+    params.permit(:start_date, :space_id, :guest_id, :end_date)
   end
 
   def is_guest?
