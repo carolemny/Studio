@@ -85,3 +85,6 @@ gem 'pry'
 
 #Stripe for processing payments
 gem 'stripe', '~> 5.28'
+
+#Map
+gem 'geocoder'
