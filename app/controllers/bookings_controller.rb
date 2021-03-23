@@ -2,8 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   before_action :is_guest?, only: [:show, :edit, :destroy, :update]
-  before_action :start_date_is_possible?, only: [:update, :edit]
-
+  
   def show
   end
 

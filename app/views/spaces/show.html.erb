@@ -9,11 +9,15 @@
           <div class="d-flex justify-content-between">
             <div>
               <i class="far fa-comment-alt px-2 my-text-primary"></i>
+<<<<<<< HEAD
               <%= link_to 'Voir les commentaires', href="#comments", class: "my-link" %>
             </div>
             <div>
               <i class="far fa-heart px-2 my-text-primary"></i>
               <%= link_to 'Ajouter aux favoris', root_path, class: "my-link" %>
+=======
+              <a class="my-link" href="#comments">Voir les commentaires</a>
+>>>>>>> develop
             </div>
           </div>
           <div class="flat-content">
@@ -49,14 +53,14 @@
       <p class="card-text"><i class="fas fa-euro-sign mx-3 my-text-primary"></i> <%= @space.price %> €/jour</p>
     </div>
     <div class="col-md-12 col-lg-6  p-3 booking">
-      <%= form_tag(checkout_create_path, method: "post", remote: true) do %>
+      <%= form_tag(checkout_index_path, method: "post", remote: true) do %>
         <div class="row">
           <div class="col-sm-12 col-md-6">
             <div class="p-2">
               <p class="m-0 small my-lead">ARRIVÉE</p>
             </div>
             <div class="p-2">
-              <%= date_field_tag 'start_date', @booking.start_date, class:"form-control", required: true %>
+              <%= date_field_tag "start_date", @booking.start_date, class: "form-control", required: true, id: "start_date" %>
             </div>
           </div>
           <div class="col-sm-12 col-md-6">
@@ -64,26 +68,41 @@
               <p class="m-0 small my-lead">DÉPART</p>
             </div>
             <div class="p-2">
-              <%= date_field_tag 'end_date', @booking.end_date, class:"form-control", required: true %>
+              <%= date_field_tag "end_date", @booking.end_date, class: "form-control", required: true, id: "end_date" %>
             </div>
           </div>
         </div>
 
-        <%= hidden_field_tag 'total', @space.price %>
-        <%= hidden_field_tag 'space_id', @space.id %>
+        <div id="info" class="card-text">
+        </div>
 
-        <% if user_signed_in? %>
-          <div class="p-4 text-center p-4">
-            <%= button_to "Vérifier la disponibilité", checkout_create_path, class:"my-btn w-100" %>
+        <%= hidden_field_tag "sub_total", @space.price %>
+        <%= hidden_field_tag "space_id", @space.id %>
+        
+        <div id="view-more" class="hidden">
+          <div class="d-flex justify-content-between px-3">
+            <div><p class="card-text"><u>Durée</u></p></div>
+            <div id="duration"></div>
           </div>
-        <% else %>
-          <div class="p-4 text-center p-4">
-            <%= link_to "Vérifier la disponibilité", new_user_session_path, class:"my-btn w-100" %>
+          <hr>
+          <div class="d-flex justify-content-between px-3">
+            <div class="my-lead"><p class="card-text">TOTAL :</p></div>
+            <div id="total" class="my-lead"></div>
           </div>
-        <% end %>
+        </div>
+        
+        <div id="check-date">
+          <% if user_signed_in? %>
+            <div class="p-4 text-center p-4">
+              <%= button_to "Réserver", checkout_index_path, class: "my-btn w-100", id: "submit" %>
+            </div>
+          <% else %>
+            <div class="p-4 text-center p-4">
+              <%= link_to "Réserver", new_user_session_path, class: "my-btn w-100" %>
+            </div>
+          <% end %>
+        </div>
 
-      <% end %>
-    </div>
 
     <hr class="my-4">
 
@@ -91,21 +110,21 @@
     <h2 class="my-font-primary fs-4 p-4"> Tous les commentaires </h2>
       <%= render @space.comments %> 
     </div>
-
+  
     <div>
       <%= render "comments/form" %>
     </div>
-    
-</div>
 
    
   <div class="p-3">
     <% if user_signed_in? && current_user.id == @space.host_id %>
-      <%= link_to 'Modifier', edit_space_path(@space), class:"my-link" %> 
+      <%= link_to "Modifier", edit_space_path(@space), class: "my-link" %> 
     <% end %>
-      <%= link_to 'Retour', spaces_path, class:"my-link" %>  
+      <%= link_to "Retour", spaces_path, class: "my-link" %>  
   </div>
 </div>
 
 
-
+<script>
+  document.addEventListener("load", bookingBtn("<%= @space.price %>"));
+</script>
