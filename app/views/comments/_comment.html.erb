@@ -1,5 +1,5 @@
 <section id="comments">
-    <div><% @space.comments.sort_by(&:created_at) %>
+    <div><% @space.comments.sort_by(&:created_at).each do |comment| %> 
         <div class="my-card my-bg-light my-2 mb-3">
             <div class="card-body px-4">
                 <div class="user_avatar">
@@ -19,5 +19,6 @@
                 </cite>
             </div>
         </div>
+    <% end %>
     </div>
 </section>

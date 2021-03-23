@@ -74,40 +74,42 @@
 
         <%= hidden_field_tag "sub_total", @space.price %>
         <%= hidden_field_tag "space_id", @space.id %>
-        
-        <div id="view-more" class="hidden">
-          <div class="d-flex justify-content-between px-3">
-            <div><p class="card-text"><u>Durée</u></p></div>
-            <div id="duration"></div>
-          </div>
-          <hr>
-          <div class="d-flex justify-content-between px-3">
-            <div class="my-lead"><p class="card-text">TOTAL :</p></div>
-            <div id="total" class="my-lead"></div>
-          </div>
-        </div>
-        
-        <div id="check-date">
-          <% if user_signed_in? %>
-            <div class="p-4 text-center p-4">
-              <%= button_to "Réserver", checkout_index_path, class: "my-btn w-100", id: "submit" %>
-            </div>
-          <% else %>
-            <div class="p-4 text-center p-4">
-              <%= link_to "Réserver", new_user_session_path, class: "my-btn w-100" %>
-            </div>
-          <% end %>
-        </div>
+      <% end %>
 
+      <div id="view-more" class="hidden">
+        <div class="d-flex justify-content-between px-3">
+          <div><p class="card-text"><u>Durée</u></p></div>
+          <div id="duration"></div>
+        </div>
+        <hr>
+        <div class="d-flex justify-content-between px-3">
+          <div class="my-lead"><p class="card-text">TOTAL :</p></div>
+          <div id="total" class="my-lead"></div>
+        </div>
+      </div>
+      
+      
+      <div id="check-date">
+        <% if user_signed_in? %>
+          <div class="p-4 text-center p-4">
+            <%= button_to "Réserver", checkout_index_path, class: "my-btn w-100", id: "submit" %>
+          </div>
+        <% else %>
+          <div class="p-4 text-center p-4">
+            <%= link_to "Réserver", new_user_session_path, class: "my-btn w-100" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
 
     <hr class="my-4">
-
-    <div id="com">
     <h2 class="my-font-primary fs-4 p-4"> Tous les commentaires </h2>
-      <%= render @space.comments %> 
+      <div id="com">
+      <%= render 'comments/comment', comments: @space.comments %> 
     </div>
   
-    <div>
+    <div id="addcomment">
       <%= render "comments/form" %>
     </div>
 
