@@ -6,6 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :spaces
+  has_many :comments
   has_many :bookings
   has_many :spaces, through: :bookings
   has_one_attached :avatar

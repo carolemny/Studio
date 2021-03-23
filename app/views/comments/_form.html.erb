@@ -1,0 +1,15 @@
+<h2> Commenter </h2>
+    
+<%= form_for([@space, @space.comments.build], remote: true) do |f| %>
+ 
+  <p>
+    <%= f.text_area :content %>
+  </p>
+  <p>
+  <% if user_signed_in? %>
+    <%= f.submit "Valider" %>
+  </p>
+  <% else %>
+      <%= link_to "valider", new_user_session_path, class:"my-btn" %>
+    <% end %>
+<% end %>

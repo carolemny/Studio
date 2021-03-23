@@ -98,7 +98,18 @@
 
       <% end %>
     </div>
-  </div>
+
+    <h2>Tous les commentaires</h2>
+    <div id="com">
+      <%= render @space.comments %> 
+    </div>
+
+    <div>
+      <%= render "comments/form" %>
+    </div>
+    
+</div>
+
    
   <div class="p-3">
     <% if user_signed_in? && current_user.id == @space.host_id %>
