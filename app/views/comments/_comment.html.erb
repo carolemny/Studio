@@ -1,0 +1,23 @@
+<section id="comments">
+    <div><% @space.comments.sort_by(&:created_at) %>
+        <div class="my-card my-bg-light my-2 mb-3">
+            <div class="card-body px-4">
+                <div class="user_avatar">
+
+                </div>
+                
+                <p class="card-title">
+                <strong><%= link_to "#{comment.user.first_name} "+ " " +" #{comment.user.last_name}", user_path(comment.user.id), class:"my-link" %></strong>
+                </p>
+               
+                <p class="card-text"><%= comment.content %></p>
+ 
+                <cite title="Source Title">
+                <% if user_signed_in?  && current_user.id == comment.user_id  %>
+                 <%= link_to "Supprimer", space_comment_path(@space.id, comment.id), class:"badge badge-danger text-primary text-muted", data:{confirm:"Etes vous sûr de vouloir supprimer ce commentaire?", method:"DELETE", remote: true} %>
+                <% end %>
+                </cite>
+            </div>
+        </div>
+    </div>
+</section>

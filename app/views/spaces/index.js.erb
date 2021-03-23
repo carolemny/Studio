@@ -1,2 +1,3 @@
 document.getElementById("test").innerHTML="<%= j render 'index', spaces: @spaces %>"
 
+getMap(<%= @spaces.to_json.html_safe %>);

@@ -1,7 +1,10 @@
 @import 'variable';
 
+
 html {
   height: 100%;
+  
+
 }
 
 body {
@@ -16,6 +19,7 @@ body {
 header {
   position: sticky;
 	top: 0px;
+
 }
 
 .my-logo {
@@ -74,4 +78,22 @@ nav li a {
 
 .pb-200 {
   padding-bottom: 200px;
+}
+
+#map { 
+  height: 80vh;
+}
+
+.my-list-group {
+  height: 80vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  & ul {
+    list-style:none;
+    padding:0;
+    margin:0;
+  }
+  & li:hover {
+    background-color: $my-light;
+  }
 }

@@ -65,7 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Devise
 gem 'devise'
-
+gem 'rails-i18n'
 # Faker
 gem 'faker'
 
@@ -85,3 +85,6 @@ gem 'pry'
 
 #Stripe for processing payments
 gem 'stripe', '~> 5.28'
+
+#Map
+gem 'geocoder'
