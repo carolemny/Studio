@@ -4,7 +4,7 @@ class CheckoutController < ApplicationController
   after_action :create_booking, only: [:success]
 
   def create
-    @sub_total = params[:total].to_i
+    @sub_total = params[:sub_total].to_i
     date_start = Date.parse(params[:start_date])
     date_end = Date.parse(params[:end_date])
     @duration = (date_end - date_start).to_i + 1
@@ -50,10 +50,9 @@ class CheckoutController < ApplicationController
     if params[:start_date] < Date.today.strftime("%Y-%m-%d")
       flash[:error] = "Vous ne pouvez pas effectuer de réservation à cette date."
       redirect_to space_path(params[:space_id])
-      return false
     end
 
-    space_non_available = Booking.where(space_id: params[:space_id]).merge(Booking.where("start_date <= ? AND end_date >= ?", params[:start_date], params[:start_date]).or(Booking.where("start_date <= ? AND end_date >= ?", params[:end_date], params[:end_date])).or(Booking.where("start_date >= ? AND end_date <= ?", params[:start_date], params[:end_date])))
+    space_non_available = Booking.available_date(params[:start_date], params[:end_date], params[:space_id])
 
     if space_non_available.length > 0
       flash[:alert] = "L'espace est déjà loué à cette date."

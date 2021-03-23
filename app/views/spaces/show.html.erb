@@ -9,11 +9,7 @@
           <div class="d-flex justify-content-between">
             <div>
               <i class="far fa-comment-alt px-2 my-text-primary"></i>
-              <%= link_to 'Voir les commentaires', root_path, class: "my-link" %>
-            </div>
-            <div>
-              <i class="far fa-heart px-2 my-text-primary"></i>
-              <%= link_to 'Ajouter aux favoris', root_path, class: "my-link" %>
+              <%= link_to "Voir les commentaires", root_path, class: "my-link" %>
             </div>
           </div>
           <div class="flat-content">
@@ -56,7 +52,7 @@
               <p class="m-0 small my-lead">ARRIVÉE</p>
             </div>
             <div class="p-2">
-              <%= date_field_tag 'start_date', @booking.start_date, class:"form-control", required: true %>
+              <%= date_field_tag "start_date", @booking.start_date, class: "form-control", required: true, id: "start_date" %>
             </div>
           </div>
           <div class="col-sm-12 col-md-6">
@@ -64,35 +60,71 @@
               <p class="m-0 small my-lead">DÉPART</p>
             </div>
             <div class="p-2">
-              <%= date_field_tag 'end_date', @booking.end_date, class:"form-control", required: true %>
+              <%= date_field_tag("end_date", @booking.end_date, class: "form-control", required: true, id: "end_date") %>
             </div>
           </div>
         </div>
 
-        <%= hidden_field_tag 'total', @space.price %>
-        <%= hidden_field_tag 'space_id', @space.id %>
-
-        <% if user_signed_in? %>
-          <div class="p-4 text-center p-4">
-            <%= button_to "Vérifier la disponibilité", checkout_create_path, class:"my-btn w-100" %>
+        <%= hidden_field_tag "sub_total", @space.price %>
+        <%= hidden_field_tag "space_id", @space.id %>
+        
+        <div>
+          <% if user_signed_in? %>
+            <div class="p-4 text-center p-4">
+              <%= button_to "Vérifier la disponibilité", checkout_create_path, class: "my-btn w-100" %>
+            </div>
+          <% else %>
+            <div class="p-4 text-center p-4">
+              <%= link_to "Vérifier la disponibilité", new_user_session_path, class: "my-btn w-100" %>
+            </div>
+          <% end %>
+        </div>
+        <div id="view-more">
+          <div class="d-flex justify-content-between px-3 card-text">
+            <div >Durée :</div>
+            <div id="duration"></div>
           </div>
-        <% else %>
-          <div class="p-4 text-center p-4">
-            <%= link_to "Vérifier la disponibilité", new_user_session_path, class:"my-btn w-100" %>
+          <hr>
+          <div class="d-flex justify-content-between px-3 card-text">
+            <div class="my-lead">TOTAL :</div>
+            <div id="total" class="my-lead"></div>
           </div>
-        <% end %>
-
+        </div>
       <% end %>
     </div>
   </div>
    
   <div class="p-3">
     <% if user_signed_in? && current_user.id == @space.host_id %>
-      <%= link_to 'Modifier', edit_space_path(@space), class:"my-link" %> 
+      <%= link_to "Modifier", edit_space_path(@space), class: "my-link" %> 
     <% end %>
-      <%= link_to 'Retour', spaces_path, class:"my-link" %>  
+      <%= link_to "Retour", spaces_path, class: "my-link" %>  
   </div>
 </div>
 
+<script>
+  const startDate = document.getElementById("start_date");
+  const endDate = document.getElementById("end_date");
+  const viewMore = document.getElementById("view-more");
+  viewMore.style.visibility='hidden'
+  const calcul = () => {
+    const date1 = new Date(startDate.value); 
+    const date2 = new Date(endDate.value); // format "MM/JJ/AAAA"
+  
+    const diffInTime = date2.getTime() - date1.getTime(); 
+  
+    const diffInDays = diffInTime / (1000 * 3600 * 24); 
+    const duration = diffInDays + 1;
+    const total = duration * <%= @space.price %>
 
-
+    if (isNaN(total)) {
+      return null;
+    }
+    document.getElementById("duration").innerHTML = `${duration} jours`;
+    document.getElementById("total").innerHTML = `${total} €`;
+    viewMore.style.visibility='visible';
+  };
+  
+  startDate.addEventListener('change', calcul);
+  endDate.addEventListener('change', calcul);
+</script>
