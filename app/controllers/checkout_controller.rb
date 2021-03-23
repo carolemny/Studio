@@ -1,7 +1,9 @@
 class CheckoutController < ApplicationController
   include CreateBooking
+  include CreateConversation
   before_action :start_date_is_possible?, only: [:create]
   after_action :create_booking, only: [:success]
+  after_action :create_conversation, only: [:success]
 
   def create
     @sub_total = params[:total].to_i
@@ -26,7 +28,7 @@ class CheckoutController < ApplicationController
     session[:space_id] = params[:space_id]
     session[:guest_id] = current_user.id
     session[:duration] = params[:duration]
-
+    
     respond_to do |format|
       format.js
     end
