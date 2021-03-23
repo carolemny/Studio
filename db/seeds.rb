@@ -16,6 +16,15 @@ cities = ["Paris", "Lyon", "Marseille", "Toulouse", "Lille", "Strasbourg", "Gren
 
 categories = ["Peinture", "Sculpture - Poterie", "Danse", "Musique", "Menuiserie", "Photographie", "Vidéo"]
 
+start_dates = []
+10.times do
+  start_dates << Faker::Date.between(from: '2021-03-15', to: Date.today)
+end
+
+end_dates = []
+10.times do
+  end_dates << Faker::Date.between(from: Date.today, to: 2.day.from_now)
+end
 
 5.times do
   User.create(
@@ -128,8 +137,8 @@ end
   Booking.create(
     guest_id: User.where.not(id: space.host_id).sample.id,
     space: space,
-    duration: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].sample,
-    start_date: Faker::Date.between(from: '2020-06-30', to: '2021-06-30')
+    start_date: start_dates.sample,
+    end_date: end_dates.sample
   )
 end
 
