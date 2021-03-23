@@ -86,42 +86,15 @@
     </div>
 
     <h2>Tous les commentaires</h2>
-      <div><% @space.comments.sort_by(&:created_at).each do |comment| %>
-  <div class="card bg-light text-right my-2">
-    <div class="card-header ">
-      <p ><%= comment.content %></p>
-      <footer>
-        <strong><%= link_to "#{comment.user.first_name} "+ " " +" #{comment.user.last_name}", user_path(comment.user.id) %></strong>
-          <cite title="Source Title">
-          
-            <% if user_signed_in?  && current_user.id == comment.user_id  %>
-              <%= link_to "Supprimer", space_comment_path(@space.id, comment.id), class:"badge badge-danger", data:{confirm:"Etes vous sûr de vouloir supprimer ce commentaire?", method:"DELETE"} %>
-            <% end %>
-            
-         
-          </cite>
-      </footer>
+    <div id="com">
+      <%= render @space.comments %> 
     </div>
-  </div>
-<% end %>
-</div>
-    <h2>Votre commentaire:</h2>
-    
-      <%= form_for([@space, @space.comments.build]) do |f| %>
-       
-        <p>
-          <%= f.label :content, "le contenu" %><br />
-          <%= f.text_area :content %>
-        </p>
-        <p>
-        <% if user_signed_in? %>
-          <%= f.submit "Valider" %>
-        </p>
-        <% else %>
-            <%= link_to "valider", new_user_session_path, class:"my-btn" %>
-          <% end %>
-      <% end %>
 
+    <div>
+      <%= render "comments/form" %>
+    </div>
+    
+</div>
 
    
   <div class="p-3">

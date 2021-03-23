@@ -5,11 +5,16 @@ class CommentsController < ApplicationController
      
       respond_to do |format|
         if @comment.save
-          format.html { redirect_to @space, notice: "Comment was successfully created." }
+          format.html { redirect_to @space, notice: "Le commentaire a bien été créé" }
         else
           format.html {redirect_to space_path(@space.id), notice: "Error", status: :unprocessable_entity }
         end
       end
+
+      respond_to do |format|
+        format.js { }
+      end
+
     end
 
     def destroy
@@ -17,7 +22,12 @@ class CommentsController < ApplicationController
       @comment = Comment.find(params[:id])
       @comment.destroy
       respond_to do |format|
-        format.html { redirect_to space_path(@space.id), notice: "Comment was successfully destroyed." }
+        format.html { redirect_to space_path(@space.id), notice: "Le commentaire a bien été supprimé" }
+      end
+
+      respond_to do |format|
+        format.js { }
+        format.html { }
       end
       
     end
