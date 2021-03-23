@@ -9,7 +9,7 @@
           <div class="d-flex justify-content-between">
             <div>
               <i class="far fa-comment-alt px-2 my-text-primary"></i>
-              <%= link_to 'Voir les commentaires', root_path, class: "my-link" %>
+              <%= link_to 'Voir les commentaires', href="#comments", class: "my-link" %>
             </div>
             <div>
               <i class="far fa-heart px-2 my-text-primary"></i>
@@ -85,8 +85,10 @@
       <% end %>
     </div>
 
-    <h2>Tous les commentaires</h2>
+    <hr class="my-4">
+
     <div id="com">
+    <h2 class="my-font-primary fs-4 p-4"> Tous les commentaires </h2>
       <%= render @space.comments %> 
     </div>
 
