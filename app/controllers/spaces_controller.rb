@@ -5,7 +5,7 @@ class SpacesController < ApplicationController
   before_action :search_params, only: [:index]
 
   def index
-    @spaces = Space.where(nil)
+    @spaces = Space.includes(:host).where(nil)
     @spaces = @spaces.filter_by_city(params[:city]) if params[:city].present?
     @spaces = @spaces.filter_by_category(params[:category]) if params[:category].present?
 

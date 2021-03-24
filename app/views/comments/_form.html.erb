@@ -6,16 +6,16 @@
       <%= form_for([@space, @space.comments.new], remote: true) do |f| %>
       
         <div class="field form-group p-2">
-          <%= f.text_area :content, class: "form-control p-3", placeholder: "Qu'avez vous pensé de cet espace ?" %>
+          <%= f.text_area :content, class: "form-control p-3", placeholder: "Qu'avez-vous pensé de cet espace ?" %>
         </div>
 
         <div class="text-center">
         <% if user_signed_in? %>
-          <%= f.submit "Valider", class: "my-btn my-btn-sm mt-3" %>
+          <%= f.submit "Envoyer", class: "my-btn my-btn-sm mt-3" %>
         </div>
 
         <% else %>
-          <%= link_to "Envoyer", new_user_session_path %>
+          <%= link_to "Envoyer", new_user_session_path, class: "my-btn my-btn-sm mt-3" %>
         <% end %>
       <% end %>
 

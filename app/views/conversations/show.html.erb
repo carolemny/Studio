@@ -1,28 +1,15 @@
 <div class="row">
   <div class="col-md-9 m-auto shadow-sm bg-white  py-3  mt-5">
-
-    <div class="d-flex justify-content-around">
-      <div>
-          <% @messages.each do |message|  %>
-              <p><%= message.body%></p>
-              <p class="my-text-primary "><%= message.user.full_name%></p>
-          <% end %>
+    <div class="d-flex flex-column justify-content-around">
+    
+      <div id="message">
+        <%= render 'messages/message', messages: @messages %> 
       </div>
 
-      <div >
-        <h2> Nouveau message </h2>
-
-        <%= form_tag(conversation_messages_path(@conversation.id), method: "post" ) do %>
-          <div class="d-flex flex-column align-items-center">
-            <div class="mb-3">
-              <%= text_field_tag :body, "", class: 'form-control' %>
-            </div>
-            <div>
-              <%= submit_tag "Répondre", class: "my-btn my-btn " %>
-            </div>
-          </div>
-        <% end %>
+      <div id="addmessage">
+        <%= render 'messages/form' %>
       </div>
+    
     </div>
   </div>
 </div>

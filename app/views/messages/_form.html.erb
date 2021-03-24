@@ -1,0 +1,13 @@
+<div >
+    <h2> Nouveau message </h2>
+    <%= form_tag(conversation_messages_path(@conversation.id), method: :post, remote: true) do %>
+        <div class="d-flex flex-column align-items-center">
+            <div class="mb-3">
+                <%= text_field_tag :body, "", class: 'form-control' %>
+            </div>
+            <div>
+                <%= submit_tag "Répondre", class: "my-btn my-btn " %>
+            </div>
+        </div>
+    <% end %>
+</div>

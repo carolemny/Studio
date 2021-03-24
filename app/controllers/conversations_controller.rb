@@ -5,16 +5,9 @@ class ConversationsController < ApplicationController
    
     end
 
-    def show 
-       
+    def show
         @conversation = Conversation.find(params[:id])
-        @messages = Message.where(conversation_id: @conversation.id).order(:created_at)
-        @message = @conversation.messages.new
-
-        puts "X" * 100
-        puts @message
-    
-    
+        @messages = Message.includes(:user).where(conversation_id: @conversation.id).order(:created_at)
     end 
     
-	end 
+end 
