@@ -34,15 +34,14 @@
     </h3>
   </div>
 
-  <hr class="my-4">
-
-  <div class="row">
-    <div class="col-md-12 col-lg-6 p-3">
+  <div class="row p-2">
+    <div class="col-md-12 col-lg-6 p-3 ">
       <p class="card-text my-lead"><i class="fas fa-map-marker-alt mx-3 my-text-primary"></i><%= @space.city %></p>
       <p class="card-text"><i class="far fa-user mx-3 my-text-primary"></i><%= @space.host.first_name %> <%= @space.host.last_name %><p>
       <p class="card-text"><i class="fas fa-euro-sign mx-3 my-text-primary"></i> <%= @space.price %> €/jour</p>
     </div>
-    <div class="col-md-12 col-lg-6  p-3 booking">
+
+    <div class="col-md-12 col-lg-6 p-3 booking">
       <%= form_tag(checkout_index_path, method: "post", remote: true) do %>
         <div class="row">
           <div class="col-sm-12 col-md-6">
@@ -69,45 +68,51 @@
         <%= hidden_field_tag "sub_total", @space.price %>
         <%= hidden_field_tag "space_id", @space.id %>
       
-         <div id="view-more" class="hidden">
-           <div class="d-flex justify-content-between px-3">
-             <div><p class="card-text"><u>Durée</u></p></div>
-             <div id="duration"></div>
-           </div>
-           <hr>
-           <div class="d-flex justify-content-between px-3">
-             <div class="my-lead"><p class="card-text">TOTAL :</p></div>
-             <div id="total" class="my-lead"></div>
-           </div>
-         </div>
-      
-      
-          <div id="check-date">
-            <% if user_signed_in? %>
-              <div class="p-4 text-center p-4">
-                <%= button_to "Réserver", checkout_index_path, class: "my-btn w-100", id: "submit" %>
-              </div>
-            <% else %>
-              <div class="p-4 text-center p-4">
-                <%= link_to "Réserver", new_user_session_path, class: "my-btn w-100" %>
-              </div>
-            <% end %>
+        <div id="view-more" class="hidden">
+          <div class="d-flex justify-content-between px-3">
+            <div><p class="card-text"><u>Durée</u></p></div>
+            <div id="duration"></div>
           </div>
+          <hr>
+          <div class="d-flex justify-content-between px-3">
+            <div class="my-lead"><p class="card-text">TOTAL :</p></div>
+            <div id="total" class="my-lead"></div>
+          </div>
+        </div>
+      
+      
+        <div id="check-date">
+          <% if user_signed_in? %>
+            <div class="p-4 text-center p-4">
+              <%= button_to "Réserver", checkout_index_path, class: "my-btn w-100", id: "submit" %>
+            </div>
+          <% else %>
+            <div class="p-4 text-center p-4">
+              <%= link_to "Réserver", new_user_session_path, class: "my-btn w-100" %>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
+  </div>
 
+  <div class="d-flex justify-content-end align-items-center p-2">
+    <div class="calendar col-sm-12 col-lg-6 p-3">
+      <%= render 'calendar', bookings: @space.bookings %>
+    </div>
+  </div>
 
-    <hr class="my-4">
+  <hr class="my-4">
+  <div id="com">
     <h2 class="my-font-primary fs-4 p-4"> Tous les commentaires </h2>
-      <div id="com">
+      <div >
         <%= render 'comments/comment', comments: @space.comments %> 
       </div>
-
     <div id="addcomment">
       <%= render "comments/form" %>
     </div>
-    
   </div>
+  
    
   <div class="p-3">
     <% if user_signed_in? && current_user.id == @space.host_id %>
