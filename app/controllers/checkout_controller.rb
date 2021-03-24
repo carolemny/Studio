@@ -57,14 +57,8 @@ class CheckoutController < ApplicationController
 
   def create_conversation
 
-    puts "@"*50
-    puts params
-    puts session[:guest_id]
-    puts session[:space_id] 
     @space = Space.find(session[:space_id])
-    puts @space.host_id
-    puts "@"*50
-  
+
     @conversation = Conversation.new(contact1_id: @space.host_id, contact2_id: current_user.id)
 
     if Conversation.between(@space.host_id, current_user.id).present?
@@ -72,7 +66,10 @@ class CheckoutController < ApplicationController
       flash[:notice] = "La conversation avec l'hôte existe déja"
      else 
       @conversation.save
-      flash[:error] = "Une conversation avec l'hôte a été créé "
-     end 
+      flash[:error] = "Une conversation avec l'hôte a été créée "
+     end
+     
+    Message.create(conversation_id: @conversation.id, user_id: @space.host_id, body: "Merci pour ta réservation ! N'hésite pas à me contacter")
+
   end 
 end
