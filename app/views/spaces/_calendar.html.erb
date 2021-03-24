@@ -1,0 +1,8 @@
+<%= month_calendar(attribute: :start_date, events: bookings, partial: 'month_calendar') do |date, booking| %>
+  <div><%= date.day %></div>
+  <%  bookings.each do |booking| %>
+    <% if booking.start_date <= date && date <= booking.end_date %>
+      <div><i class="fas fa-circle fa-xs my-text-primary"></i></div>
+    <% end %>
+  <% end %>
+<% end %>

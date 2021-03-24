@@ -19,15 +19,6 @@ cities = ["Paris", "Lyon", "Marseille", "Toulouse", "Lille", "Strasbourg", "Gren
 
 categories = ["Peinture", "Sculpture - Poterie", "Danse", "Musique", "Menuiserie", "Photographie", "Vidéo"]
 
-start_dates = []
-10.times do
-  start_dates << Faker::Date.between(from: '2021-03-15', to: Date.today)
-end
-
-end_dates = []
-10.times do
-  end_dates << Faker::Date.between(from: Date.today, to: 2.day.from_now)
-end
 
 5.times do
   User.create(
@@ -152,18 +143,6 @@ end
   pottery_space2.images.attach(io: File.open("app/assets/images/space/poterie.jpg"), filename: "poterie.jpg", content_type: 'image/jpg')
   pottery_space2.save
 
-
-50.times do
-  space = Space.all.sample
-  Booking.create(
-    guest_id: User.where.not(id: space.host_id).sample.id,
-    space: space,
-    start_date: start_dates.sample,
-    end_date: end_dates.sample
-  )
-end
-
-
   JoinSpaceCategory.create(
     category_id: Category.where(name: 'Danse').first.id,
     space_id: dance_space.id
@@ -208,3 +187,4 @@ end
     category_id: Category.where(name: 'Menuiserie').first.id,
     space_id: carpentry_space.id
   )
+
