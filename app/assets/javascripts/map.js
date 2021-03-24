@@ -33,7 +33,8 @@ const getMap = async (spaces) => {
             return {
               label: el.nom,
               value: el.code,
-   
+              lat: el.centre.coordinates[1],
+              lon: el.centre.coordinates[0],
               boundingbox: null
             }
           })
@@ -66,7 +67,11 @@ const getMap = async (spaces) => {
 
         // zoom the map to the bounds
         map.fitBounds(bounds);
-      } 
+      } else {
+        var lat = Number(item.getAttribute('data-lat'));
+        var lon = Number(item.getAttribute('data-lon'));
+        map.setView(L.latLng(lat, lon), 12);
+      }
     }
   });
 
