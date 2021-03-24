@@ -1,26 +1,30 @@
-<div class=”ui segment”>
- <h3>Mes messages</h3>
- <div class=”ui list”>
-  <div class=”item”>
-  
-   <% current_user.conversations.each do |conversation| %>
-    <% if current_user.id == conversation.contact2_id %>
-        <%= conversation.contact1.full_name %>
-    <% else %>
-        <%= conversation.contact2.full_name %>
-    <% end %>
+<div class="row">
+  <div class="col-md-5 m-auto shadow-sm bg-white  py-3  mt-5 ">
 
-    <tr>
-      <td class="d-flex justify-content-between align-items-center">              
-        <div class="d-flex">
-
-          <%= link_to "Voir la conversation", conversation_path(conversation.id), class: "my-link" %>
+    <h3 class="mb-4 mx-2">Mes messages</h3>
+      <div class=”ui segment”>
+        <div class=”ui list”>
+          <div class=”item”>
+            <% current_user.conversations.each do |conversation| %>
+              <div class="card m-2 text-center p-2 card-hover-conversation" style="width: 20rem;"> 
+                <% if current_user.id == conversation.contact2_id %>
+                    <%= conversation.contact1.full_name %>
+                <% else %>
+                    <%= conversation.contact2.full_name %>
+                <% end %>
+                <tr>
+                  <td class="d-flex justify-content-between align-items-center ">              
+                    <div class="d-flex">
+                      <%= link_to "Voir la conversation", conversation_path(conversation.id), class:   "my-link "   %>
+                    </div>
+                  </td>
+                </tr>
+              </div>
+            <%end %>
+          </div>
         </div>
-      </td>
-    </tr>
-  <%end %>
+      </div>
   </div>
- </div>
-</div>
+</div>    
 
 

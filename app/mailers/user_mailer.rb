@@ -3,9 +3,7 @@ class UserMailer < ApplicationMailer
  
     def welcome_email(user)
 
-      @user = user 
-  
-      @url = 'https://studiofinalproject.herokuapp.com/users/sign_in'
+      @user = user
   
       mail(to: @user.email, subject: 'Bienvenue chez STUDIO') 
     end
@@ -14,8 +12,6 @@ class UserMailer < ApplicationMailer
 
       @user = User.find(user_id)
       @booking = booking
-      
-      @url = 'https://studiofinalproject.herokuapp.com/users/<%=@user_id=>'
 
       mail(to: @user.email, subject: 'Confirmation de votre réservation chez STUDIO') 
     end

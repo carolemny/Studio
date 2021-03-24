@@ -78,6 +78,10 @@
 }
 
 .navbar-color{
-  background-color: rgba(255, 255, 255, 0.5);
-  
+  background-color: white;
+}
+
+.navbar {
+  position: relative;
+  z-index: 1000 !important;
 }
