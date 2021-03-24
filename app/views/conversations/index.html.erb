@@ -6,7 +6,7 @@
         <div class=”ui list”>
           <div class=”item”>
             <% current_user.conversations.each do |conversation| %>
-              <div class="card m-2 text-center p-2" style="width: 20rem;"> 
+              <div class="card m-2 text-center p-2 card-hover-conversation" style="width: 20rem;"> 
                 <% if current_user.id == conversation.contact2_id %>
                     <%= conversation.contact1.full_name %>
                 <% else %>
