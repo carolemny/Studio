@@ -14,7 +14,7 @@
       <%= form_tag(spaces_path, method: :get, remote: true ) do %>
         <div class="input-group">
           <%= select_tag 'category', options_from_collection_for_select(Category.all, "id", "name"), include_blank: "Choisir une catégorie", class: "form-select" %>
-          <%= text_field_tag(:city, params[:city], placeholder: "Saisir une ville", class: "form-control") %>
+          <%= text_field_tag(:city, params[:city], placeholder: "Saisir une ville", class: "form-control", id: "places-search") %>
           <%= submit_tag "Rechercher", class: "my-btn-secondary form-control" %> 
         </div>
       <% end %>
