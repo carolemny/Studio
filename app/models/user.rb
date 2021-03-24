@@ -27,10 +27,6 @@ class User < ApplicationRecord
   
     if user_name.blank?
     user_name = self.email
-    puts "x" * 200
-    puts user_name
-    puts "x" * 200
-
     end 
 
   user_name 

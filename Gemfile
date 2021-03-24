@@ -88,3 +88,6 @@ gem 'stripe', '~> 5.28'
 
 #Map
 gem 'geocoder'
+
+#Calendar
+gem "simple_calendar", "~> 2.4"

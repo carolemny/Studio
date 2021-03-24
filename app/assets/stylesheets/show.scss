@@ -1,8 +1,7 @@
 .booking{
-  border: 1px solid rgb(221, 221, 221);
+  border: 1px solid rgba(255, 109, 77, 0.3);
   border-radius: 12px;
-  padding: 24px;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+  box-shadow: rgba(255, 109, 77, 0.2) 0px 6px 16px;
   background-color: white;
 }
 
@@ -15,4 +14,21 @@
 
 .hidden{
   display: none;
+}
+
+.calendar{
+  border: 1px solid rgba(255, 109, 77, 0.1);
+  background-color: rgba(255, 109, 77, 0.03);
+  margin-top: 10px;
+  a:hover {
+    color: #FF6D4D;
+  }
+}
+
+.simple-calendar, tbody, td, tfoot, th, thead, tr{
+  border-color: rgb(255, 109, 77);
+  .table-striped>tbody>tr:nth-of-type(odd) {
+    --bs-table-accent-bg: rgba(255, 109, 77, 0.05);
+    color: var(--bs-table-striped-color);
+  }
 }
