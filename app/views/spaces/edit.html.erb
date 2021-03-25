@@ -14,3 +14,7 @@
 <div class="py-3">
   <%= link_to 'Retour', space_path(@space.id), class:"my-link mx-5" %>
 </div>
+
+<script>
+  auto(<%= @spaces.to_json.html_safe %>);
+</script>

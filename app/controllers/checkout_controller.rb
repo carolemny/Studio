@@ -1,15 +1,11 @@
 class CheckoutController < ApplicationController
-  include CreateBooking
   before_action :space_is_available?, only: [:create]
-  after_action :create_booking, only: [:success]
-  after_action :create_conversation, only: [:success]
-
+ 
   def create
-    @sub_total = params[:sub_total].to_i
     date_start = Date.parse(params[:start_date])
     date_end = Date.parse(params[:end_date])
-    @duration = (date_end - date_start).to_i + 1
-    @total = @sub_total * @duration.to_i
+    duration = (date_end - date_start).to_i + 1
+    @total = params[:sub_total].to_i * duration.to_i
 
     @session = Stripe::Checkout::Session.create(
       payment_method_types: ["card"],
@@ -27,7 +23,6 @@ class CheckoutController < ApplicationController
 
     session[:start_date] = params[:start_date]
     session[:space_id] = params[:space_id]
-    session[:guest_id] = current_user.id
     session[:end_date] = params[:end_date]
 
     respond_to do |format|
@@ -39,6 +34,8 @@ class CheckoutController < ApplicationController
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
     @space = Space.find(session[:space_id])
+    @booking = Booking.create(start_date: session[:start_date], end_date: session[:end_date], guest_id: current_user.id, space_id: session[:space_id])
+    @conversation = Conversation.between(@space.host_id, @booking.guest_id).first
     flash[:notice] = "La réservation a bien été créée, un mail vous a été envoyé."
   end
 
@@ -55,21 +52,5 @@ class CheckoutController < ApplicationController
     end
   end
 
-  def create_conversation
 
-    @space = Space.find(session[:space_id])
-
-    @conversation = Conversation.new(contact1_id: @space.host_id, contact2_id: current_user.id)
-
-    if Conversation.between(@space.host_id, current_user.id).present?
-      @conversation = Conversation.between(@space.host_id, current_user.id).first
-      flash[:notice] = "La conversation avec l'hôte existe déja"
-     else 
-      @conversation.save
-      flash[:error] = "Une conversation avec l'hôte a été créée "
-     end
-     
-    Message.create(conversation_id: @conversation.id, user_id: @space.host_id, body: "Merci pour ta réservation ! N'hésite pas à me contacter")
-
-  end 
 end

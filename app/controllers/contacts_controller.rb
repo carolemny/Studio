@@ -9,9 +9,9 @@ class ContactsController < ApplicationController
   if @contact.valid?
         ContactMailer.contact(@contact).deliver_now
         redirect_to root_path
-        flash[:notice] = "We have received your message and will be in touch soon!"
+        flash[:notice] = "Demande de contact envoyée. Nous vous répondrons dans les plus brefs délais."
       else
-        flash[:notice] = "There was an error sending your message. Please try again."
+        flash[:error] = "Erreur. Votre demande n'a pas pu être envoyée."
         render :new
       end
     end

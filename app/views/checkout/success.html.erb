@@ -1,11 +1,35 @@
 <div class="container p-5 m-5">
   <h1>Paiement confirmé</h1>
   <hr>
-  <div>
-    <p>Nous avons reçu votre paiement de <%= number_to_currency(@payment_intent.amount_received / 100.0, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>.</p>
-    <p>La réservation pour l'espace "<%= @space.title %>" a bien été enregistrée. </p>
-    <p><%= link_to 'Voir l\'espace', space_path(@space.id), class: "my-link" %></p>
-    <p><%= link_to 'Prendre contact avec l\'hôte', conversations_path, class: "my-link" %></p>
+  <div class="card-body my-border-primary card-responsive d-flex">
+    <div class="col">
+      <div class="m-5">
+        <p>Nous avons reçu votre paiement de <%= number_to_currency(@payment_intent.amount_received / 100.0, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>.</p>
+        <p>La réservation pour l'espace "<%= @space.title %>" à <%= @space.city %> du <%= session[:start_date] %> au <%= session[:end_date] %> a bien été enregistrée. </p>
+        <p><%= link_to 'Voir l\'espace', space_path(@space.id), class: "my-link" %></p>
+      </div>
+      <div class="d-flex justify-content-between align-items-center m-5">
+        <div>
+          <%= image_tag "background.jpg", width: "100px", height: "100px", style:"clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);" unless @space.host.avatar.attached? %>
+          <%= image_tag @space.host.avatar, width: "100px", height: "100px", style:"clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);" if @space.host.avatar.attached? %>
+        </div>
+        <div class="m-5">
+          <p>L'hôte <%= @space.host.full_name%> vous a envoyé un nouveau message ! </p>
+          <p><%= link_to "Répondre à #{@space.host.full_name}", conversation_path(@conversation.id), class: "my-btn my-btn col-md-12"%></p> 
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card-body">
+        <div class="flat-content">
+          <div class="py-3">
+             <% @space.images.each do |image| %>
+               <%= image_tag image, width: "100%" %>
+             <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <%= link_to "Retour", root_path, class: "my-link" %>
-</div>
+<div>

@@ -22,16 +22,16 @@
         <%= form.text_area :description, class: "form-control", placeholder: "ex: Je dispose d'une salle de danse de 20m2. Vous y trouverez...", required: :true  %>
       </div>
       <div class="field form-group py-3">
-        <%= form.label :zip_code, "Code postal" %>
-        <%= form.text_field :zip_code, class: "form-control", placeholder: "ex: 75 008", required: :true  %>
-      </div>
-      <div class="field form-group py-3">
         <%= form.label :address, "Adresse" %>
         <%= form.text_field :address, class: "form-control", placeholder: "ex: Place Charles de Gaulle", required: :true  %>
       </div>
       <div class="field form-group py-3">
         <%= form.label :city, "Ville" %>
-        <%= form.text_field :city, class: "form-control", placeholder: "ex: PARIS", required: :true  %>
+        <%= form.text_field :city, class: "form-control", placeholder: "ex: PARIS", id: "places-search", required: :true  %>
+      </div>
+      <div class="field form-group py-3">
+        <%= form.label :zip_code, "Code postal" %>
+        <%= form.text_field :zip_code, class: "form-control", placeholder: "ex: 75 008", id: "zip-code", required: :true  %>
       </div>
       <div class="field form-group py-3">
         <%= form.label :price, "Prix (en € par jour)" %>
@@ -47,6 +47,7 @@
         <%= form.submit "Valider", class: "my-btn my-btn-secondary col-md-12 " %>
       </div>
     <% end %>
+    <div id="zip-code"></div>
 
   </div>
 </div>

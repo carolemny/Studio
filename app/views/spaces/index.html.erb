@@ -1,7 +1,6 @@
-<section class="jumbotron text-center background-image p-5">
+<section class="jumbotron text-center background-image-2 p-5">
   <div class="p-5">
     <h1 class="my-text-light pb-3">Nos espaces</h1>
-    <p class="my-text-light p-3">Découvrez nos espaces de créations adaptés à toutes vos activités artistiques: peinture, sculpture, photographie, musique, danse ... </p>
     <%= link_to "S'inscrire", new_user_registration_path, class:"my-btn" if user_signed_in? == false %>
   </div>
 </section>
@@ -19,20 +18,22 @@
         </div>
       <% end %>
     </div>
+    <div class="text-center pt-3" id="info-map">
+    </div>
   </div>
 </div>
 
 
 <div class="container-fluid">
-  <div class="col-12 px-3 pt-3">
-    <div class="d-flex flex-colunm my-border-top-secondary my-border-bottom-secondary">
-    <div id="test" class="col-md-6">
-      <%= render 'index', space: @space %>
-    </div>
-    <div class="col-md-6">
-      <div id="map-container">
+  <div class="col-12 px-3 pt-2">
+    <div class="d-flex  my-border-top-secondary my-border-bottom-secondary container-column">
+      <div id="test" class="col-md-6">
+        <%= render 'index', space: @space %>
       </div>
-    </div>
+      <div class="col-md-6 card-container">
+        <div id="map-container">
+        </div>
+      </div>
     </div>
   </div>
 </div>

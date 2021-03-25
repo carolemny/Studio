@@ -3,11 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-
     @bookings = Booking.where(guest_id: current_user.id)
-    puts "x" * 100 
     @bookings.each { |booking| puts booking.space.title }
-    puts "x" * 100
   end
 
   def edit

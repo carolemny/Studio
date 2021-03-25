@@ -5,7 +5,7 @@
         <%= form_for(@contact) do |f| %>
             <% if @contact.errors.any? %>
             <div id="error_explanation">
-                <h3><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+                <h3><%= pluralize(@contact.errors.count, "erreur(s)") %> ont empêché l'envoi de votre demande:</h2>
         
                 <ul>
                 <% @contact.errors.full_messages.each do |msg| %>

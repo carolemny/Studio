@@ -2,7 +2,7 @@
   
   <div class="text-center">
     <h1 class="text-white pb-5">Réservez votre espace de création artistique</h1>
-    <%= link_to "S'inscrire", new_user_registration_path, class:"my-btn my-btn-lg" %>
+   <%= link_to "S'inscrire", new_user_registration_path, class:"my-btn" if user_signed_in? == false %>
   </div>
 </section>
 
@@ -123,7 +123,7 @@
         <%= image_tag space.images.first, width: "100%", height: "300px" %>
         <div class="card-body px-4">
           <h4 class="card-title"><%= space.title %></h4>
-          <p class="card-title"><%= space.description %></p>
+          <p class="card-title"><%= truncate space.description, length: 65, separator: /\s/ %></p>
           <p class="card-text my-lead"><%= space.city %></p>
         </div>
       </div>
