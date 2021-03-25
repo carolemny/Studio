@@ -10,11 +10,11 @@
 
         <div class="text-center">
         <% if user_signed_in? %>
-          <%= f.submit "Poster", class: "my-btn-secondary my-btn-secondary-sm mt-3" %>
+          <%= f.submit "Poster", class: "my-btn-secondary mt-3" %>
         </div>
 
         <% else %>
-          <%= link_to "Poster", new_user_session_path, class: "my-btn-secondary my-btn-secondary-sm mt-3" %>
+          <%= link_to "Poster", new_user_session_path, class: "my-btn-secondary mt-3" %>
         <% end %>
       <% end %>
 

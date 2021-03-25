@@ -1,6 +1,5 @@
 .booking{
   border: 1px solid rgba(255, 109, 77, 0.3);
-  border-radius: 12px;
   box-shadow: rgba(255, 109, 77, 0.2) 0px 6px 16px;
   background-color: white;
 }
@@ -19,7 +18,6 @@
 .calendar{
   border: 1px solid rgba(255, 109, 77, 0.1);
   background-color: rgba(255, 109, 77, 0.03);
-  margin-top: 10px;
   a:hover {
     color: #FF6D4D;
   }
@@ -31,4 +29,22 @@
     --bs-table-accent-bg: rgba(255, 109, 77, 0.05);
     color: var(--bs-table-striped-color);
   }
+}
+
+.item > img{
+  width: 100%;
+  margin: auto;
+}
+
+.next-month, .prev-month{
+  color: #ACA1A1;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.my-fa{
+  font-size: 20px;
 }

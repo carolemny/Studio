@@ -41,10 +41,10 @@
         <%= select_tag 'category', options_from_collection_for_select(Category.all, "id", "name"), include_blank: "Sélectionner une catégorie", class: "form-control", required: :true %>
       </div>
       <div class="py-3">
-        <%= form.file_field :images, multiple: true, class: "form-control", required: :true  %>
+        <%= form.file_field :images, multiple: true, class: "form-control"  %>
       </div>
       <div class="actions py-3">
-        <%= form.submit "Valider", class: "my-btn my-btn col-md-12 " %>
+        <%= form.submit "Valider", class: "my-btn my-btn-secondary col-md-12 " %>
       </div>
     <% end %>
 

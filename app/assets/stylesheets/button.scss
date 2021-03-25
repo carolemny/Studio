@@ -3,15 +3,15 @@
 
 .my-btn {
   padding: .7em;
-  border: 1px solid #FF2D00;
+  border: 1px solid $my-primary;
   text-decoration: none;
-  background-color: #FFFFFF;
-  color: #FF2D00;
+  background-color: white;
+  color: $my-primary;
   font-size: 1em;
   letter-spacing: 1px;
   &:hover {
-    background-color: #FF2D00;
-    color: #FFFFFF;
+    background-color: $my-primary;
+    color: white;
   }
   &-sm {
     font-size: .8em;
@@ -26,16 +26,16 @@
 
 .my-btn-secondary {
   padding: .7em;
-  border: 1px solid #FFFFFF;
+  border: 1px solid white;
   text-decoration: none;
-  background-color: #FF2D00;
-  color: #FFFFFF;
+  background-color: $my-primary;
+  color: white;
   font-size: 1em;
   letter-spacing: 1px;
   &:hover {
-    background-color: #FFFFFF;
-    border: 1px solid #FF2D00;
-    color: #FF2D00;
+    background-color: white;
+    border: 1px solid $my-primary;
+    color: $my-primary;
   }
   &-sm {
     font-size: .8em;
@@ -48,11 +48,11 @@
 
 .my-link {
   text-decoration: none;
-  color: #FF2D00;
+  color: $my-primary;
   font-size: 1em;
   &:hover {
-    color: #FF2D00;
-    border-bottom: 2px solid #FF2D00;
+    color: $my-primary;
+    border-bottom: 2px solid $my-primary;
   }
   &-sm {
     font-size: .8em;
@@ -65,10 +65,10 @@
 
 .my-badge {
   padding: .5em;
-  border: 1px solid #FFFFFF;
+  border: 1px solid white;
   text-decoration: none;
-  background-color: #FF2D00;
-  color: #FFFFFF;
+  background-color: $my-secondary;
+  color: white;
   font-size: 1em;
   letter-spacing: 1px;
   &-sm {
@@ -82,14 +82,14 @@
 }
 
 .form-control:focus {
-  border: 2px solid #FF2D00;
+  border: 2px solid $my-primary;
   outline: 0;
   -webkit-box-shadow: inset 0 0px 0px ;
   box-shadow: inset 0 0px 0px ;
 }
 
 .form-select:focus {
-  border: 2px solid #FF2D00;
+  border: 2px solid $my-primary;
   outline: 0;
   -webkit-box-shadow: inset 0 0px 0px ;
   box-shadow: inset 0 0px 0px ;
