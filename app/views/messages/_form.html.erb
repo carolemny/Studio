@@ -1,6 +1,6 @@
 <div>
     <%= form_tag(conversation_messages_path(@conversation.id), method: :post, remote: true) do %>
-        <div class="d-flex flex-column">
+        <div class="d-flex flex-column mt-3">
             <div class="col-5">
             <div class="mb-3">
                 <%= text_area_tag :body, "", class: 'form-control' , placeholder: "Écris ton message"%>
