@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :spaces, through: :bookings
   has_many :messages
+  has_many :comments, dependent: :destroy
   has_many :conversations_as_contact1, foreign_key: 'contact1_id', class_name: "Conversation"
   has_many :conversations_as_contact2, foreign_key: 'contact2_id', class_name: "Conversation"
   has_one_attached :avatar
