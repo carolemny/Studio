@@ -95,3 +95,7 @@ nav li a {
     background-color: $my-light;
   }
 }
+
+::placeholder{
+  font-style: italic;
+}
