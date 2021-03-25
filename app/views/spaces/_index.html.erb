@@ -4,9 +4,7 @@
       <li class="d-flex align-items-center py-2 card-wrapper">
         <%= link_to space_path(space.id) do %>
           <div class=" d-flex card-responsive">
-            <% if space.images.first.any? %>
               <div><%= image_tag space.images.first, height: "250vh", width: "250vw"; %></div>
-            <% end %>
              <div class="card-body ">
                <h3 class="card-title"><%= space.title %></h3>
                  <p class="fs-5 pt-2"><%= truncate space.description, length: 60, separator: /\s/ %></p>
