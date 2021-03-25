@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row justify-content-center px-5">
     <div class="col-lg-12">
-      <div class="my-border-card p-5" >
+      <div class="my-border-card p-4">
         <div class="card-body">
           <div>
             <p class="card-title my-font-primary fs-4"><%= @space.title %></p>
           </div>
           <div>
-            <i class="far fa-comment-alt px-2 my-text-primary"></i>
+            <i class="far fa-comment-alt px-2 my-text-primary p-4"></i>
             <%= link_to 'Voir les commentaires', href="#com", class: "my-link" %>
           </div>
           <div class="flat-content">
@@ -23,16 +23,14 @@
         </div>
       </div>
   </div>
-
-  <div class="d-flex justify-content-end">
-    <h3>
-      <span class="badge badge-light text-dark"> 
+  <div class="d-flex justify-content-end p-3">
+      <span class="my-badge my-badge-sm"> 
         <% @space.join_space_categories.each do |join| %>
           <%= join.category.name %>
         <% end %>
       </span>
-    </h3>
   </div>
+  <hr class="my-4">
 
   <div class="row p-2">
     <div class="col-md-12 col-lg-6 p-3 ">
@@ -104,16 +102,15 @@
 
   <hr class="my-4">
   <div id="com">
-    <h2 class="my-font-primary fs-4 p-4"> Tous les commentaires </h2>
       <div >
         <%= render 'comments/comment', comments: @space.comments %> 
       </div>
-    <div id="addcomment">
-      <%= render "comments/form" %>
-    </div>
   </div>
-  
-   
+
+  <div id="addcomment">
+    <%= render "comments/form" %>
+  </div>
+      
   <div class="p-3">
     <% if user_signed_in? && current_user.id == @space.host_id %>
       <%= link_to "Modifier", edit_space_path(@space), class: "my-link" %> 

@@ -63,6 +63,24 @@
   }
 }
 
+.my-badge {
+  padding: .5em;
+  border: 1px solid #FFFFFF;
+  text-decoration: none;
+  background-color: #FF2D00;
+  color: #FFFFFF;
+  font-size: 1em;
+  letter-spacing: 1px;
+  &-sm {
+    font-size: 1.15em;
+  }
+  &-lg {
+    font-weight: 600;
+    font-size: 1.5em;
+    padding: 1em;
+  }
+}
+
 .form-control:focus {
   border: 2px solid #FF2D00;
   outline: 0;
