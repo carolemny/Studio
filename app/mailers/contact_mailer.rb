@@ -3,9 +3,7 @@ class ContactMailer < ApplicationMailer
  
     def contact(mail)
 
-      @contact = mail 
-
-      @url = 'https://studiofinalproject.herokuapp.com/users/sign_in'
+      @contact = mail
   
       mail(to: 'team.studio.thp@gmail.com', subject: 'Demande de contact') 
     end
