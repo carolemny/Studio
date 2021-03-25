@@ -1,0 +1,19 @@
+@import 'variable';
+
+.message {
+    color: $my-light;
+    background-color: $my-primary;
+    position: relative;
+    border-radius: 4px 16px 16px 4px;
+	box-shadow: 0 1px 4px ;
+    padding-left: 10px ;
+    			//  Border and arrow left
+			&:nth-child(2n) {
+                background-color: $my-secondary;
+                position: relative;
+                text-align: right;
+                border-radius: 16px 4px 4px 16px;
+                padding-right: 10px ;
+			}
+    
+}
