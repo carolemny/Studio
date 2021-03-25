@@ -1,6 +1,8 @@
 <div>
     <% messages.each do |message|  %>
-        <p><%= message.body %></p>
-        <p class="my-text-primary "><%= message.user.full_name%></p>
+        <div class="message">
+            <p class="card_title"><%= message.user.full_name%></p>
+            <p><%= message.body %></p>
+        </div>
     <% end %>
 </div>

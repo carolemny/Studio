@@ -1,9 +1,9 @@
-<div class="my-list-group">
+<div class="my-list-group space-container">
   <ul>
     <% @spaces.each do |space| %>
       <li class="d-flex align-items-center py-2 card-wrapper">
         <%= link_to space_path(space.id), class:"" do %>
-          <div class=" d-flex">
+          <div class=" d-flex card-responsive">
             <div><%= image_tag space.images.first, height: "250vh" %></div>
              <div class="card-body ">
                <h3 class="card-title"><%= space.title %></h3>

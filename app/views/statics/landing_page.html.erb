@@ -2,7 +2,7 @@
   
   <div class="text-center">
     <h1 class="text-white pb-5">Réservez votre espace de création artistique</h1>
-    <%= link_to "S'inscrire", new_user_registration_path, class:"my-btn my-btn-lg" %>
+   <%= link_to "S'inscrire", new_user_registration_path, class:"my-btn" if user_signed_in? == false %>
   </div>
 </section>
 

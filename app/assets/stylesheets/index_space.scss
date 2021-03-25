@@ -43,3 +43,25 @@
   text-decoration: none;
   color: black;
 }
+
+@media screen and (max-width: 1315px) {
+  .card-responsive{
+    flex-direction: column;
+  }
+  
+}
+
+@media screen and (max-width: 815px) {
+  .container-column{
+    flex-direction: column;
+  }
+  .my-list-group{
+    margin-bottom: 50px;
+  }
+  .card-container{ 
+    width: 100%;
+  }
+  .space-container{
+    width: 100vw;
+  }
+}
