@@ -15,12 +15,11 @@ JoinSpaceCategory.destroy_all
 Conversation.destroy_all
 Message.destroy_all
 
-cities = ["Paris", "Lyon", "Marseille", "Toulouse", "Lille", "Strasbourg", "Grenoble", "Nice", "Rennes", "Brest", "Bordeaux", "Biarritz", "Montpellier", "Nantes", "Clermont-Ferrant", "Caen", "Limoges", "Auxerre", "Dijon", "Tours", "Chartres"]
 
 categories = ["Peinture", "Sculpture - Poterie", "Danse", "Musique", "Menuiserie", "Photographie", "Vidéo"]
 
 
-5.times do
+10.times do
   User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -40,19 +39,19 @@ end
     address: "Place du Château Rouge",
     city: "Paris",
     zip_code: "75018",
-    description: 'Salle de danse 20m² avec miroirs et barre',
-    title: 'Studio de danse',
-    price: 5
+    description: "Je mets à disposition ma salle de danse 30 m² avec parquet en chêne. La salle dispose d'un large miroir et de barres de danse. Matériel son, avec possibilité de mettre votre musique avec téléphone ou clé USB.",
+    title: 'Salle de danse',
+    price: 40
   )
   dance_space.images.attach(io: File.open("app/assets/images/space/danse.jpg"), filename: "danse.jpg", content_type: 'image/jpg')
   dance_space.save
 
   paint_space = Space.new(
     host_id: User.all.sample.id,
-    address: "17 rue Marcadet",
-    city: "Paris",
-    zip_code: "75018",
-    description: 'Chevalet, tabouret et table de travail à disposition',
+    address: "52 rue Turenne",
+    city: "Bordeaux",
+    zip_code: "33000",
+    description: "Espace de travail idéal pour peintre. Belle pièce de 17 m², lumineuse et aérée.La location comprend l'accès à un chevalet, tabouret et table de travail.",
     title: 'Atelier pour peintre',
     price: 15
   )
@@ -61,14 +60,14 @@ end
 
   music_space = Space.new(
     host_id: User.all.sample.id,
-    address: "17 rue Marcadet",
-    city: "Paris",
-    zip_code: "75018",
-    description: 'Matériel pour enregistrement et mixage ',
-    title: "Studio d'enregistrement",
+    address: "22 rue Nationale",
+    city: "Lille",
+    zip_code: "59000",
+    description: "Musicien, je propose mon petit studio de musique avec tout le matériel nécessaire à l'enregistrement et au mixage.",
+    title: "Studio d'enregistrement musique",
     price: 20
   )
-  music_space.images.attach(io: File.open("app/assets/images/space/musique2.jpg"), filename: "musique2.jpg", content_type: 'image/jpg')
+  music_space.images.attach(io: File.open("app/assets/images/space/studio.jpg"), filename: "studio.jpg", content_type: 'image/jpg')
   music_space.save
 
   video_space = Space.new(
@@ -76,11 +75,11 @@ end
     address: "17 rue Marcadet",
     city: "Paris",
     zip_code: "75018",
-    description: "Studio vidéo avec fond vert et matériel d'enregistrement",
+    description: "Passionnée d'audiovisuel je propose mon espace vidéo aménagé. Vous pouvez utilisez les équipements suivants : Softbox pour l'éclairage, micro sans-fil, trépied et fond vert.",
     title: "Espace pour réalisation vidéo",
-    price: 10
+    price: 30
   )
-  video_space.images.attach(io: File.open("app/assets/images/space/video.jpg"), filename: "video.jpg", content_type: 'image/jpg')
+  video_space.images.attach(io: File.open("app/assets/images/space/video2.jpg"), filename: "video2.jpg", content_type: 'image/jpg')
   video_space.save
 
   photo_space = Space.new(
@@ -88,9 +87,9 @@ end
     address: "121 rue Caulaincourt",
     city: "Paris",
     zip_code: "75018",
-    description: "Fond blanc et réflecteurs de lumière à dispo",
-    title: "Studio photo 14m², idéal pour photographes",
-    price: 5
+    description: "Magnifique studio pour photographes. Avec un fond blanc et des réflecteurs de lumières à disposition, cet espace est idéal pour la photographie de portraits, ou d'objets.",
+    title: "Studio photo 19m²",
+    price: 20
   )
   photo_space.images.attach(io: File.open("app/assets/images/space/photo.jpg"), filename: "photo.jpg", content_type: 'image/jpg')
   photo_space.save
@@ -100,8 +99,8 @@ end
     address: "5 rue Poullain Duparc",
     city: "Rennes",
     zip_code: "35000",
-    description: "Parfait pour peintre, possibilité d'utiliser le chevalet, évier et table de travail",
-    title: "Espace idéal peinture 10m²",
+    description: "Je propose mon petit atelier peinture, beaucoup de charme et tout ce dont vous avez besoin ! Possibilité d'utiliser le chevalet, l'évier et la table de travail.",
+    title: "Espace idéal peinture 13m²",
     price: 15
   )
   paint_space2.images.attach(io: File.open("app/assets/images/space/peinture6.jpg"), filename: "peinture6.jpg", content_type: 'image/jpg')
@@ -112,7 +111,7 @@ end
     address: "5 rue de l'Horloge",
     city: "Rennes",
     zip_code: "35000",
-    description: "Je mets à disposition mon atelier de menuiserie avec outils, idéal pour petits travaux",
+    description: "Passionné de menuiserie, je propose mon petit atelier à la location. Possibilité d'utiliser le matériel et la table de travail. Idéal pour bricolage ou petits travaux.",
     title: "Petit atelier de menuiserie",
     price: 20
   )
@@ -124,7 +123,7 @@ end
     address: "10 rue foch",
     city: "Montpellier",
     zip_code: "34000",
-    description: "Atelier idéal pour petites sculptures, céramique ... outils et table de travail à disposition",
+    description: "Je pratique la sculpture et propose mon atelier aménagé de 30m². Parfait pour réaliser de petites et moyennes pièces en pierre, terre cuite, céramique ... Outils de base, table de travail et évier à disposition.",
     title: "Atelier d'artiste sculpteur",
     price: 35
   )
@@ -136,9 +135,9 @@ end
     address: "9 Boulevard Jean Moulin",
     city: "Nantes",
     zip_code: "44100",
-    description: "Je mets à disposition mon matériel de poterie, dans une pièce dédiée de 11m².",
-    title: "Espace idéal pour travail de la poterie",
-    price: 40
+    description: "Je pratique la poterie depuis peu et me suis aménagé mon espace de travail, dans une pièce dédiée de 14m². Possibilité d'utiliser les outils (rouleau, planche de bois, fil ...) mais je ne fournis pas l'argile. ",
+    title: "Espace de travail idéal pour la poterie",
+    price: 30
   )
   pottery_space2.images.attach(io: File.open("app/assets/images/space/poterie.jpg"), filename: "poterie.jpg", content_type: 'image/jpg')
   pottery_space2.save

@@ -7,11 +7,11 @@
             <div><%= image_tag space.images.first, height: "250vh" %></div>
              <div class="card-body ">
                <h3 class="card-title"><%= space.title %></h3>
-                 <p class="fs-5 pt-2"><%= space.description %></p>
+                 <p class="fs-5 pt-2"><%= truncate space.description, length: 60, separator: /\s/ %></p>
                    <div class="d-flex align-items-baseline">
                      <span class="my-text-primary"><%=space.city%></span>
                        <% space.join_space_categories.each do |join| %>
-                     <span class="mx-3"><%=join.category.name %></span>
+                     <span class="mx-3 my-badge my-badge-sm"><%=join.category.name %></span>
                        <% end %>
                    </div>
             </div>
