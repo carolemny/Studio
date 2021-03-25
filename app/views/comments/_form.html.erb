@@ -1,7 +1,6 @@
-<div class="container"
+<div class="container">
   <div class="row">
     <div class="col-md-5 m-auto">
-      <h2 class="my-font-primary fs-4 text-center p-3"> Commenter</h2>
     
       <%= form_for([@space, @space.comments.new], remote: true) do |f| %>
       
@@ -11,11 +10,11 @@
 
         <div class="text-center">
         <% if user_signed_in? %>
-          <%= f.submit "Envoyer", class: "my-btn my-btn-sm mt-3" %>
+          <%= f.submit "Poster", class: "my-btn-secondary my-btn-secondary-sm mt-3" %>
         </div>
 
         <% else %>
-          <%= link_to "Envoyer", new_user_session_path, class: "my-btn my-btn-sm mt-3" %>
+          <%= link_to "Poster", new_user_session_path, class: "my-btn-secondary my-btn-secondary-sm mt-3" %>
         <% end %>
       <% end %>
 

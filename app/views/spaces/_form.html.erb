@@ -1,50 +1,52 @@
-<%= form_with(model: space, local: true) do |form| %>
-  <% if space.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(space.errors.count, "error") %> prohibited this space from being saved:</h2>
+<div class="row d-flex justify-content-center px-5">
+  <div class="py-2 my-font-primary col-lg-6">
 
-      <ul>
-      <% space.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field form-group">
-    <%= form.label :title, "Titre" %>
-    <%= form.text_field :title, class: "form-control", placeholder: "Présentez votre espace en quelques mots" %>
+    <% if space.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(space.errors.count, "error") %> prohibited this space from being saved:</h2>
+          <ul>
+            <% space.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+      </div>
+    <% end %>
+    
+    <%= form_with(model: space, local: true) do |form| %>
+      <div class="field form-group py-3">
+        <%= form.label :title, "Titre" %>
+        <%= form.text_field :title, class: "form-control", placeholder: "ex: Bel espace de danse à Paris", required: :true %>
+      </div>
+       <div class="field form-group py-3">
+        <%= form.label :description, "Description" %>
+        <%= form.text_area :description, class: "form-control", placeholder: "ex: Je dispose d'une salle de danse de 20m2. Vous y trouverez...", required: :true  %>
+      </div>
+      <div class="field form-group py-3">
+        <%= form.label :zip_code, "Code postal" %>
+        <%= form.text_field :zip_code, class: "form-control", placeholder: "ex: 75 008", required: :true  %>
+      </div>
+      <div class="field form-group py-3">
+        <%= form.label :address, "Adresse" %>
+        <%= form.text_field :address, class: "form-control", placeholder: "ex: Place Charles de Gaulle", required: :true  %>
+      </div>
+      <div class="field form-group py-3">
+        <%= form.label :city, "Ville" %>
+        <%= form.text_field :city, class: "form-control", placeholder: "ex: PARIS", required: :true  %>
+      </div>
+      <div class="field form-group py-3">
+        <%= form.label :price, "Prix (en € par jour)" %>
+        <%= form.text_field :price, class: "form-control", placeholder: "ex: 30", required: :true  %>
+      </div>
+      <div class="py-3">
+        <%= select_tag 'category', options_from_collection_for_select(Category.all, "id", "name"), include_blank: "Sélectionner une catégorie", class: "form-control", required: :true %>
+      </div>
+      <div class="py-3">
+        <%= form.file_field :images, multiple: true, class: "form-control", required: :true  %>
+      </div>
+      <div class="actions py-3">
+        <%= form.submit "Valider", class: "my-btn my-btn col-md-12 " %>
+      </div>
+    <% end %>
+
   </div>
-   <div class="field form-group">
-    <%= form.label :description, "Description" %>
-    <%= form.text_area :description, class: "form-control", placeholder: "Précisez les équipements à disposition et toutes informations utiles" %>
-  </div>
-  <div class="field form-group">
-    <%= form.label :zip_code, "Code postal" %>
-    <%= form.text_field :zip_code, class: "form-control" %>
-  </div>
-  <div class="field form-group">
-    <%= form.label :address, "Adresse" %>
-    <%= form.text_field :address, class: "form-control", placeholder: "Numéro et nom de la rue" %>
-  </div>
-  <div class="field form-group">
-    <%= form.label :city, "Ville" %>
-    <%= form.text_field :city, class: "form-control" %>
-  </div>
-  <br>
-  <div class="field form-group">
-    <%= form.label :price, "Prix (en € par jour)" %>
-    <%= form.text_field :price, class: "form-control" %>
-  </div>
-  <br>
-  <div>
-    <%= select_tag 'category', options_from_collection_for_select(Category.all, "id", "name"), include_blank: "Rechercher par catégorie ", class: "form-control"%>
-  </div>
-  <br>
-  <div>
-    <%= form.file_field :images, multiple: true, class: "form-control" %>
-  </div>
-  <br>
-  <div class="actions">
-    <%= form.submit "Valider", class: "my-btn my-btn col-md-12 " %>
-  </div>
-<% end %>
+</div>

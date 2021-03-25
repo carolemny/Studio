@@ -8,7 +8,8 @@ class CommentsController < ApplicationController
           format.html { redirect_to @space}
           format.js { }
         else
-          format.html {redirect_to space_path(@space.id), notice: "Error", status: :unprocessable_entity }
+          format.html {redirect_to space_path(@space.id), notice: "Votre commentaire n'a pas été envoyé", status: :unprocessable_entity }
+          format.js { }
         end
       end
 
