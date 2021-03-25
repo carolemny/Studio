@@ -63,13 +63,15 @@ class CheckoutController < ApplicationController
 
     if Conversation.between(@space.host_id, current_user.id).present?
       @conversation = Conversation.between(@space.host_id, current_user.id).first
-      flash[:notice] = "La conversation avec l'hôte existe déja"
      else 
       @conversation.save
-      flash[:error] = "Une conversation avec l'hôte a été créée "
      end
      
-    Message.create(conversation_id: @conversation.id, user_id: @space.host_id, body: "Merci pour ta réservation ! N'hésite pas à me contacter")
+    Message.create(conversation_id: @conversation.id, 
+    user_id: @space.host_id, 
+    body: "Merci pour ta réservation #{current_user.full_name} concernant \"#{@space.title}\" du #{session[:start_date]} au #{session[:end_date]} ! 
+    N'hésite pas à me contacter pour toute question éventuelle."
+    )
 
   end 
 end
