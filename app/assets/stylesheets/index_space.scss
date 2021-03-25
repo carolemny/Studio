@@ -7,6 +7,13 @@
   background-image:linear-gradient( rgba(255,45,0,0.3) 0%,rgba(255,45,0,0.3) 100%), url("/assets/background.jpg");
 }
 
+.background-image-2 {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("/assets/space/musique2.jpg");
+}
+
 .my-card-hover{
   transition: transform .2s ease-in-out;
   text-decoration: none;
