@@ -1,24 +1,24 @@
 <div class="my-list-group">
   <ul>
     <% @spaces.each do |space| %>
-      <li class="d-flex align-items-center py-2">
-      <%= link_to space_path(space.id), class:"" do %>
-        <%= image_tag space.images.first, height: "250vh" %>
-      <% end%>
-        <div class="card-body">
-          <h3><%= space.title %></h3>
-          <p class="fs-5 pt-2"><%= space.description %></p>
-            <div class="d-flex align-items-baseline">
-              <%= link_to space.city, "#", class:"my-link my-link-lg pe-3" %>
-              <% space.join_space_categories.each do |join| %>
-                <%= link_to join.category.name, "#", class:"my-link my-link-lg" %>
-              <% end %>
+      <li class="d-flex align-items-center py-2 card-wrapper">
+        <%= link_to space_path(space.id), class:"" do %>
+          <div class=" d-flex">
+            <div><%= image_tag space.images.first, height: "250vh" %></div>
+             <div class="card-body ">
+               <h3 class="card-title"><%= space.title %></h3>
+                 <p class="fs-5 pt-2"><%= space.description %></p>
+                   <div class="d-flex align-items-baseline">
+                     <span class="my-text-primary"><%=space.city%></span>
+                       <% space.join_space_categories.each do |join| %>
+                     <span class="mx-3"><%=join.category.name %></span>
+                       <% end %>
+                   </div>
             </div>
-          <div class="pt-5">
-            <%= link_to "Voir plus", space_path(space.id), class:"my-btn" %>
           </div>
-        </div>
+        <% end%>
       </li>
     <%end%>
   </ul>
 </div>
+
