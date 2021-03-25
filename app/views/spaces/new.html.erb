@@ -7,3 +7,7 @@
 <div class="py-3">
   <%= link_to 'Retour', spaces_path, class:"my-link  mx-5"%>
 </div>
+
+<script>
+  auto(<%= @spaces.to_json.html_safe %>);
+</script>
