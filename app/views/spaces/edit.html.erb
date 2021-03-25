@@ -1,14 +1,9 @@
-<div class="row">
-  <div class="col-md-5 m-auto">
-    <h2 class="mb-3 text-center">Modifier votre espace</h2>
-    <br>
-    <%= render 'form', space: @space %>
-    <br>
-    <%= link_to 'Show', @space %> |
-    <%= link_to 'Back', spaces_path %>
-  </div>
+<div>
+  <h1 class="mb-3 text-center">Modifier votre espace</h1>
 </div>
-
-
-
-    
+<div>
+  <%= render 'form', space: @space %>
+</div>
+<div class="py-3">
+  <%= link_to 'Retour', space_path(@space.id), class:"my-link mx-5" %>
+</div>
