@@ -3,8 +3,8 @@ class Space < ApplicationRecord
   scope :filter_by_city, -> (city) { where('lower(city) LIKE ?', "#{city.downcase}%") } 
   scope :filter_by_category, -> (category) { Space.joins(:join_space_categories).merge(JoinSpaceCategory.where(category_id: category)) }
   belongs_to :host, class_name: 'User'
-  has_many :bookings
   has_many :comments
+  has_many :bookings
   has_many :guests, through: :bookings
   has_many :join_space_categories
   has_many :categories, through: :join_space_categories
