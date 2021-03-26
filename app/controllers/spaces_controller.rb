@@ -74,11 +74,9 @@ class SpacesController < ApplicationController
 
   def checking_bookings
     @space = set_space
-    if @space.bookings.empty?
-      return true
-    else
+    unless @space.bookings.empty?
       flash[:error] = "Des réservations sont en cours, vous ne pouvez pas supprimer cet espace."
-      redirect_to space_path(@space.id)
+      redirect_to space_path(@space.id)  
     end
   end
 end
