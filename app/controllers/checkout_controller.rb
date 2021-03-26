@@ -1,6 +1,6 @@
 class CheckoutController < ApplicationController
   before_action :space_is_available?, only: [:create]
- 
+
   def create
     date_start = Date.parse(params[:start_date])
     date_end = Date.parse(params[:end_date])
@@ -40,6 +40,8 @@ class CheckoutController < ApplicationController
   end
 
   def cancel
+    flash[:error] = "Vous avez annulé le paiement et la réservation."
+    redirect_to space_path(session[:space_id])
   end
 
   private
@@ -51,6 +53,4 @@ class CheckoutController < ApplicationController
       redirect_to space_path(params[:space_id])
     end
   end
-
-
 end
