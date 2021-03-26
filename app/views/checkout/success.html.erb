@@ -24,9 +24,7 @@
       <div class="card-body">
         <div class="flat-content">
           <div class="py-3">
-             <% @space.images.each do |image| %>
-               <%= image_tag image, width: "100%" %>
-             <% end %>
+            <%= image_tag @space.images.first, width: "100%" %>
           </div>
         </div>
       </div>

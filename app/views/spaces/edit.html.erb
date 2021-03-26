@@ -40,10 +40,10 @@
     <% end %>
     <div id="zip-code"></div>  
 
-    <div class="row d-flex justify-content-center px-5">
-      <div class="py-2 my-font-primary col-lg-6">
+    <div class="row d-flex justify-content-center">
+      <div class="py-2 my-font-primary col-lg-12">
         <% if @space.host_id == current_user.id %>
-          <%= button_to 'Supprimer mon espace', space_path(@space.id), method: :delete, class: "my-btn col-md-12", data:{confirm:"Etes vous sûr de vouloir supprimer cet espace ?"}  %>
+          <%= button_to 'Supprimer mon espace', space_path(@space.id), method: :delete, class: "my-btn col-lg-12", data:{confirm:"Etes vous sûr de vouloir supprimer cet espace ?"}  %>
         <% end %>
       </div>
     </div>
