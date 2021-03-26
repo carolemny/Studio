@@ -3,6 +3,7 @@ class SpacesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :new]
   before_action :is_host?, only: [:edit, :update, :destroy]
   before_action :search_params, only: [:index]
+  before_action :checking_bookings, only: [:destroy]
 
   def index
     @spaces = Space.includes(:host).where(nil)
@@ -71,4 +72,11 @@ class SpacesController < ApplicationController
     end
   end
 
+  def checking_bookings
+    @space = set_space
+    unless @space.bookings.empty?
+      flash[:error] = "Des réservations sont en cours, vous ne pouvez pas supprimer cet espace."
+      redirect_to space_path(@space.id)  
+    end
+  end
 end

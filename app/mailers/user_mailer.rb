@@ -12,6 +12,10 @@ class UserMailer < ApplicationMailer
 
       @user = User.find(user_id)
       @booking = booking
+      puts "X" * 100
+      puts user_id
+      puts booking
+      puts "X" * 100
 
       mail(to: @user.email, subject: 'Confirmation de votre réservation chez STUDIO') 
     end

@@ -1,8 +1,16 @@
 <div>
     <% messages.each do |message|  %>
-        <div class="message">
+        <% if message.user == current_user %>
+        <div class="message-right">
             <p class="card_title"><%= message.user.full_name%></p>
             <p><%= message.body %></p>
         </div>
+        <% else %>
+        <div class="message-left">
+            <p class="card_title"><%= message.user.full_name%></p>
+            <p><%= message.body %></p>
+        </div>
+        <% end %>
+
     <% end %>
 </div>

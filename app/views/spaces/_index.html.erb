@@ -2,9 +2,9 @@
   <ul>
     <% @spaces.each do |space| %>
       <li class="d-flex align-items-center py-2 card-wrapper">
-        <%= link_to space_path(space.id), class:"" do %>
+        <%= link_to space_path(space.id) do %>
           <div class=" d-flex card-responsive">
-            <div><%= image_tag space.images.first, height: "250vh" %></div>
+              <div><%= image_tag space.images.first, height: "250vh", width: "250vw"; %></div>
              <div class="card-body ">
                <h3 class="card-title"><%= space.title %></h3>
                  <p class="fs-5 pt-2"><%= truncate space.description, length: 60, separator: /\s/ %></p>

@@ -28,14 +28,12 @@ class CommentsController < ApplicationController
       end
     end
 
+    private 
+    
     def is_user_guest?
       @space = Space.find(params[:space_id])
-
-      result = 0
-      @space.bookings.each do |booking|
-        result +=1 if booking.guest_id == current_user.id
-      end
-      unless result > 0
+      
+      unless @space.guests.include?(current_user)
         flash[:error] = "Vous ne pouvez pas commenter sans avoir effectué de réservation."
         redirect_to space_path(@space.id)
       end

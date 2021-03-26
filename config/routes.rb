@@ -1,18 +1,19 @@
 Rails.application.routes.draw do
   root to: "statics#landing_page"
+  get "statics/team"
 
   devise_for :users
-  resources :join_space_categories, only: [:index]
-  resources :categories, only: [:index]
   resources :contacts, only: [:new, :create]
-
-  resources :spaces do
-    resources :bookings
-    resources :comments
-  end
   
-  resources :conversations do 
-    resources :messages
+  resources :spaces do
+    resources :comments, only: [:create, :destroy]
+  end
+
+  resources :categories, only: [:index]
+  resources :join_space_categories, only: [:index]
+  
+  resources :conversations, only: [:show, :index] do 
+    resources :messages, only: [:create]
   end 
 
   resources :users, only: [:show, :edit, :update] do
@@ -25,6 +26,5 @@ Rails.application.routes.draw do
     get "success", to: "checkout#success", as: "checkout_success"
   end
 
-  get "statics/team"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
