@@ -1,5 +1,5 @@
 <% flash.each do |type, msg| %>
-  <div class="lh-lg my-font-primary <%= bootstrap_class_for_flash(type) %> text-center my-text-black alert-dismissible" role="alert">
+  <div class="lh-lg my-font-primary alert <%= bootstrap_class_for_flash(type) %> text-center my-text-black alert-dismissible" role="alert">
     <%= msg %>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
