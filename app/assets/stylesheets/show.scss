@@ -48,3 +48,41 @@ table {
 .my-fa{
   font-size: 20px;
 }
+
+#img-calendar{
+  height: 600px;
+}
+
+#calendar, #booking{
+  height: 100%;
+}
+
+#carousel-container{
+  height: 540px;
+}
+
+#carousel{
+  height: 100%;
+}
+
+#carouselExampleIndicators{
+  height: 100%;
+}
+
+.carousel-inner{
+  height: 100%;
+}
+
+.carousel-item{
+  height: 100%;
+}
+
+.item{
+  height: 100%;
+  justify-content: center;
+}
+
+.item > img{
+  height: 100%;
+  width: auto;
+}

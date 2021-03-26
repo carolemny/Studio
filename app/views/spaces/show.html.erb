@@ -1,20 +1,24 @@
 <div class="container">
 
+    
   <div id="header">
-    <p class="my-font-primary fs-4"><%= @space.title %></p>
+    <p class="my-font-primary fs-4 pt-5"><%= @space.title %></p>
     <div>
-      <i class="far fa-comment-alt px-2 my-text-primary p-4"></i>
+      <i class="far fa-comment-alt px-2 my-text-primary"></i>
       <%= link_to "Voir les commentaires", href = "#com", class: "my-link" %>
     </div>
   </div>
 
-  <div id="img-calendar" class="row d-flex justify-content-center">
-    <div class="col-lg-8 align-self-center p-2">
+
+  <div id="img-calendar" class="row ">
+    <div class="col-lg-8 align-self-center p-2" id="carousel-container">
       <div id="carousel">
         <% if @space.images.size == 1 %>
-          <div class="item"><%= image_tag @space.images[0]%></div>
+          <div class="item d-flex justify-items-center">
+            <%= image_tag @space.images[0]%>
+          </div>
         <% elsif %>
-          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div id="carouselExampleIndicators" class="carousel slide" data-interval="false">
             <ol class="carousel-indicators">
               <% @space.images.size.times do |i| %>
                 <li data-target="#carouselExampleIndicators" data-slide-to="<%= i %>" class="<%= "active" if i == 0 %>"></li>
@@ -23,7 +27,9 @@
             <div class="carousel-inner" role="listbox">
               <% @space.images.each_with_index do |photo, index| %>
                 <div class="carousel-item <%= "active" if index == 0  %> text-center">
-                  <div class="item"><%= image_tag @space.images[index]%></div>
+                  <div class="item d-flex justify-items-center">
+                    <%= image_tag @space.images[index]%>
+                  </div>
                 </div>
               <% end %>
             </div>
@@ -39,25 +45,19 @@
         <% end %>
       </div>
     </div>
-
     <div id="calendar-booking" class="col-lg-4 d-block align-self-center">
       <div id="calendar">
-        <div class="col-lg-12 py-2 ">
-          <div class="calendar col-lg-12 p-3 ">
-            <%= render "calendar", bookings: @space.bookings %>
-          </div>
-        </div>
+        <%= render "calendar", bookings: @space.bookings %>
       </div>
-
       <% if user_signed_in? && current_user.id == @space.host_id %>
-        <div class="col-md-12 px-3 pb-4">
+        <div class=" px-3 pb-4 pt-1">
           <div class="row">
             <%= link_to "Modifier", edit_space_path(@space), class: "my-btn text-center" %> 
           </div>
         </div>
       <% else %>
-        <div id="booking">
-          <div class="booking col-lg-12">
+        <div id="booking" class="py-1">
+          <div class="booking">
             <%= form_tag(checkout_index_path, method: "post", remote: true) do %>
               <div class="row">
                 <div class="col-sm-12 col-md-6">
@@ -106,11 +106,12 @@
             <% end %>
           </div>
         </div>
-       <% end %>
+      <% end %>
     </div>
   </div>
 
-  <div class="col-lg-8 d-flex justify-content-between align-items-baseline py-3">
+   
+  <div class="py-3">
     <div id="description">
       <p class="fs-5 align-items-center d-flex my-font-primary"><%= @space.description %></p>
       <p class="fs-6 align-items-center d-flex"><i class="fas fa-map-marker-alt pe-3 my-text-primary my-fa"></i><strong><%= @space.city %></strong></p>
@@ -137,6 +138,7 @@
     </div>
   </div>
 </div>
+
 
 <script>
   document.addEventListener("load", bookingBtn("<%= @space.price %>"));

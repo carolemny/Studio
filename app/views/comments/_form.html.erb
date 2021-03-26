@@ -8,14 +8,13 @@
           <%= f.text_area :content, class: "form-control p-3", placeholder: "Qu'avez-vous pensé de cet espace ?" %>
         </div>
 
-        <div class="text-center">
-        <% if user_signed_in? %>
-          <%= f.submit "Poster", class: "my-btn-secondary mt-3" %>
+        <div class="text-center mt-5">
+          <% if user_signed_in? %>
+            <%= f.submit "Poster", class: "my-btn-secondary" %>
+          <% else %>
+            <%= link_to "Poster", new_user_session_path, class: "my-btn-secondary" %>
+          <% end %>
         </div>
-
-        <% else %>
-          <%= link_to "Poster", new_user_session_path, class: "my-btn-secondary mt-3" %>
-        <% end %>
       <% end %>
 
     </div>
