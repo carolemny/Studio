@@ -1,13 +1,51 @@
 <div>
   <h1 class="mb-3 text-center">Modifier votre espace</h1>
 </div>
-<div>
-  <%= render 'form', space: @space %>
-  <div class="row d-flex justify-content-center px-5">
-    <div class="py-2 my-font-primary col-lg-6">
-      <% if @space.host_id == current_user.id %>
-        <%= button_to 'Supprimer mon espace', space_path(@space.id), method: :delete, class: "my-btn col-md-12", data:{confirm:"Etes vous sûr de vouloir supprimer cet espace ?"}  %>
-      <% end %>
+<div class="row d-flex justify-content-center px-5">
+  <div class="py-2 my-font-primary col-lg-6">
+    <%= form_with(model: @space, local: true) do |form| %>
+      <div class="field form-group py-3">
+        <%= form.label :title, "Titre" %>
+        <%= form.text_field :title, class: "form-control", placeholder: "ex: Bel espace de danse à Paris", required: :true %>
+      </div>
+       <div class="field form-group py-3">
+        <%= form.label :description, "Description" %>
+        <%= form.text_area :description, class: "form-control", placeholder: "ex: Je dispose d'une salle de danse de 20m2. Vous y trouverez...", required: :true  %>
+      </div>
+      <div class="field form-group py-3">
+        <%= form.label :address, "Adresse" %>
+        <%= form.text_field :address, class: "form-control", placeholder: "ex: Place Charles de Gaulle", required: :true  %>
+      </div>
+      <div class="field form-group py-3">
+        <%= form.label :city, "Ville" %>
+        <%= form.text_field :city, class: "form-control", placeholder: "ex: PARIS", id: "places-search", required: :true  %>
+      </div>
+      <div class="field form-group py-3">
+        <%= form.label :zip_code, "Code postal" %>
+        <%= form.text_field :zip_code, class: "form-control", placeholder: "ex: 75 008", id: "zip-code", required: :true  %>
+      </div>
+      <div class="field form-group py-3">
+        <%= form.label :price, "Prix (en € par jour)" %>
+        <%= form.text_field :price, class: "form-control", placeholder: "ex: 30", required: :true  %>
+      </div>
+      <div class="py-3">
+        <%= select_tag 'category', options_from_collection_for_select(Category.all, "id", "name"), include_blank: "Sélectionner une catégorie", class: "form-control" %>
+      </div>
+      <div class="py-3">
+        <%= form.file_field :images, multiple: true, class: "form-control", accept: "image/jpeg" %>
+      </div>
+      <div class="actions py-3">
+        <%= form.submit "Valider", class: "my-btn my-btn-secondary col-md-12 " %>
+      </div>
+    <% end %>
+    <div id="zip-code"></div>  
+
+    <div class="row d-flex justify-content-center px-5">
+      <div class="py-2 my-font-primary col-lg-6">
+        <% if @space.host_id == current_user.id %>
+          <%= button_to 'Supprimer mon espace', space_path(@space.id), method: :delete, class: "my-btn col-md-12", data:{confirm:"Etes vous sûr de vouloir supprimer cet espace ?"}  %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
