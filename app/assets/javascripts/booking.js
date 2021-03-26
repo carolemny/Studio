@@ -11,14 +11,9 @@ const bookingBtn = (priceErb) => {
 
   const availableDate = () => {
     info.innerHTML = "";
-    const dateToday = new Date(); 
     const date1 = new Date(startDate.value); 
     const date2 = new Date(endDate.value); 
     
-    if (date1 < dateToday || date2 < dateToday) {
-      info.innerHTML = "La date sélectionnée est passée.";
-      return false
-    }
     if (date1 > date2 ) {
       info.innerHTML = "La date de départ est antérieure à l'arrivée.";
       return false
