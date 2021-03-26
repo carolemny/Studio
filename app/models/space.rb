@@ -11,7 +11,6 @@ class Space < ApplicationRecord
   has_many_attached :images
   validates :description, length: {maximum: 500}
   validates :title, length: {maximum: 50}
-  validates :zip_code, numericality: { only_integer: true }
   validates :zip_code, length: { is: 5 }
   validates :price, numericality: { only_integer: true }
   geocoded_by :full_address
