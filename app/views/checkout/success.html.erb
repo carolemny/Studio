@@ -15,7 +15,7 @@
         </div>
         <div class="m-5">
           <p>L'hôte <%= @space.host.full_name%> vous a envoyé un nouveau message ! </p>
-          <p><%= link_to "Répondre à #{@space.host.full_name}", conversation_path(@conversation.id), class: "my-btn my-btn col-md-12"%></p> 
+          <p><%= link_to "Répondre", conversation_path(@conversation.id), class: "my-btn my-btn col-md-12"%></p> 
         </div>
       </div>
     </div>
