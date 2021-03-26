@@ -17,12 +17,14 @@ Message.destroy_all
 
 categories = ["Peinture", "Sculpture - Poterie", "Danse", "Musique", "Menuiserie", "Photographie", "Vidéo"]
 
-5.times do
+10.times do
   User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     password: Faker::Internet.password(min_length: 6),
     email: Faker::Internet.email,
+    phone_number: 0642424242,
+    description: Faker::Lorem.sentence(word_count: 20)
   )
 end
 
