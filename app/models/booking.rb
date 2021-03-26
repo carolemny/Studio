@@ -23,10 +23,9 @@ class Booking < ApplicationRecord
      
     Message.create(conversation_id: @conversation.id, 
     user_id: @space.host_id, 
-    body: "Merci pour ta réservation #{self.guest.full_name} concernant \"#{@space.title}\" du #{self.start_date} au #{self.end_date} ! 
+    body: "Merci pour ta réservation #{self.guest.full_name} concernant \"#{@space.title}\" du #{self.start_date.strftime("%d/%m/%Y")} au #{self.end_date.strftime("%d/%m/%Y")} ! 
     N'hésite pas à me contacter pour toute question éventuelle."
     )
 
   end 
 end
-

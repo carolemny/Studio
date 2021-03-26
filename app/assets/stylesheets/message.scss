@@ -1,28 +1,19 @@
 @import 'variable';
 
 .message-left {
-    display: flex; 
-    justify-content: flex-start;
-    flex-direction: column;
-    color: $my-light;
-    background-color: $my-primary;
-    border-radius: 4px 16px 16px 4px;
-	box-shadow: 0 1px 4px ;
-    padding-left: 10px ;
-    padding-right: 10px;
-    margin-top: 5px;
+  display: flex; 
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.my-border-raduis-left {
+  border-radius: 4px 16px 16px 4px;
 }
 
 .message-right {
-    display: flex; 
-    align-items: flex-end; 
-    flex-direction: column;
-    color: $my-light;
-    background-color: $my-secondary;
-    border-radius: 16px 4px 4px 16px;
-	box-shadow: 0 1px 4px ;
-    padding-left: 10px;
-    padding-right: 10px ;
-    margin-top: 5px;
+  display: flex; 
+  align-items: flex-end; 
+  flex-direction: column;
 }
-
+.my-border-raduis-right {
+  border-radius: 16px 4px 4px 16px;
+}
