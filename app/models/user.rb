@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :conversations_as_contact1, foreign_key: 'contact1_id', class_name: "Conversation"
   has_many :conversations_as_contact2, foreign_key: 'contact2_id', class_name: "Conversation"
   has_one_attached :avatar
-  
+
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end

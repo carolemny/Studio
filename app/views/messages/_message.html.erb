@@ -1,16 +1,17 @@
-<div>
-    <% messages.each do |message|  %>
-        <% if message.user == current_user %>
-        <div class="message-right">
-            <p class="card_title"><%= message.user.full_name%></p>
-            <p><%= message.body %></p>
-        </div>
-        <% else %>
-        <div class="message-left">
-            <p class="card_title"><%= message.user.full_name%></p>
-            <p><%= message.body %></p>
-        </div>
-        <% end %>
-
-    <% end %>
-</div>
+<% messages.each do |message|  %>
+  <% if message.user == current_user %>
+    <div class="message-right py-2">
+      <div class="col-5 my-bg-primary my-border-raduis-right my-text-light p-3">
+        <b class="fs-4 pb-1"><%= message.user.full_name%></b>
+        <p class="fs-5"><%= message.body %></p>
+      </div>
+    </div>
+  <% else %>
+    <div class="message-left py-2">
+      <div class="col-5 my-bg-secondary my-border-raduis-left my-text-light p-3">
+        <b class="fs-4 pb-1"><%= message.user.full_name%></b>
+        <p class="fs-5"><%= message.body %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>

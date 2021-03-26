@@ -9,9 +9,13 @@ class Space < ApplicationRecord
   has_many :join_space_categories
   has_many :categories, through: :join_space_categories
   has_many_attached :images
-  
+  validates :description, length: {maximum: 500}
+  validates :title, length: {maximum: 50}
+  validates :zip_code, length: { is: 5 }
+  validates :price, numericality: { only_integer: true }
   geocoded_by :full_address
   after_validation :geocode
+
 
   def full_address
     [address, city, zip_code, 'France'].compact.join(', ')
