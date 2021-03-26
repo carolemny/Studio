@@ -4,11 +4,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @bookings = Booking.where(guest_id: current_user.id)
-    @bookings.each { |booking| puts booking.space.title }
+    @bookings.each { |booking| puts booking.space.title } 
+    @spaces = Space.where(host_id: current_user.id)
   end
 
   def edit
-  
   end
 
   def update
@@ -25,6 +25,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :encrypted_password, :description, :first_name, :last_name, :phone_number,:avatar)
+    params.require(:user).permit(:email, :encrypted_password, :description, :first_name, :last_name, :phone_number, :avatar)
   end
 end

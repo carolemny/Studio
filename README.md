@@ -12,26 +12,64 @@ STUDIO est un projet ayant pour but de **valoriser et développer les pratiques 
 
 ## Schéma de la base de données
 
-[![db-studio.jpg](https://i.postimg.cc/qvNyzBZV/db-studio.jpg)](https://postimg.cc/HrCVNmgB)
+[![DATABASE-STUDIO.jpg](https://i.postimg.cc/T3f6ZTTH/DATABASE-STUDIO.jpg)](https://postimg.cc/7fsdz8Gg)
 
 ## Versions utilisées 
 
 * Ruby: 2.7.1
 * Rails: 5.2.4
 
-## La version minimaliste mais fonctionnelle
+## Lien du site en production
 
-Ce que contient le **Minimum Viable Product** :
+[STUDIO](https://studiofinalproject.herokuapp.com/)
+
+## Lien du Kit UI
+
+[Kit UI STUDIO](https://m-tessier.github.io/Kit-UI-STUDIO/)
+
+## La version finale
+
+Ce que contient la **version finale** :
 
 * Système d’authentification
 * Landing page
 * Base de données
-* Barre de recherche fonctionnelle
-* Mailing automatique
+* Barre de recherche fonctionnelle avec auto-complétion
+* Localisation des espaces sur une carte (API Leaflet)
+* Réservation d'un espace et paiement (API Stripe)
+* Mailing automatique (API Mailjet)
+* Messagerie 
+* Commentaires
 
-## Lien du site en production
+## Détail des fonctionnalités
 
-[STUDIO](https://studiofinalproject.herokuapp.com/)
+**Barre de recherche**
+
+* Possibilité de filtrer par catégorie et/ou par localisation
+* Auto-complétion pour la ville.
+* Affichage des espaces correspondant en fonction de leur adresse sur la Map à droite.
+
+**Réserver un espace**
+
+* Le calendrier affiche les disponibilités.
+* Choisir les dates d'arrivée et de départ.
+* Affichage du total en fonction du prix et du nombre de journées choisies
+* Le bouton "Réserver" conduit ensuite sur la page paiement.
+
+**Messagerie**
+
+* Le paiement de la réservation entraîne un message automatique de l'hôte et créée une conversation avec l'utilisateur.
+* L'utilisateur peut ensuite échanger avec l'hôte par messages.
+
+**Commentaires** 
+
+* Pour ajouter des commentaires, un utilisateur doit avoir effectué une réservation pour cet espace.
+
+**Mailer**
+
+* Envoi d'un mail de bienvenue à l'inscription
+* Envoi d'un mail de confirmation de réservation
+* Demande de contact: envoi d'un mail à l'adresse team.studio.thp@gmail.com avec les coordonnées et la demande de l'utilisateur.
 
 ## Lancement du site en local
 
