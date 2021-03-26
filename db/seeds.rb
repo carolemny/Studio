@@ -15,11 +15,9 @@ JoinSpaceCategory.destroy_all
 Conversation.destroy_all
 Message.destroy_all
 
-
 categories = ["Peinture", "Sculpture - Poterie", "Danse", "Musique", "Menuiserie", "Photographie", "Vidéo"]
 
-
-10.times do
+5.times do
   User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -43,7 +41,8 @@ end
     title: 'Salle de danse',
     price: 40
   )
-  dance_space.images.attach(io: File.open("app/assets/images/space/danse.jpg"), filename: "danse.jpg", content_type: 'image/jpg')
+  dance_space.images.attach(io: File.open("app/assets/images/space/dance.jpg"), filename: "dance.jpg", content_type: 'image/jpg')
+  dance_space.images.attach(io: File.open("app/assets/images/space/dance2.jpg"), filename: "dance2.jpg", content_type: 'image/jpg')
   dance_space.save
 
   paint_space = Space.new(
@@ -55,7 +54,9 @@ end
     title: 'Atelier pour peintre',
     price: 15
   )
-  paint_space.images.attach(io: File.open("app/assets/images/space/space.jpg"), filename: "space.jpg", content_type: 'image/jpg')
+  paint_space.images.attach(io: File.open("app/assets/images/space/paint.jpg"), filename: "paint.jpg", content_type: 'image/jpg')
+  paint_space.images.attach(io: File.open("app/assets/images/space/paint3.jpg"), filename: "paint3.jpg", content_type: 'image/jpg')
+  paint_space.images.attach(io: File.open("app/assets/images/space/paint4.jpg"), filename: "paint4.jpg", content_type: 'image/jpg')
   paint_space.save
 
   music_space = Space.new(
@@ -67,7 +68,8 @@ end
     title: "Studio d'enregistrement musique",
     price: 20
   )
-  music_space.images.attach(io: File.open("app/assets/images/space/studio.jpg"), filename: "studio.jpg", content_type: 'image/jpg')
+  music_space.images.attach(io: File.open("app/assets/images/space/music.jpg"), filename: "music.jpg", content_type: 'image/jpg')
+  music_space.images.attach(io: File.open("app/assets/images/space/music2.jpg"), filename: "music2.jpg", content_type: 'image/jpg')
   music_space.save
 
   video_space = Space.new(
@@ -79,6 +81,7 @@ end
     title: "Espace pour réalisation vidéo",
     price: 30
   )
+  video_space.images.attach(io: File.open("app/assets/images/space/video.jpg"), filename: "video.jpg", content_type: 'image/jpg')
   video_space.images.attach(io: File.open("app/assets/images/space/video2.jpg"), filename: "video2.jpg", content_type: 'image/jpg')
   video_space.save
 
@@ -92,6 +95,7 @@ end
     price: 20
   )
   photo_space.images.attach(io: File.open("app/assets/images/space/photo.jpg"), filename: "photo.jpg", content_type: 'image/jpg')
+  photo_space.images.attach(io: File.open("app/assets/images/space/photo2.jpg"), filename: "photo2.jpg", content_type: 'image/jpg')
   photo_space.save
 
   paint_space2 = Space.new(
@@ -103,7 +107,8 @@ end
     title: "Espace idéal peinture 13m²",
     price: 15
   )
-  paint_space2.images.attach(io: File.open("app/assets/images/space/peinture6.jpg"), filename: "peinture6.jpg", content_type: 'image/jpg')
+  paint_space2.images.attach(io: File.open("app/assets/images/space/paint6.jpg"), filename: "paint6.jpg", content_type: 'image/jpg')
+  paint_space2.images.attach(io: File.open("app/assets/images/space/paint2.jpg"), filename: "paint2.jpg", content_type: 'image/jpg')
   paint_space2.save
 
   carpentry_space = Space.new(
@@ -115,7 +120,8 @@ end
     title: "Petit atelier de menuiserie",
     price: 20
   )
-  carpentry_space.images.attach(io: File.open("app/assets/images/space/menuiserie.jpg"), filename: "menuiserie.jpg", content_type: 'image/jpg')
+  carpentry_space.images.attach(io: File.open("app/assets/images/space/wood.jpg"), filename: "wood.jpg", content_type: 'image/jpg')
+  carpentry_space.images.attach(io: File.open("app/assets/images/space/wood2.jpg"), filename: "wood2.jpg", content_type: 'image/jpg')
   carpentry_space.save
 
   pottery_space = Space.new(
@@ -127,7 +133,8 @@ end
     title: "Atelier d'artiste sculpteur",
     price: 35
   )
-  pottery_space.images.attach(io: File.open("app/assets/images/space/sculpture2.jpg"), filename: "sculpture2.jpg", content_type: 'image/jpg')
+  pottery_space.images.attach(io: File.open("app/assets/images/space/sculptor.jpg"), filename: "sculptor.jpg", content_type: 'image/jpg')
+  pottery_space.images.attach(io: File.open("app/assets/images/space/sculptor2.jpg"), filename: "sculptor2.jpg", content_type: 'image/jpg')
   pottery_space.save
 
   pottery_space2 = Space.new(
@@ -139,7 +146,9 @@ end
     title: "Espace de travail idéal pour la poterie",
     price: 30
   )
-  pottery_space2.images.attach(io: File.open("app/assets/images/space/poterie.jpg"), filename: "poterie.jpg", content_type: 'image/jpg')
+  pottery_space2.images.attach(io: File.open("app/assets/images/space/pottery.jpg"), filename: "pottery.jpg", content_type: 'image/jpg')
+  pottery_space2.images.attach(io: File.open("app/assets/images/space/pottery2.jpg"), filename: "pottery2.jpg", content_type: 'image/jpg')
+  pottery_space2.images.attach(io: File.open("app/assets/images/space/pottery3.jpg"), filename: "pottery3.jpg", content_type: 'image/jpg')
   pottery_space2.save
 
   JoinSpaceCategory.create(
